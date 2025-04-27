@@ -7,7 +7,7 @@ public class StateMachine<T> where T : MonoBehaviour
     public void InitializeState(State<T> startingState)
     {
         currentState = startingState;
-        currentState.EnrterState();
+        currentState.EnterState();
     }
 
     public void UpdateCurrentState()
@@ -29,6 +29,6 @@ public class StateMachine<T> where T : MonoBehaviour
     {
         currentState.ExitState();
         currentState = newState;
-        currentState.EnrterState();
+        currentState.EnterState();
     }
 }
