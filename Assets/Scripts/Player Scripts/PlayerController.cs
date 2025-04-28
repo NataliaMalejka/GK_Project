@@ -3,10 +3,16 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour, IUpdateObserver, IFixedUpdateObserver, ILateUpdateObserver
 {
     [HideInInspector] public Rigidbody rb;
+
+    [Header("Basic Movement")]
     [HideInInspector] public float xVelocity;
-    [HideInInspector] public float yVelocity;
-    [HideInInspector] public float runSpeed;
+    [HideInInspector] public float zVelocity;   
     [HideInInspector] public float direction = 1;
+    public float runSpeed;
+
+    [Header("Dash")]
+    public int dashTime;
+    public float dashForce;
 
     [HideInInspector] public StateMachine<PlayerController> stateMachine = new StateMachine<PlayerController>();
     [HideInInspector] public PlayerIdleState playerIdleState;

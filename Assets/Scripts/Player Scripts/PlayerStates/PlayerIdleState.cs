@@ -12,13 +12,13 @@ public class PlayerIdleState : State<PlayerController>
     }
 
     public override void UpdateState()
-    {
+    {     
         controller.xVelocity = Input.GetAxisRaw("Horizontal");
-        controller.yVelocity = Input.GetAxisRaw("Vertical");
+        controller.zVelocity = Input.GetAxisRaw("Vertical");
 
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.LeftShift) && (controller.xVelocity !=0 || controller.zVelocity !=0))
         {           
-            //stateMachine.ChangeState(controller.playerDashState);
+            stateMachine.ChangeState(controller.playerDashState);
         }
     }
 
@@ -35,14 +35,14 @@ public class PlayerIdleState : State<PlayerController>
 
     private void move()
     {
-        Vector3 inputDirection = new Vector3(controller.xVelocity, 0, controller.yVelocity);
+        Vector3 inputDirection = new Vector3(controller.xVelocity, 0, controller.zVelocity);
 
         if (inputDirection.magnitude > 1f)
         {
             inputDirection = inputDirection.normalized;
         }
 
-        controller.rb.linearVelocity = inputDirection * controller.runSpeed * Time.fixedDeltaTime;
+        controller.rb.linearVelocity = inputDirection * controller.runSpeed;
     }
 
     public override void ExitState()
