@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PauseMenuController : MonoBehaviour
+public class PauseMenuController : MonoBehaviour, IUpdateObserver
 {
     /*    // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
@@ -15,8 +15,41 @@ public class PauseMenuController : MonoBehaviour
 
         }*/
 
+    [SerializeField] private PlayerController _player;
+    [SerializeField] private GameObject pauseMenuPanel;
+    private bool _isPaused = false;
+
 
     public CanvasGroup OptionPanel;
+
+    private void OnEnable()
+    {
+        UpdateManager.AddToList(this);
+    }
+
+    private void OnDisable()
+    {
+        UpdateManager.RemoveFromList(this);
+    }
+
+    public void ObserveUpdate()
+    {
+        if(Input.GetKeyUp(KeyCode.Escape))
+        {
+            if(!_isPaused)
+            {
+                PauseGame();
+            }
+        }
+    }
+
+    private void PauseGame()
+    {
+        pauseMenuPanel.SetActive(true);
+        _player.enabled = false;
+        Time.timeScale = 0f;
+        _isPaused = true;
+    }
 
     public void PlayGame()
     {
