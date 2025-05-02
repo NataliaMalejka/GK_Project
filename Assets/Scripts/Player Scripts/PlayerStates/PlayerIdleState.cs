@@ -14,9 +14,9 @@ public class PlayerIdleState : State<PlayerController>
     public override void UpdateState()
     {     
         controller.xVelocity = Input.GetAxisRaw("Horizontal");
-        controller.zVelocity = Input.GetAxisRaw("Vertical");
+        controller.yVelocity = Input.GetAxisRaw("Vertical");
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && (controller.xVelocity !=0 || controller.zVelocity !=0))
+        if (Input.GetKeyDown(KeyCode.LeftShift) && (controller.xVelocity !=0 || controller.yVelocity !=0))
         {           
             stateMachine.ChangeState(controller.playerDashState);
         }
@@ -35,7 +35,7 @@ public class PlayerIdleState : State<PlayerController>
 
     private void move()
     {
-        Vector3 inputDirection = new Vector3(controller.xVelocity, 0, controller.zVelocity);
+        Vector3 inputDirection = new Vector3(controller.xVelocity, controller.yVelocity, 0);
 
         if (inputDirection.magnitude > 1f)
         {

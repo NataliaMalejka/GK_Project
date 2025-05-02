@@ -34,7 +34,7 @@ public class PlayerDashState : State<PlayerController>
 
     private void move()
     {
-        Vector3 inputDirection = new Vector3(controller.xVelocity, 0, controller.zVelocity);
+        Vector3 inputDirection = new Vector3(controller.xVelocity, controller.yVelocity, 0);
 
         if (inputDirection.magnitude > 1f)
         {

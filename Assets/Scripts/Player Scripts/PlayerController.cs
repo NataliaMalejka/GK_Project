@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour, IUpdateObserver, IFixedUpdateObse
 
     [Header("Basic Movement")]
     [HideInInspector] public float xVelocity;
-    [HideInInspector] public float zVelocity;   
+    [HideInInspector] public float yVelocity;   
     [HideInInspector] public float direction = 1;
     public float runSpeed;
 
