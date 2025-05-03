@@ -1,31 +1,28 @@
 fileFormatVersion: 2
-guid: ee5e885535a020c4a9d929c3cfd2a2ea
+guid: b00a6b86197916446b09cbdea7059879
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5380237423685108026
-    second: TX Struct_0
+      213: -59419316028170722
+    second: Bridge_Wood_0
   - first:
-      213: 141675554456027117
-    second: TX Struct_1
+      213: 7506926857048110271
+    second: Bridge_Wood_1
   - first:
-      213: 5869078902113103909
-    second: TX Struct_2
+      213: -6441673226787998722
+    second: Bridge_Wood_2
   - first:
-      213: -7381738133999487609
-    second: TX Struct_3
+      213: -9142544502833899335
+    second: Bridge_Wood_3
   - first:
-      213: -510105923369629673
-    second: TX Struct_4
+      213: 4920015224640609776
+    second: Bridge_Wood_4
   - first:
-      213: -2677049488981355681
-    second: TX Struct_5
+      213: -4785640308677409631
+    second: Bridge_Wood_5
   - first:
-      213: -3684389700825655485
-    second: TX Struct_6
-  - first:
-      213: -5664187630041763615
-    second: TX Struct_7
+      213: 3783615309959501221
+    second: Bridge_Wood_6
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -72,7 +69,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 64
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -121,13 +118,79 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TX Struct_0
+      name: Bridge_Wood_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 47
+        width: 13
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1e18576276ec2ff0800000000000000
+      internalID: -59419316028170722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bridge_Wood_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 47
+        width: 8
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb4313df336fd2860800000000000000
+      internalID: 7506926857048110271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bridge_Wood_2
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 47
+        width: 8
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef3382664549a96a0800000000000000
+      internalID: -6441673226787998722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bridge_Wood_3
       rect:
         serializedVersion: 2
         x: 31
-        y: 383
-        width: 66
-        height: 98
+        y: 47
+        width: 13
+        height: 17
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -136,20 +199,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6ce7cf1a19e8555b0800000000000000
-      internalID: -5380237423685108026
+      spriteID: 9b89265c6382f1180800000000000000
+      internalID: -9142544502833899335
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TX Struct_1
+      name: Bridge_Wood_4
       rect:
         serializedVersion: 2
-        x: 127
-        y: 383
-        width: 67
-        height: 98
+        x: 4
+        y: 9
+        width: 40
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,20 +221,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: def35b88a2557f100800000000000000
-      internalID: 141675554456027117
+      spriteID: 0fd973a87c7674440800000000000000
+      internalID: 4920015224640609776
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TX Struct_2
+      name: Bridge_Wood_5
       rect:
         serializedVersion: 2
-        x: 223
-        y: 383
-        width: 67
-        height: 98
+        x: 57
+        y: 4
+        width: 30
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -180,20 +243,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 520f03f6a28237150800000000000000
-      internalID: 5869078902113103909
+      spriteID: 1a40e72ae7df59db0800000000000000
+      internalID: -4785640308677409631
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TX Struct_3
+      name: Bridge_Wood_6
       rect:
         serializedVersion: 2
-        x: 407
-        y: 420
-        width: 82
-        height: 66
+        x: 105
+        y: 4
+        width: 30
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -202,96 +265,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 785710af64cce8990800000000000000
-      internalID: -7381738133999487609
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TX Struct_4
-      rect:
-        serializedVersion: 2
-        x: 31
-        y: 255
-        width: 66
-        height: 98
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7180bb78d5dbbe8f0800000000000000
-      internalID: -510105923369629673
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TX Struct_5
-      rect:
-        serializedVersion: 2
-        x: 127
-        y: 255
-        width: 67
-        height: 98
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f5310236ca539dad0800000000000000
-      internalID: -2677049488981355681
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TX Struct_6
-      rect:
-        serializedVersion: 2
-        x: 223
-        y: 255
-        width: 67
-        height: 98
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 347dd2c761b6edcc0800000000000000
-      internalID: -3684389700825655485
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TX Struct_7
-      rect:
-        serializedVersion: 2
-        x: 415
-        y: 319
-        width: 66
-        height: 66
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1e0f2325c53c461b0800000000000000
-      internalID: -5664187630041763615
+      spriteID: 5a59dd4f31a128430800000000000000
+      internalID: 3783615309959501221
       vertices: []
       indices: 
       edges: []
@@ -310,14 +285,13 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      TX Struct_0: -5380237423685108026
-      TX Struct_1: 141675554456027117
-      TX Struct_2: 5869078902113103909
-      TX Struct_3: -7381738133999487609
-      TX Struct_4: -510105923369629673
-      TX Struct_5: -2677049488981355681
-      TX Struct_6: -3684389700825655485
-      TX Struct_7: -5664187630041763615
+      Bridge_Wood_0: -59419316028170722
+      Bridge_Wood_1: 7506926857048110271
+      Bridge_Wood_2: -6441673226787998722
+      Bridge_Wood_3: -9142544502833899335
+      Bridge_Wood_4: 4920015224640609776
+      Bridge_Wood_5: -4785640308677409631
+      Bridge_Wood_6: 3783615309959501221
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
