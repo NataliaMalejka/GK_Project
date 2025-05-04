@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Player
+  m_EditorClassIdentifier: 
+  m_GroupName: Player
+  m_GUID: 276833c0d0309cc41823b896cb6679ce
+  m_SerializeEntries:
+  - m_GUID: 3a17c2383ce1fa946bcca6e52a4c5700
+    m_Address: Assets/Prefabs/Player/piesek-astro.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 4fe59ea7e348c5a4b96c7687a89f94a6, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 9e3463c0d9bdf0a4ab28b598a52f5c3d, type: 2}
+    - {fileID: 11400000, guid: 8790958a65ea07d4a8b9a4ca4a31a2c7, type: 2}
