@@ -18,8 +18,8 @@ public class PauseMenuController : MonoBehaviour, IUpdateObserver
     //dodac komponenty do ktorych sie odnosi
     [SerializeField] private PlayerController _player;
     [SerializeField] private GameObject pauseMenuPanel;
-    [SerializeField] private GameObject MenuPanel;
-    [SerializeField] private GameObject OptionsPanel;
+    [SerializeField] private GameObject MenuView;
+    [SerializeField] private GameObject OptionsView;
 
     private bool _isPaused = false;
     
@@ -55,8 +55,8 @@ public class PauseMenuController : MonoBehaviour, IUpdateObserver
     {
         pauseMenuPanel.SetActive(true);
 
-        OptionsPanel.SetActive(false);
-        MenuPanel.SetActive(true);
+        OptionsView.SetActive(false);
+        MenuView.SetActive(true);
 
         _player.enabled = false;
         Time.timeScale = 0f;
@@ -66,34 +66,16 @@ public class PauseMenuController : MonoBehaviour, IUpdateObserver
     {
         pauseMenuPanel.SetActive(false);
         _player.enabled = true;
-        Time.timeScale = 10f;
+        Time.timeScale = 10f; //?
         _isPaused = false;
     }
 
-    public void PlayGame()
+    public void QuitToMainMenu()
     {
-        //int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        //int nextSceneIndex = (currentSceneIndex + 1) % SceneManager.sceneCountInBuildSettings;
+        // todo: add quit game session feature
+        // e.g. disable muzyki, zapis, etc
 
-        //SceneManager.LoadScene(nextSceneIndex);
-        //SceneManager.LoadScene(0); // Hub
-    }
-
-    //public void Options()
-    //{
-    //    OptionPanel.alpha = 1;
-    //    OptionPanel.blocksRaycasts = true;
-    //}
-    //
-    //public void Back()
-    //{
-    //    OptionPanel.alpha = 0;
-    //    OptionPanel.blocksRaycasts = false;
-    //}
-
-    public void QuitGame()
-    {
-        Application.Quit();
+        SceneManager.LoadScene(0); // Main Menu
     }
 
 }
