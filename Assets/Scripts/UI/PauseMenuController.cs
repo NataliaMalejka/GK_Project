@@ -18,9 +18,11 @@ public class PauseMenuController : MonoBehaviour, IUpdateObserver
     [SerializeField] private PlayerController _player;
     [SerializeField] private GameObject pauseMenuPanel;
     private bool _isPaused = false;
+    
 
-
-    public CanvasGroup OptionPanel;
+    //dodac komponenty do ktorych sie odnosi
+    public GameObject MenuPanel;
+    public GameObject OptionsPanel;
 
     private void OnEnable()
     {
@@ -40,15 +42,31 @@ public class PauseMenuController : MonoBehaviour, IUpdateObserver
             {
                 PauseGame();
             }
+            else if(_isPaused)
+            {
+                UnpauseGame();
+            }
         }
+
     }
 
     private void PauseGame()
     {
         pauseMenuPanel.SetActive(true);
+
+        OptionsPanel.SetActive(false);
+        MenuPanel.SetActive(true);
+
         _player.enabled = false;
         Time.timeScale = 0f;
         _isPaused = true;
+    }
+    public void UnpauseGame()
+    {
+        pauseMenuPanel.SetActive(false);
+        _player.enabled = true;
+        Time.timeScale = 10f;
+        _isPaused = false;
     }
 
     public void PlayGame()
@@ -57,7 +75,7 @@ public class PauseMenuController : MonoBehaviour, IUpdateObserver
         //int nextSceneIndex = (currentSceneIndex + 1) % SceneManager.sceneCountInBuildSettings;
 
         //SceneManager.LoadScene(nextSceneIndex);
-        SceneManager.LoadScene(1); // Dave hello world
+        //SceneManager.LoadScene(0); // Hub
     }
 
     //public void Options()
