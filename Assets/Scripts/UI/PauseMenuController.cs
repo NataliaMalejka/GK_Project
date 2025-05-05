@@ -15,14 +15,15 @@ public class PauseMenuController : MonoBehaviour, IUpdateObserver
 
         }*/
 
+    //dodac komponenty do ktorych sie odnosi
     [SerializeField] private PlayerController _player;
     [SerializeField] private GameObject pauseMenuPanel;
+    [SerializeField] private GameObject MenuPanel;
+    [SerializeField] private GameObject OptionsPanel;
+
     private bool _isPaused = false;
     
 
-    //dodac komponenty do ktorych sie odnosi
-    public GameObject MenuPanel;
-    public GameObject OptionsPanel;
 
     private void OnEnable()
     {
