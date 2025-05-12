@@ -47,14 +47,14 @@ TagManager:
   - name: Props
     uniqueID: 4250941897
     locked: 0
-  - name: Layer 3
-    uniqueID: 4189426099
+  - name: AlwaysBeforePalyer
+    uniqueID: 2715406827
     locked: 0
   - name: PlayerLayer
     uniqueID: 1729724681
     locked: 0
-  - name: AlwaysBeforePalyer
-    uniqueID: 2715406827
+  - name: AlwaysBehindPlayer
+    uniqueID: 4189426099
     locked: 0
   m_RenderingLayers:
   - Default
