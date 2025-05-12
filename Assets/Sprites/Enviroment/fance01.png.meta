@@ -1,0 +1,726 @@
+fileFormatVersion: 2
+guid: 2c3f3ca4581118b41a78ed43c44bbb0a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7737100060256091379
+    second: fance01_0
+  - first:
+      213: -2851503565067471456
+    second: fance01_1
+  - first:
+      213: 2895547477045736740
+    second: fance01_2
+  - first:
+      213: -858196557920364349
+    second: fance01_3
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: fance01_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: -5, y: -16}
+        - {x: 3, y: -16}
+        - {x: 4, y: -13}
+        - {x: 8, y: -10}
+        - {x: 8, y: -6}
+        - {x: 4, y: -3}
+        - {x: -2, y: -2}
+        - {x: -7, y: -3}
+        - {x: -9, y: -6}
+        - {x: -8, y: -10}
+        - {x: -5, y: -12}
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0348c4fc7c40a490800000000000000
+      internalID: -7737100060256091379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fance01_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 8, y: -11}
+        - {x: 8, y: -8}
+        - {x: 16, y: -8}
+        - {x: 16, y: -1}
+        - {x: 7, y: -1}
+        - {x: 0, y: -2}
+        - {x: -6, y: -4}
+        - {x: -9, y: -6}
+        - {x: -9, y: -11}
+        - {x: -6, y: -15}
+        - {x: 5, y: -15}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a5b4609d9c6d68d0800000000000000
+      internalID: -2851503565067471456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fance01_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 8, y: -11}
+        - {x: 8, y: -8}
+        - {x: 16, y: -8}
+        - {x: 16, y: -1}
+        - {x: 7, y: -1}
+        - {x: 6, y: -3}
+        - {x: 0, y: -2}
+        - {x: -6, y: -4}
+        - {x: -8, y: -1}
+        - {x: -16, y: -1}
+        - {x: -16, y: -8}
+        - {x: -9, y: -8.126251}
+        - {x: -9, y: -11}
+        - {x: -6, y: -15}
+        - {x: 5, y: -15}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 425f69fc61d0f2820800000000000000
+      internalID: 2895547477045736740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fance01_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 8, y: -11}
+        - {x: 8, y: -5}
+        - {x: 0, y: -2}
+        - {x: -6, y: -4}
+        - {x: -7, y: -4}
+        - {x: -8, y: -1}
+        - {x: -16, y: -1}
+        - {x: -16, y: -8}
+        - {x: -9, y: -8}
+        - {x: -9, y: -11}
+        - {x: -6, y: -15}
+        - {x: 5, y: -15}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c891b907c21714f0800000000000000
+      internalID: -858196557920364349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fance01_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 5, y: -13}
+        - {x: 8, y: -10}
+        - {x: 8, y: 13}
+        - {x: 5, y: 16}
+        - {x: -5, y: 16}
+        - {x: -9, y: 12}
+        - {x: -9, y: -2}
+        - {x: -9, y: -9}
+        - {x: -5.876095, y: -12.035057}
+        - {x: -6, y: -16}
+        - {x: 3, y: -16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: c08070e984bb508469ed3d5aa24d406e
+      internalID: -1713300992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fance01_5
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: -5, y: -16}
+        - {x: 3, y: -16}
+        - {x: 4, y: -13}
+        - {x: 8, y: -10}
+        - {x: 8, y: -8}
+        - {x: 16, y: -8}
+        - {x: 16, y: -1}
+        - {x: 8, y: -1}
+        - {x: 5, y: -3}
+        - {x: -2, y: -2}
+        - {x: -7, y: -3}
+        - {x: -9, y: -6}
+        - {x: -8, y: -10}
+        - {x: -5, y: -12}
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb21fcdf2a400db42aaf075fd7b669a9
+      internalID: -306285597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fance01_6
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: -5, y: -16}
+        - {x: 3, y: -16}
+        - {x: 4, y: -13}
+        - {x: 8, y: -10}
+        - {x: 8, y: -8}
+        - {x: 16, y: -8}
+        - {x: 16, y: -1}
+        - {x: 8, y: -1}
+        - {x: 5, y: -3}
+        - {x: -2, y: -2}
+        - {x: -7, y: -3}
+        - {x: -8, y: -2}
+        - {x: -8, y: -1}
+        - {x: -16, y: -1}
+        - {x: -16, y: -8}
+        - {x: -8, y: -8}
+        - {x: -8, y: -10}
+        - {x: -5, y: -12}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4981c2e23ad143e4a913c1ad42fe47ac
+      internalID: -1759810871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fance01_7
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: -5, y: -16}
+        - {x: 3, y: -16}
+        - {x: 4, y: -13}
+        - {x: 8, y: -10}
+        - {x: 8, y: -8}
+        - {x: 8, y: -8}
+        - {x: 5, y: -3}
+        - {x: -2, y: -2}
+        - {x: -7, y: -1}
+        - {x: -16, y: -1}
+        - {x: -16, y: -8}
+        - {x: -8, y: -8}
+        - {x: -8, y: -10}
+        - {x: -5, y: -12}
+      tessellationDetail: 0
+      bones: []
+      spriteID: af3b6820262d59649a857b1aa64943f8
+      internalID: -999721457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fance01_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 8, y: -10}
+        - {x: 8, y: -4}
+        - {x: 3, y: 0}
+        - {x: 3, y: 16}
+        - {x: -6, y: 16}
+        - {x: -6, y: 0}
+        - {x: -10, y: -5}
+        - {x: -7, y: -11}
+        - {x: -3, y: -14}
+        - {x: 4, y: -14}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a87a61fb8305344397e9c234be9461b
+      internalID: -1233346370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fance01_9
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 7, y: -10}
+        - {x: 8, y: -7}
+        - {x: 16, y: -7}
+        - {x: 16, y: 0}
+        - {x: 8, y: 0}
+        - {x: 4, y: 2}
+        - {x: 4, y: 16}
+        - {x: -5, y: 16}
+        - {x: -5, y: 2}
+        - {x: -7, y: 0}
+        - {x: -9, y: -2}
+        - {x: -9, y: -8}
+        - {x: -6, y: -12}
+        - {x: -5, y: -12}
+        - {x: -5, y: -16}
+        - {x: 3, y: -16}
+        - {x: 3, y: -13}
+        - {x: 5, y: -12}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4eae90d71c838594b893d5bd182ed145
+      internalID: 561621011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fance01_10
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 7, y: -10}
+        - {x: 8, y: -7}
+        - {x: 16, y: -7}
+        - {x: 16, y: 0}
+        - {x: 8, y: 0}
+        - {x: 7, y: 0}
+        - {x: 7, y: 3}
+        - {x: 8, y: 4}
+        - {x: 8, y: 16}
+        - {x: -5, y: 16}
+        - {x: -5, y: 4}
+        - {x: -7, y: 0}
+        - {x: -9, y: 0}
+        - {x: -16, y: 0}
+        - {x: -16, y: -7}
+        - {x: -9, y: -7}
+        - {x: -9, y: -8}
+        - {x: -6, y: -12}
+        - {x: -5, y: -12}
+        - {x: -5, y: -16}
+        - {x: 3, y: -16}
+        - {x: 3, y: -13}
+        - {x: 5, y: -12}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17a834b0bac674e4fb36578acdfadbf9
+      internalID: -2067488015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fance01_11
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 7, y: -10}
+        - {x: 8, y: -7}
+        - {x: 8, y: 0}
+        - {x: 4, y: 2}
+        - {x: 4, y: 16}
+        - {x: -5, y: 16}
+        - {x: -5.1498947, y: 0.5286026}
+        - {x: -7, y: 0}
+        - {x: -9, y: 0}
+        - {x: -16, y: 0}
+        - {x: -16, y: -7}
+        - {x: -9, y: -7}
+        - {x: -9, y: -8}
+        - {x: -6, y: -12}
+        - {x: -5, y: -12}
+        - {x: -5, y: -16}
+        - {x: 3, y: -16}
+        - {x: 3, y: -13}
+        - {x: 5, y: -12}
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1c3d4611cb894942afceecb8b549d8d
+      internalID: 1097774941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fance01_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 8, y: -11}
+        - {x: 8, y: -5}
+        - {x: 0, y: -2}
+        - {x: -6, y: -4}
+        - {x: -9, y: -6}
+        - {x: -9, y: -11}
+        - {x: -6, y: -15}
+        - {x: 5, y: -15}
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1ead6cdb02a36d4f9b2f21bd3081045
+      internalID: -825184478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fance01_13
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 8, y: -11}
+        - {x: 8, y: -8}
+        - {x: 16, y: -8}
+        - {x: 16, y: -1}
+        - {x: 7, y: -1}
+        - {x: 3, y: 1}
+        - {x: 3, y: 16}
+        - {x: -5, y: 16}
+        - {x: -5, y: -1}
+        - {x: -6, y: -4}
+        - {x: -9, y: -6}
+        - {x: -9, y: -11}
+        - {x: -6, y: -15}
+        - {x: 5, y: -15}
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3aaa79721f0b8e4cadbad0a0fad227d
+      internalID: -307958857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fance01_14
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 8, y: -11}
+        - {x: 8, y: -8}
+        - {x: 16, y: -8}
+        - {x: 16, y: -1}
+        - {x: 7, y: -1}
+        - {x: 4, y: 1}
+        - {x: 4, y: 16}
+        - {x: -5, y: 16}
+        - {x: -5, y: 4}
+        - {x: -6, y: 1}
+        - {x: -8, y: -1}
+        - {x: -16, y: -1}
+        - {x: -16, y: -8}
+        - {x: -9, y: -8}
+        - {x: -9, y: -11}
+        - {x: -6, y: -15}
+        - {x: 5, y: -15}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98aaf9fbb70cc004daaeeca60e8700c0
+      internalID: 1605269055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fance01_15
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 8, y: -11}
+        - {x: 8, y: -5}
+        - {x: 8, y: -1}
+        - {x: 4, y: 2}
+        - {x: 3, y: 16}
+        - {x: -5, y: 16}
+        - {x: -5, y: 2}
+        - {x: -8, y: -1}
+        - {x: -16, y: -1}
+        - {x: -16, y: -8}
+        - {x: -9, y: -8}
+        - {x: -9, y: -11}
+        - {x: -6, y: -15}
+        - {x: 5, y: -15}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21cee51fda617d04fb4ce7b4d9519dcc
+      internalID: -1162238775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: b34ce79f49fb0e746b7a770ee8ba78dd
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      fance01_0: -7737100060256091379
+      fance01_1: -2851503565067471456
+      fance01_10: -2067488015
+      fance01_11: 1097774941
+      fance01_12: -825184478
+      fance01_13: -307958857
+      fance01_14: 1605269055
+      fance01_15: -1162238775
+      fance01_2: 2895547477045736740
+      fance01_3: -858196557920364349
+      fance01_4: -1713300992
+      fance01_5: -306285597
+      fance01_6: -1759810871
+      fance01_7: -999721457
+      fance01_8: -1233346370
+      fance01_9: 561621011
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

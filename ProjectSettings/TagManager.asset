@@ -23,11 +23,11 @@ TagManager:
   - 
   - 
   - 
-  - 
   - Layer 1
-  - Layer 2
   - Layer 3
   - PlayerLayer
+  - Collisions
+  - Bridges
   - 
   - 
   - 
@@ -44,7 +44,7 @@ TagManager:
   - name: Layer 1
     uniqueID: 2425651459
     locked: 0
-  - name: Layer 2
+  - name: Props
     uniqueID: 4250941897
     locked: 0
   - name: Layer 3
@@ -52,6 +52,9 @@ TagManager:
     locked: 0
   - name: PlayerLayer
     uniqueID: 1729724681
+    locked: 0
+  - name: AlwaysBeforePalyer
+    uniqueID: 2715406827
     locked: 0
   m_RenderingLayers:
   - Default

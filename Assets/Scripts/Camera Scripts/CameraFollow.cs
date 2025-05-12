@@ -34,7 +34,13 @@ namespace Cainos.PixelArtTopDown_Basic
         {
             if (target == null) return;
 
-            offset = transform.position - target.position;
+            offset = new Vector3(0, 0, -10); // Z offset to keep camera behind
+            transform.position = target.position + offset;
+        }
+
+        private void LateUpdate()
+        {
+            ObserveUpdate();
         }
     }
 }
