@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class StateMachine<T> where T : MonoBehaviour
@@ -30,5 +31,10 @@ public class StateMachine<T> where T : MonoBehaviour
         currentState.ExitState();
         currentState = newState;
         currentState.EnterState();
+    }
+
+    internal void Update_currentState()
+    {
+        throw new NotImplementedException();
     }
 }

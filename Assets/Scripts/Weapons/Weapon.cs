@@ -1,0 +1,20 @@
+using UnityEngine;
+
+public abstract class Weapon : MonoBehaviour
+{
+    [SerializeField] protected int dmg;
+    public float cooldown;
+
+    protected SpriteRenderer spriteRenderer;
+
+    protected virtual void Awake()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer == null)
+        {
+            spriteRenderer = gameObject.AddComponent<SpriteRenderer>();
+        }
+    }
+
+    public abstract void AttackBehavior();
+}

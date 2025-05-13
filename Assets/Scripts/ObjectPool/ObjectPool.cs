@@ -38,7 +38,7 @@ public class ObjectPool<T> where T: MonoBehaviour, IPoolable
         return obj;
     }
 
-    private void ReturnToPool(T obj)
+    public void ReturnToPool(T obj)
     {
         obj.OnRetunToPool();
         obj.gameObject.SetActive(false);

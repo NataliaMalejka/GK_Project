@@ -1,7 +1,7 @@
 using UnityEngine;
 
 public interface IPlayer { }
-public class Player : Singleton<Player>, IPlayer
+public class Player : PersistentSingleton<Player>, IPlayer
 {
     public PlayerController controller { get; private set; }
     public HealthSystem healthSystem { get; private set; }

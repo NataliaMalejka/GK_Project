@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour, IUpdateObserver, IFixedUpdateObserver, ILateUpdateObserver
 {
-    [HideInInspector] public Rigidbody rb;
+    [HideInInspector] public Rigidbody2D rb;
 
     [Header("Basic Movement")]
     [HideInInspector] public float xVelocity;
@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour, IUpdateObserver, IFixedUpdateObse
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody2D>();
 
         playerIdleState = new PlayerIdleState(this, stateMachine);
         playerDashState = new PlayerDashState(this, stateMachine);
@@ -47,12 +47,15 @@ public class PlayerController : MonoBehaviour, IUpdateObserver, IFixedUpdateObse
 
     public void ObserveUpdate()
     {
+        Debug.Log("update");
         stateMachine.UpdateCurrentState();
+        stateMachine.FixedUpdateCurrentState();
     }
 
     public void ObserveFixedUpdate()
     {
-       stateMachine.FixedUpdateCurrentState();
+        Debug.Log(stateMachine.currentState);
+        
     }
 
     public void ObserveLateUpdate()
