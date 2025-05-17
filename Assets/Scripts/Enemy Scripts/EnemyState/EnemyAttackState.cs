@@ -38,7 +38,6 @@ public class EnemyAttackState : State<Enemy>
 
     private void FireBullet()
     {
-        Bullet bullet = bulletPool.GetObjectFromPool();
-        bullet.transform.position = controller.transform.position;
+        Bullet bullet = bulletPool.GetObjectFromPool(controller.transform.position);
     }
 }

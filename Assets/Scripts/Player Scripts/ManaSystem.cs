@@ -3,7 +3,7 @@ using UnityEngine;
 public class ManaSystem : MonoBehaviour
 {
     [SerializeField] private int maxMana;
-    private int currentmMna;
+    public int currentmMna;
 
     private void Awake()
     {

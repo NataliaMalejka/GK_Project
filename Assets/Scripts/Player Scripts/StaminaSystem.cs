@@ -4,7 +4,7 @@ public class StaminaSystem : MonoBehaviour, IFixedUpdateObserver
 {
     [SerializeField] private float staminaIncrease;
     [SerializeField] private float maxStamina;
-    private float currentStamina;
+    public float currentStamina;
 
     private void OnEnable()
     {

@@ -5,7 +5,7 @@ public class BrownCat : Enemy
 {
     private EnemyIdleState idleState;
     private EnemyAttackState attackState;
-    public Bullet bullet;
+    public Bullet bullet; //weapon
 
     [SerializeField] private float viewRange;
     [SerializeField] private LayerMask playerLayer;   

@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlayerIdleState : State<PlayerController>
 {
+
     public PlayerIdleState(PlayerController controller, StateMachine<PlayerController> stateMachine) : base(controller, stateMachine)
     {
     }
@@ -12,16 +13,44 @@ public class PlayerIdleState : State<PlayerController>
     }
 
     public override void UpdateState()
-    {     
+    {
+        UpdateMovement();
+        UpdateAttack();
+    }
+
+    private void UpdateMovement()
+    {
         controller.xVelocity = Input.GetAxisRaw("Horizontal");
         controller.yVelocity = Input.GetAxisRaw("Vertical");
 
-        Debug.Log(controller.xVelocity);
-        Debug.Log(controller.yVelocity);
+        if (Input.GetKeyDown(KeyCode.LeftShift) && (controller.xVelocity != 0 || controller.yVelocity != 0))
+        {
+            if(Player.Instance.staminaSystem.currentStamina >= controller.weapon.neededStamina)
+            {
+                Player.Instance.staminaSystem.ReduceStamina(controller.weapon.neededStamina);
+                stateMachine.ChangeState(controller.playerDashState);
+            }
+            
+        }
+    }
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && (controller.xVelocity !=0 || controller.yVelocity !=0))
-        {           
-            stateMachine.ChangeState(controller.playerDashState);
+    private void UpdateAttack()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            controller.weapon = Player.Instance.weaponSwitcher.GetCurrentWeapon();
+
+            if (controller.weapon != null && !controller.weapon.gameObject.activeSelf)
+            {
+                if (Player.Instance.staminaSystem.currentStamina >= controller.weapon.neededStamina && Player.Instance.manaSystem.currentmMna >= controller.weapon.neededMana)
+
+                Player.Instance.staminaSystem.ReduceStamina(controller.weapon.neededStamina);
+                Player.Instance.manaSystem.ReudceMana(controller.weapon.neededMana);
+                controller.weapon.AttackBehavior();
+                //animacja gracza
+                //trigger
+            }
+
         }
     }
 
@@ -38,7 +67,6 @@ public class PlayerIdleState : State<PlayerController>
 
     private void move()
     {
-        Debug.Log("move");
         Vector2 inputDirection = new Vector2(controller.xVelocity, controller.yVelocity);
 
         if (inputDirection.magnitude > 1f)

@@ -28,13 +28,17 @@ public class PauseMenuController : MonoBehaviour, IUpdateObserver
             {
                 PauseGame();
             }
+            else
+            {
+                PlayGame();
+            }
         }
     }
 
     private void PauseGame()
     {
         pauseMenuPanel.SetActive(true);
-        _player.enabled = false;
+
         Time.timeScale = 0f;
         _isPaused = true;
     }
@@ -42,15 +46,13 @@ public class PauseMenuController : MonoBehaviour, IUpdateObserver
     public void PlayGame()
     {
         pauseMenuPanel.SetActive(false);
+
         Time.timeScale = 1f;
-        _player.enabled = true;
         _isPaused = false;
     }
-
 
     public void QuitGame()
     {
         Application.Quit();
     }
-
 }

@@ -3,6 +3,8 @@ using UnityEngine;
 public abstract class Weapon : MonoBehaviour
 {
     [SerializeField] protected int dmg;
+    public float neededStamina;
+    public int neededMana;
     public float cooldown;
 
     protected SpriteRenderer spriteRenderer;
@@ -17,4 +19,5 @@ public abstract class Weapon : MonoBehaviour
     }
 
     public abstract void AttackBehavior();
+
 }

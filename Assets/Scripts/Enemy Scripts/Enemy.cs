@@ -8,12 +8,15 @@ public enum StateType
 
 public abstract class Enemy : MonoBehaviour, IUpdateObserver, IFixedUpdateObserver, ILateUpdateObserver
 {
+    
+
     public HealthSystem healthSystem { get; private set; }
 
     public float speed;
     public GameObject[] wayPoints;
 
     [HideInInspector] public bool seePlayer;
+    [HideInInspector] public Rigidbody2D rb;
 
     protected StateMachine<Enemy> stateMachine = new StateMachine<Enemy>();
 
@@ -33,6 +36,8 @@ public abstract class Enemy : MonoBehaviour, IUpdateObserver, IFixedUpdateObserv
 
     protected virtual void Awake()
     {
+        rb = GetComponent<Rigidbody2D>();
+
         healthSystem = GetComponent<HealthSystem>();
     }
 

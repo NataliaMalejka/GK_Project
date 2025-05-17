@@ -13,10 +13,13 @@ public class PlayerController : MonoBehaviour, IUpdateObserver, IFixedUpdateObse
     [Header("Dash")]
     public int dashTime;
     public float dashForce;
+    public float dashNeededStamina;
 
     [HideInInspector] public StateMachine<PlayerController> stateMachine = new StateMachine<PlayerController>();
     [HideInInspector] public PlayerIdleState playerIdleState;
     [HideInInspector] public PlayerDashState playerDashState;
+
+    public Weapon weapon;
 
     private void OnEnable()
     {
@@ -47,15 +50,13 @@ public class PlayerController : MonoBehaviour, IUpdateObserver, IFixedUpdateObse
 
     public void ObserveUpdate()
     {
-        Debug.Log("update");
         stateMachine.UpdateCurrentState();
-        stateMachine.FixedUpdateCurrentState();
+        Player.Instance.weaponSwitcher.Switcher_Update();
     }
 
-    public void ObserveFixedUpdate()
+    public void ObserveFixedUpdate() 
     {
-        Debug.Log(stateMachine.currentState);
-        
+        stateMachine.FixedUpdateCurrentState();   
     }
 
     public void ObserveLateUpdate()

@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 8024158003849042400}
   - component: {fileID: 1717154485042158402}
   - component: {fileID: 3623427748311881574}
+  - component: {fileID: 6609672343783801351}
   m_Layer: 20
   m_Name: piesek-astro
   m_TagString: Untagged
@@ -36,7 +37,8 @@ Transform:
   m_LocalPosition: {x: 8.91, y: 0.366, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2677817579665383294}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8944432548826197024
@@ -80,8 +82,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -44025399
-  m_SortingLayer: 2
+  m_SortingLayerID: 1729724681
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 2de20f9f4fefc7346bc117e524655295, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -195,9 +197,11 @@ MonoBehaviour:
   xVelocity: 0
   yVelocity: 0
   direction: 1
-  runSpeed: 4
-  dashTime: 4
+  runSpeed: 5
+  dashTime: 20
   dashForce: 15
+  dashNeededStamina: 0
+  weapon: {fileID: 0}
 --- !u!114 &8024158003849042400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,7 +214,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88af801b1dde29a48a14e5556d320da6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxMana: 0
+  maxMana: 10
+  currentmMna: 0
 --- !u!114 &1717154485042158402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,7 +228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e23d5ec971304384d96255324dc10726, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHelath: 0
+  maxHelath: 20
 --- !u!114 &3623427748311881574
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,5 +241,68 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f63c24a8bb6cb834f9145f5f17233f82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  staminaIncrease: 0
-  maxStamina: 0
+  staminaIncrease: 0.5
+  maxStamina: 10
+  currentStamina: 0
+--- !u!114 &6609672343783801351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1217993646366099607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e323882f8b5193443b18fecf2c289a1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapons:
+  - {fileID: 8291994245912252113}
+--- !u!1 &7329599409223991583
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2677817579665383294}
+  - component: {fileID: 8291994245912252113}
+  m_Layer: 0
+  m_Name: Sword
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2677817579665383294
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7329599409223991583}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -15.599999, y: 24.300001, z: 0}
+  m_LocalScale: {x: 10, y: 10, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8826948764483295098}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8291994245912252113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7329599409223991583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e1e6f6713d024c46810498b48774fcc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dmg: 0
+  neededStamina: 0
+  neededMana: 0
+  cooldown: 0

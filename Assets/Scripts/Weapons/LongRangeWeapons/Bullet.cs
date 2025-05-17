@@ -79,7 +79,7 @@ public class Bullet : Weapon, IPoolable, IFixedUpdateObserver
             if (Player.Instance.controller.stateMachine.currentState != Player.Instance.controller.playerDashState)
             {
                 Player.Instance.healthSystem.GetDmg(dmg);
-                
+            
             }
 
             ReturnToPool();
@@ -87,10 +87,7 @@ public class Bullet : Weapon, IPoolable, IFixedUpdateObserver
     }
 
     public void OnGetFromPool()
-    {
-        transform.rotation = Quaternion.identity;
-
-        Debug.Log(Player.Instance.transform.position);
+    {   
         direction = Player.Instance.transform.position - transform.position;
         currentLifeTime = 0f;
     }
