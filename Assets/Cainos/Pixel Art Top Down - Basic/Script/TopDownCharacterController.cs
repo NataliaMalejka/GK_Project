@@ -8,6 +8,8 @@ namespace Cainos.PixelArtTopDown_Basic
     {
         public float speed;
 
+        public BatteryManager batteryManager;
+
         private Animator animator;
 
         private void Start()
@@ -45,6 +47,18 @@ namespace Cainos.PixelArtTopDown_Basic
             animator.SetBool("IsMoving", dir.magnitude > 0);
 
             GetComponent<Rigidbody2D>().linearVelocity = speed * dir;
+        }
+
+
+        void onTriggerEnter2D(Collider2D other)
+        {
+
+            Debug.Log("Trigger Entered");
+
+            if (other.CompareTag("Battery"))
+            {
+                batteryManager.batteryCount++;
+            }
         }
     }
 }
