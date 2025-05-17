@@ -22499,12 +22499,7 @@ PrefabInstance:
     - target: {fileID: 5623309017451817285, guid: 8e1713a8aba2ed648966a0c3d2d8ae76,
         type: 3}
       propertyPath: intervalMs
-      value: 10000
-      objectReference: {fileID: 0}
-    - target: {fileID: 5623309017451817285, guid: 8e1713a8aba2ed648966a0c3d2d8ae76,
-        type: 3}
-      propertyPath: isConstantLaser
-      value: 0
+      value: 5000
       objectReference: {fileID: 0}
     - target: {fileID: 8090513181463447881, guid: 8e1713a8aba2ed648966a0c3d2d8ae76,
         type: 3}
@@ -22561,6 +22556,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9190842917540984228, guid: 8e1713a8aba2ed648966a0c3d2d8ae76,
+        type: 3}
+      propertyPath: batteryManager
+      value: 
+      objectReference: {fileID: 1920589405}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
