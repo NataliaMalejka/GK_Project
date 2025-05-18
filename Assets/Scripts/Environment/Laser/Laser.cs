@@ -21,7 +21,7 @@ public class Laser : MonoBehaviour
     [SerializeField] private Transform firePoint;
     [SerializeField] private LineRenderer lineRenderer;
 
-    private bool isActive = false;   // Laser beam is currently visible
+    [SerializeField] private bool isActive = false;   // Laser beam is currently visible
     private bool isPowered = false;  // Laser is turned on (battery connected, etc.)
     private Coroutine toggleRoutine;
 
@@ -29,6 +29,18 @@ public class Laser : MonoBehaviour
     public bool IsPowered => isPowered;
 
     private const int MAX_REFLECTION_LIMIT = 100;
+    
+    private void Start()
+    {
+        if (isActive)
+        {
+            Activate();
+        }
+        else
+        {
+            SetLaserState(false);
+        }
+    }
 
     private void Awake()
     {
@@ -42,6 +54,14 @@ public class Laser : MonoBehaviour
     {
         if (isActive)
             ShootLaser();
+    }
+
+    private void SetLaserState(bool state)
+    {
+        isActive = state;
+
+        if (lineRenderer != null)
+            lineRenderer.enabled = isActive;
     }
 
     /**
@@ -89,14 +109,6 @@ public class Laser : MonoBehaviour
         }
 
         SetLaserState(false);
-    }
-
-    private void SetLaserState(bool state)
-    {
-        isActive = state;
-
-        if (lineRenderer != null)
-            lineRenderer.enabled = isActive;
     }
 
     private void ShootLaser()

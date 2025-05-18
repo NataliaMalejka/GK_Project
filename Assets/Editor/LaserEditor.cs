@@ -47,6 +47,9 @@ public class LaserEditor : Editor
             {
                 EditorGUILayout.PropertyField(serializedObject.FindProperty("intervalMs"), new GUIContent("Interval (ms)"));
             }
+
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("isActive"), new GUIContent("Active"));
+
             EditorGUI.indentLevel--;
             EditorGUILayout.Space(5);
         }
