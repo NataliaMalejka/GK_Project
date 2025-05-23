@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyFollow : State<Enemy>
+public class EnemyFollowState : State<Enemy>
 {
     private Dictionary<StateType, State<Enemy>> availableStates;
     private float minDistance = 0.5f;
@@ -9,7 +9,7 @@ public class EnemyFollow : State<Enemy>
 
     Vector3 direction;
 
-    public EnemyFollow(Enemy controller, StateMachine<Enemy> stateMachine, Dictionary<StateType, State<Enemy>> availableStates)
+    public EnemyFollowState(Enemy controller, StateMachine<Enemy> stateMachine, Dictionary<StateType, State<Enemy>> availableStates)
         : base(controller, stateMachine)
     {
         this.availableStates = availableStates;
@@ -19,6 +19,7 @@ public class EnemyFollow : State<Enemy>
     {
         cooldownTimer = 0f;
         direction = Player.Instance.transform.position - controller.transform.position;
+        controller.GetWeapon().gameObject.SetActive(true);
     }
 
     public override void UpdateState()
@@ -49,9 +50,14 @@ public class EnemyFollow : State<Enemy>
 
     private void Attack()
     {
-        if(cooldownTimer <= 0f)
+        if (cooldownTimer <= 0f)
         {
 
         }
+    }
+
+    public override void ExitState()
+    {
+        controller.GetWeapon().gameObject.SetActive(false);
     }
 }

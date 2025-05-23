@@ -6,10 +6,8 @@ public enum StateType
     Attack
 }
 
-public abstract class Enemy : MonoBehaviour, IUpdateObserver, IFixedUpdateObserver, ILateUpdateObserver
+public abstract class Enemy : MonoBehaviour,IUpdateObserver, IFixedUpdateObserver, ILateUpdateObserver
 {
-    
-
     public HealthSystem healthSystem { get; private set; }
 
     public float speed;
@@ -41,22 +39,10 @@ public abstract class Enemy : MonoBehaviour, IUpdateObserver, IFixedUpdateObserv
         healthSystem = GetComponent<HealthSystem>();
     }
 
-    public virtual void ObserveUpdate()
-    {
-        stateMachine.UpdateCurrentState();
-    }
-
-    public virtual void ObserveFixedUpdate()
-    {
-        stateMachine.FixedUpdateCurrentState();
-        
-    }
-
-    public virtual void ObserveLateUpdate()
-    {
-        stateMachine.LateUpdateCurrentState();
-    }
-
     protected abstract void SeePlayer();
+    public abstract Weapon GetWeapon();
 
+    public virtual void ObserveUpdate() => stateMachine.UpdateCurrentState();
+    public virtual void ObserveFixedUpdate() => stateMachine.FixedUpdateCurrentState();
+    public virtual void ObserveLateUpdate() => stateMachine.LateUpdateCurrentState();
 }

@@ -1,35 +1,19 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Bullet : Weapon, IPoolable, IFixedUpdateObserver
+public class Bullet : RangedWeapon, IFixedUpdateObserver
 {
     [SerializeField] private float velocity;
     [SerializeField] private float maxLifeTime;
-    private float currentLifeTime = 0;
 
-    protected Rigidbody2D rb;
-
+    private float currentLifeTime = 0f;
+    private Rigidbody2D rb;
     private Vector3 direction;
-
-    public static ObjectPool<Bullet> Pool;
-
-    private void ReturnToPool()
-    {
-        if (Pool != null)
-        {
-            Pool.ReturnToPool(this);
-        }
-    }
 
     protected override void Awake()
     {
         base.Awake();
-
-        rb = GetComponent<Rigidbody2D>();
-        if (rb == null)
-        {
-           rb = gameObject.AddComponent<Rigidbody2D>();
-        }
+        rb = GetComponent<Rigidbody2D>() ?? gameObject.AddComponent<Rigidbody2D>();
     }
 
     protected void OnEnable()
@@ -42,26 +26,29 @@ public class Bullet : Weapon, IPoolable, IFixedUpdateObserver
         FixedUpdateManager.RemoveFromList(this);
     }
 
-    public override void AttackBehavior()
-    {
-        
-    }
-
     public void ObserveFixedUpdate()
     {
         currentLifeTime += Time.fixedDeltaTime;
-
-        rb.linearVelocity = new Vector2(direction.x, direction.y).normalized * velocity;
-
+        rb.linearVelocity = direction.normalized * velocity;
 
         if (currentLifeTime > maxLifeTime)
         {
-            ReturnToPool();
+            RetunToPool();
         }
-
+    }
+    public override void OnGetFromPool()
+    {
+        direction = Player.Instance.transform.position - transform.position;
+        currentLifeTime = 0f;
     }
 
-    private void OnTriggerEnter2D(UnityEngine.Collider2D collision)
+    public void RetunToPool()
+    {
+        rb.linearVelocity = Vector2.zero;
+        Pool.ReturnToPool(this);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         //if (other.gameObject == shooter) return;
 
@@ -79,21 +66,10 @@ public class Bullet : Weapon, IPoolable, IFixedUpdateObserver
             if (Player.Instance.controller.stateMachine.currentState != Player.Instance.controller.playerDashState)
             {
                 Player.Instance.healthSystem.GetDmg(dmg);
-            
+
             }
 
-            ReturnToPool();
+            RetunToPool();
         }
-    }
-
-    public void OnGetFromPool()
-    {   
-        direction = Player.Instance.transform.position - transform.position;
-        currentLifeTime = 0f;
-    }
-
-    public void OnRetunToPool()
-    {
-        rb.linearVelocity = Vector2.zero;
     }
 }

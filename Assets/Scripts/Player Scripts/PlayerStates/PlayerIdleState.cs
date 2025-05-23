@@ -46,7 +46,7 @@ public class PlayerIdleState : State<PlayerController>
 
                 Player.Instance.staminaSystem.ReduceStamina(controller.weapon.neededStamina);
                 Player.Instance.manaSystem.ReudceMana(controller.weapon.neededMana);
-                controller.weapon.AttackBehavior();
+                
                 //animacja gracza
                 //trigger
             }

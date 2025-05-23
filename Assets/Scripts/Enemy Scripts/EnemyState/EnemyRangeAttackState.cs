@@ -1,17 +1,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyAttackState : State<Enemy>
+public class EnemyRangeAttackState : State<Enemy>
 {
     private Dictionary<StateType, State<Enemy>> availableStates;
-    private ObjectPool<Bullet> bulletPool;
+    private ObjectPool<RangedWeapon> rangedWeaponPool;
     private float cooldownTimer = 0f;
 
-    public EnemyAttackState(Enemy controller, StateMachine<Enemy> stateMachine, Dictionary<StateType, State<Enemy>> availableStates, ObjectPool<Bullet> bulletPool)
+    public EnemyRangeAttackState(Enemy controller, StateMachine<Enemy> stateMachine, Dictionary<StateType, State<Enemy>> availableStates, ObjectPool<RangedWeapon> bulletPool)
         : base(controller, stateMachine)
     {
         this.availableStates = availableStates;
-        this.bulletPool = bulletPool;
+        this.rangedWeaponPool = bulletPool;
     }
 
     public override void EnterState()
@@ -32,12 +32,16 @@ public class EnemyAttackState : State<Enemy>
         if (cooldownTimer <= 0f)
         {
             FireBullet();
-            cooldownTimer = controller.GetComponent<BrownCat>().bullet.cooldown;
+            cooldownTimer = controller.GetWeapon().cooldown;
         }
     }
 
     private void FireBullet()
     {
-        Bullet bullet = bulletPool.GetObjectFromPool(controller.transform.position);
+        if (controller is IRangedAttacker rangedAttacker)
+        {
+            RangedWeapon weapon = rangedAttacker.GetRangedWeaponFromPool(controller.transform.position);
+           
+        }
     }
 }

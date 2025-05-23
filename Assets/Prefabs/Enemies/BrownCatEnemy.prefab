@@ -180,7 +180,9 @@ MonoBehaviour:
   - {fileID: 6943514700571104262}
   - {fileID: 406812155505914710}
   seePlayer: 0
-  bullet: {fileID: 5361991904607399351, guid: 88642fe0da03b264bae4ee61c86a5d67, type: 3}
+  rb: {fileID: 0}
+  bulletPrefab: {fileID: 5361991904607399351, guid: 88642fe0da03b264bae4ee61c86a5d67,
+    type: 3}
   viewRange: 5
   playerLayer:
     serializedVersion: 2

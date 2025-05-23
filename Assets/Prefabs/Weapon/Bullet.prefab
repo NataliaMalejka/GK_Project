@@ -167,6 +167,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dmg: 2
-  cooldown: 2.5
+  neededStamina: 0
+  neededMana: 0
+  cooldown: 2
   velocity: 6
-  maxLifeTime: 10
+  maxLifeTime: 6

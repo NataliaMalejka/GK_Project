@@ -1,16 +1,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BrownCat : Enemy
+public class RangeEnemy : Enemy, IRangedAttacker
 {
     private EnemyIdleState idleState;
-    private EnemyAttackState attackState;
-    public Bullet bullet; //weapon
+    private EnemyRangeAttackState attackState;
 
+    [SerializeField] private Bullet bulletPrefab;
     [SerializeField] private float viewRange;
-    [SerializeField] private LayerMask playerLayer;   
+    [SerializeField] private LayerMask playerLayer;
 
-    private ObjectPool<Bullet> bulletPool;
+    private ObjectPool<RangedWeapon> bulletPool;
 
     Vector3 boxSize;
     Vector3 center;
@@ -21,12 +21,11 @@ public class BrownCat : Enemy
 
         Dictionary<StateType, State<Enemy>> states = new Dictionary<StateType, State<Enemy>>();
 
+        bulletPool = new ObjectPool<RangedWeapon>(10, bulletPrefab);
+        RangedWeapon.Pool = bulletPool;
+
         idleState = new EnemyIdleState(this, stateMachine, states);
-
-        bulletPool = new ObjectPool<Bullet>(10, bullet);
-        Bullet.Pool = bulletPool;
-
-        attackState = new EnemyAttackState(this, stateMachine, states, bulletPool);
+        attackState = new EnemyRangeAttackState(this, stateMachine, states, bulletPool);
 
         states.Add(StateType.Idle, idleState);
         states.Add(StateType.Attack, attackState);
@@ -42,13 +41,22 @@ public class BrownCat : Enemy
     {
         base.ObserveFixedUpdate();
         center = (Vector2)transform.position + new Vector2(2 * Mathf.Sign(transform.rotation.y), 1);
-
         SeePlayer();
     }
+
     protected override void SeePlayer()
     {
         Collider2D hitCollider = Physics2D.OverlapBox(center, boxSize, 0f, playerLayer);
         seePlayer = hitCollider != null;
+    }
+
+    public override Weapon GetWeapon()
+    {
+        return bulletPrefab;
+    }
+    public RangedWeapon GetRangedWeaponFromPool(Vector3 position)
+    {
+        return bulletPool.GetObjectFromPool(position);
     }
 
     private void OnDrawGizmos()
