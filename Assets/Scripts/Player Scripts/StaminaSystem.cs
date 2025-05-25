@@ -1,10 +1,13 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StaminaSystem : MonoBehaviour, IFixedUpdateObserver
 {
     [SerializeField] private float staminaIncrease;
     [SerializeField] private float maxStamina;
     public float currentStamina;
+
+    public Image staminaFillBar;
 
     private void OnEnable()
     {
@@ -18,7 +21,7 @@ public class StaminaSystem : MonoBehaviour, IFixedUpdateObserver
 
     private void Awake()
     {
-        currentStamina = maxStamina;
+        //currentStamina = maxStamina;
     }
 
     public void ObserveFixedUpdate()
@@ -29,6 +32,8 @@ public class StaminaSystem : MonoBehaviour, IFixedUpdateObserver
         {
             currentStamina = maxStamina;
         }
+
+        staminaFillBar.fillAmount = currentStamina / maxStamina;
     }
 
     public bool CanReduceStamina(float amound)
@@ -42,6 +47,7 @@ public class StaminaSystem : MonoBehaviour, IFixedUpdateObserver
     public void ReduceStamina(float amound)
     {
         currentStamina -= amound;
+        staminaFillBar.fillAmount = currentStamina / maxStamina;
     }
 
     public void IncreaseStamina(float amound)
@@ -53,5 +59,27 @@ public class StaminaSystem : MonoBehaviour, IFixedUpdateObserver
     {
         maxStamina += amound;
         currentStamina += amound;
+        staminaFillBar.fillAmount = currentStamina / maxStamina;
+    }
+
+
+
+    //----------------  //added debug methods:
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.KeypadMinus))
+        {
+            if(CanReduceStamina(20)){ ReduceStamina(20); }  //test: decrease stamina: Num-
+        }
+    
+        if(Input.GetKeyDown(KeyCode.KeypadPlus))
+        {
+            IncreaseCurrentStamnina(10);  //test: increase stamina: Num+
+        }
+    }
+    public void IncreaseCurrentStamnina(float amound)
+    {
+        currentStamina += amound;
+        staminaFillBar.fillAmount = currentStamina / maxStamina;
     }
 }
