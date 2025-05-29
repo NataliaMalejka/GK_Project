@@ -25,9 +25,9 @@ public class PlayerIdleState : State<PlayerController>
 
         if (Input.GetKeyDown(KeyCode.LeftShift) && (controller.xVelocity != 0 || controller.yVelocity != 0))
         {
-            if(Player.Instance.staminaSystem.currentStamina >= controller.weapon.neededStamina)
+            if(Player.Instance.staminaSystem.currentStamina >= controller.dashNeededStamina)
             {
-                Player.Instance.staminaSystem.ReduceStamina(controller.weapon.neededStamina);
+                Player.Instance.staminaSystem.ReduceStamina(controller.dashNeededStamina);
                 stateMachine.ChangeState(controller.playerDashState);
             }
             

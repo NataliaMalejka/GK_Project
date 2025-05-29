@@ -1,17 +1,17 @@
 using UnityEngine;
 
-public class Sword : MeeleWeapon
+public class Sword : MeleeWeapon
 {
-    private Collider weaponCollider;
+    private Collider2D weaponCollider;
     private Animator animator;
 
     protected override void Awake()
     {
-        weaponCollider = GetComponent<Collider>();
+        weaponCollider = GetComponent<Collider2D>();
         animator = GetComponent<Animator>();
     }
 
-    public void StartAttack()
+    public override void StartAttack()
     {
         animator.SetTrigger("Attack");
     }
