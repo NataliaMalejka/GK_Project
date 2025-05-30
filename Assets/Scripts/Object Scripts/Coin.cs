@@ -6,7 +6,12 @@ public class Coin : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Player.Instance.goldSystem.CollectGold(value);
-        Destroy(this.gameObject);
+        IPlayer player = collision.GetComponent<IPlayer>();
+
+        if (player != null)
+        {
+            Player.Instance.goldSystem.CollectGold(value);
+            Destroy(this.gameObject);
+        }
     }
 }
