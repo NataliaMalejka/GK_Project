@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class GoldSystem
+public class GoldSystem: MonoBehaviour
 {
     private int goldAmound = 0;
 

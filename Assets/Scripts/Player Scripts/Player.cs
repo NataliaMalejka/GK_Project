@@ -7,6 +7,7 @@ public class Player : PersistentSingleton<Player>, IPlayer
     public HealthSystem healthSystem { get; private set; }
     public StaminaSystem staminaSystem { get; private set; }
     public ManaSystem manaSystem { get; private set; }
+    public GoldSystem goldSystem { get; private set; }
     public WeaponSwitcher weaponSwitcher { get; private set; }
 
     protected override void Awake()
@@ -17,5 +18,6 @@ public class Player : PersistentSingleton<Player>, IPlayer
         staminaSystem = GetComponent<StaminaSystem>();
         manaSystem = GetComponent<ManaSystem>();
         weaponSwitcher = GetComponent<WeaponSwitcher>();
+        goldSystem = GetComponent<GoldSystem>();
     }
 }
