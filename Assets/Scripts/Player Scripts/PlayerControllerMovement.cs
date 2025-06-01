@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Cainos.PixelArtTopDown_Basic
@@ -8,16 +7,26 @@ namespace Cainos.PixelArtTopDown_Basic
     {
         public float speed;
 
-        public BatteryManager batteryManager;
+        [Header("UI Systems")]
+        [SerializeField] private BatterySystem batterySystem;
 
         private Animator animator;
 
         private void Start()
         {
             animator = GetComponent<Animator>();
+
+            if (batterySystem == null)
+            {
+                batterySystem = GetComponent<BatterySystem>();
+                if (batterySystem == null)
+                {
+                    Debug.LogError("BatterySystem component not found on Player!");
+                }
+            }
         }
 
-
+        [System.Obsolete]
         private void Update()
         {
             Vector2 dir = Vector2.zero;
@@ -46,17 +55,28 @@ namespace Cainos.PixelArtTopDown_Basic
             dir.Normalize();
             animator.SetBool("IsMoving", dir.magnitude > 0);
 
-            GetComponent<Rigidbody2D>().linearVelocity = speed * dir;
+            GetComponent<Rigidbody2D>().velocity = speed * dir;
         }
-
 
         private void OnTriggerEnter2D(Collider2D other)
         {
+            Debug.Log("Player collided with: " + other.name);
+
             if (other.CompareTag("Battery"))
             {
-                batteryManager.AddBattery();
-
+                batterySystem.AddBattery();
                 Destroy(other.gameObject);
+            }
+            else if (other.CompareTag("Pot"))
+            {
+                Pot pot = other.GetComponent<Pot>();
+                pot?.DestroySelf();
+            }
+
+            if (other.TryGetComponent<IPickup>(out var pickup))
+            {
+                Debug.Log("Found IPickup on " + other.name);
+                pickup.Collect(gameObject);
             }
         }
     }

@@ -5,40 +5,48 @@ using UnityEngine;
  * Allows activating a laser using a battery if in range.
  * 
  * @author Krzysztof Gach
- * @version 1.2
+ * @version 1.3
  */
 public class LaserInteraction : MonoBehaviour
 {
     [SerializeField] private Laser laser;
-    [SerializeField] private BatteryManager batteryManager;
-
     [SerializeField] private float interactionDistance = 3f;
     [SerializeField] private KeyCode activationKey = KeyCode.E;
 
     private Transform playerTransform;
+    private BatterySystem batterySystem;
 
     private void Start()
     {
-        playerTransform = GameObject.FindGameObjectWithTag("Player")?.transform ?? Camera.main.transform;
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+        if (player != null)
+        {
+            playerTransform = player.transform;
+            batterySystem = player.GetComponent<BatterySystem>();
+
+            if (batterySystem == null)
+            {
+                Debug.LogWarning("BatterySystem not found on Player!");
+            }
+        }
+        else
+        {
+            Debug.LogError("Player not found in scene! Make sure it has the 'Player' tag.");
+        }
     }
 
     private void Update()
     {
-        if (playerTransform == null || laser == null || batteryManager == null) return;
+        if (playerTransform == null || laser == null || batterySystem == null) return;
 
         float distance = Vector3.Distance(transform.position, playerTransform.position);
-        bool inRange = distance <= interactionDistance;
-
-        if (inRange && Input.GetKeyDown(activationKey))
+        if (distance <= interactionDistance && Input.GetKeyDown(activationKey))
         {
             TryActivateLaser();
         }
     }
 
-    /**
-     * Tries to power the laser if not already powered.
-     * Consumes a battery if successful.
-     */
     private void TryActivateLaser()
     {
         if (laser.IsPowered)
@@ -47,10 +55,9 @@ public class LaserInteraction : MonoBehaviour
             return;
         }
 
-        if (batteryManager.UseBattery(laser))
+        if (batterySystem.UseBattery(laser))
         {
-            laser.Activate();
-            Debug.Log($"Laser activated! Batteries left: {batteryManager.batteryCount}");
+            Debug.Log($"Laser activated! Batteries left: {batterySystem.GetBatteryCount()}");
         }
         else
         {

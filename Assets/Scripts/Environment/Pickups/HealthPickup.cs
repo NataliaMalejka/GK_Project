@@ -1,0 +1,27 @@
+using UnityEngine;
+
+/** 
+ *
+ * @author Krzysztof Gach
+ * @version 1.0
+ */
+[RequireComponent(typeof(Collider2D))]
+public class HealthPickup : MonoBehaviour, IPickup
+{
+    [SerializeField] private int healAmount = 20;
+
+    public void Collect(GameObject collector)
+    {
+        HealthSystem healthSystem = collector.GetComponent<HealthSystem>();
+        if (healthSystem != null)
+        {
+            healthSystem.Heal(healAmount);
+            // Optional: play sound, animation, etc.
+            Destroy(gameObject);
+        }
+        else
+        {
+            Debug.LogWarning("Collector does not have a HealthSystem component.");
+        }
+    }
+}

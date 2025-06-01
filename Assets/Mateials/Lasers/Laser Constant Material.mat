@@ -38,9 +38,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Bits: 16
+    - _Bits: 8
     - _Fuzziness: 0.7
-    - _Scale: 10
+    - _Rows: 16
+    - _Scale: 8
     - _Smoothness: 10
     - _Thickness: 30
     m_Colors:

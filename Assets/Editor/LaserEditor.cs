@@ -7,12 +7,11 @@ using UnityEngine;
  * Disables the interval field if constant laser mode is enabled.
  *
  * @author Krzysztof Gach
- * @version 1.0
+ * @version 1.3
  */
 [CustomEditor(typeof(Laser))]
 public class LaserEditor : Editor
 {
-    // Foldout states (persist per editor instance)
     private bool showLaserSettings = true;
     private bool showLaserMode = true;
     private bool showReferences = true;
@@ -21,15 +20,13 @@ public class LaserEditor : Editor
     {
         serializedObject.Update();
 
-        // Using the built-in EditorGUILayout.Foldout with EditorStyles.foldoutHeader 
-        // which includes the arrow and bold text by default in Unity 2019+
-        
         // Laser Settings Foldout
         showLaserSettings = EditorGUILayout.BeginFoldoutHeaderGroup(showLaserSettings, "Laser Settings");
         if (showLaserSettings)
         {
             EditorGUI.indentLevel++;
             EditorGUILayout.PropertyField(serializedObject.FindProperty("defDistanceRay"), new GUIContent("Default Distance"));
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("ignoredLayers"), new GUIContent("Ignored Layers"));
             EditorGUI.indentLevel--;
             EditorGUILayout.Space(5);
         }
@@ -49,7 +46,6 @@ public class LaserEditor : Editor
             }
 
             EditorGUILayout.PropertyField(serializedObject.FindProperty("isActive"), new GUIContent("Active"));
-
             EditorGUI.indentLevel--;
             EditorGUILayout.Space(5);
         }
@@ -62,6 +58,7 @@ public class LaserEditor : Editor
             EditorGUI.indentLevel++;
             EditorGUILayout.PropertyField(serializedObject.FindProperty("firePoint"), new GUIContent("Fire Point"));
             EditorGUILayout.PropertyField(serializedObject.FindProperty("lineRenderer"), new GUIContent("Line Renderer"));
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("explosionController"), new GUIContent("Explosion Tilemap Controller"));
             EditorGUI.indentLevel--;
             EditorGUILayout.Space(5);
         }

@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 3
   tags:
   - Battery
+  - Barrel
+  - Crate
+  - Pot
+  - Fence
+  - Gold
   layers:
   - Default
   - TransparentFX
@@ -22,13 +27,13 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - Layer 1
-  - Layer 3
+  - PlayerCollisions
+  - LaserReflector
+  - LaserRay
+  - LaserIgnore
   - PlayerLayer
   - Collisions
-  - Bridges
+  - 
   - 
   - 
   - 

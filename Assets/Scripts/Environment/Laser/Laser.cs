@@ -7,7 +7,7 @@ using System.Collections.Generic;
  * Can operate in constant or interval mode.
  *
  * @author Krzysztof Gach
- * @version 1.2
+ * @version 1.3
  */
 public class Laser : MonoBehaviour
 {
@@ -21,33 +21,33 @@ public class Laser : MonoBehaviour
     [SerializeField] private Transform firePoint;
     [SerializeField] private LineRenderer lineRenderer;
 
-    [SerializeField] private bool isActive = false;   // Laser beam is currently visible
-    private bool isPowered = false;  // Laser is turned on (battery connected, etc.)
+    [SerializeField] private ExplosionTilemapController explosionController;
+
+    [SerializeField] private bool isActive = false;
+
+    [Tooltip("Layers that the laser should ignore")]
+    [SerializeField] private LayerMask ignoredLayers;
+
+    private bool isPowered = false;
     private Coroutine toggleRoutine;
 
     public bool IsActive => isActive;
     public bool IsPowered => isPowered;
 
     private const int MAX_REFLECTION_LIMIT = 100;
-    
+
     private void Start()
     {
         if (isActive)
-        {
             Activate();
-        }
         else
-        {
             SetLaserState(false);
-        }
     }
 
     private void Awake()
     {
         if (lineRenderer != null)
-        {
             lineRenderer.enabled = false;
-        }
     }
 
     private void Update()
@@ -64,9 +64,6 @@ public class Laser : MonoBehaviour
             lineRenderer.enabled = isActive;
     }
 
-    /**
-     * Powers on the laser. Starts beam or toggling based on mode.
-     */
     public void Activate()
     {
         if (isPowered) return;
@@ -74,18 +71,11 @@ public class Laser : MonoBehaviour
         isPowered = true;
 
         if (isConstantLaser)
-        {
             SetLaserState(true);
-        }
         else
-        {
             toggleRoutine = StartCoroutine(ToggleLaserInterval());
-        }
     }
 
-    /**
-     * Powers off the laser and stops any ongoing toggling.
-     */
     public void Deactivate()
     {
         isPowered = false;
@@ -118,12 +108,46 @@ public class Laser : MonoBehaviour
         List<Vector2> positions = new() { startPos };
 
         int bounceCount = 0;
+        LayerMask raycastMask = ~ignoredLayers;
+
         while (bounceCount < MAX_REFLECTION_LIMIT)
         {
-            RaycastHit2D hit = Physics2D.Raycast(startPos, direction, defDistanceRay);
+            RaycastHit2D hit = Physics2D.Raycast(startPos, direction, defDistanceRay, raycastMask);
             if (hit)
             {
                 positions.Add(hit.point);
+
+                if (hit.collider.CompareTag("Player"))
+                {
+                    Debug.Log("Laser hit the player!");
+                    break;
+                }
+
+                if (hit.collider.CompareTag("Barrel"))
+                {
+                    Debug.Log("Laser hit a barrel!");
+
+                    if (explosionController != null)
+                    {
+                        Vector3 tileCenter = new Vector3(
+                            Mathf.Floor(hit.point.x) + 0.5f,
+                            Mathf.Floor(hit.point.y) + 0.5f,
+                            0f
+                        );
+
+                        explosionController.ExplodeAt(tileCenter);
+                    }
+
+                    Destroy(hit.collider.gameObject);
+                    break;
+                }
+
+                if(hit.collider.CompareTag("Crate"))
+                {
+                    Debug.Log("Laser hit a crate!");
+                    hit.collider.GetComponent<Crate>()?.DestroySelf();
+                    break;
+                }
 
                 if (hit.collider.TryGetComponent(out LaserReflector reflector))
                 {

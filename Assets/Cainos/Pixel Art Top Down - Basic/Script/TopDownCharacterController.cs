@@ -8,7 +8,7 @@ namespace Cainos.PixelArtTopDown_Basic
     {
         public float speed;
 
-        public BatteryManager batteryManager;
+        // public BatteryManager batteryManager;
 
         private Animator animator;
 
@@ -55,10 +55,10 @@ namespace Cainos.PixelArtTopDown_Basic
 
             Debug.Log("Trigger Entered");
 
-            if (other.CompareTag("Battery"))
-            {
-                batteryManager.batteryCount++;
-            }
+            // if (other.CompareTag("Battery"))
+            // {
+            //     batteryManager.batteryCount++;
+            // }
         }
     }
 }
