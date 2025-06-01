@@ -10,6 +10,7 @@ TagManager:
   - Pot
   - Fence
   - Gold
+  - Key
   layers:
   - Default
   - TransparentFX
@@ -33,8 +34,8 @@ TagManager:
   - LaserIgnore
   - PlayerLayer
   - Collisions
-  - 
-  - 
+  - LaserCollider
+  - Pickups
   - 
   - 
   - 

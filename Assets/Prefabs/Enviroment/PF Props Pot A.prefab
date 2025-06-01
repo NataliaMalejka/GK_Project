@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8045738760120654519}
   - component: {fileID: 6343348737338241514}
   - component: {fileID: 4744532064249662633}
+  - component: {fileID: 1625262188149227045}
   m_Layer: 20
   m_Name: PF Props Pot A
   m_TagString: Pot
@@ -119,7 +120,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -146,6 +147,26 @@ PolygonCollider2D:
       - {x: 0.107274055, y: 0.031965256}
       - {x: 0.20574903, y: 0.11417794}
   m_UseDelaunayMesh: 0
+--- !u!114 &1625262188149227045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2317396161038526658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a1e5dd760f3e5242b6198a5e2804494, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupPrefabs:
+  - {fileID: 0}
+  pickupsToSpawn: 1
+  spawnRadius: 2
+  spawnCollisionMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  walkableTilemap: {fileID: 0}
 --- !u!1 &4849546989847006313
 GameObject:
   m_ObjectHideFlags: 0

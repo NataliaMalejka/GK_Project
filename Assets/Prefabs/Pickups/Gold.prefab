@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8193690548715384211}
   - component: {fileID: 4186721694958471664}
   - component: {fileID: 2537202049676046341}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: Gold
   m_TagString: Gold
   m_Icon: {fileID: 0}
@@ -99,7 +99,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5696700111124372419}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 80c73e36702a7784a8ae0c4d17a0b67c, type: 2}
   m_CullingMode: 0

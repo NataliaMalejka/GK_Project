@@ -163,6 +163,10 @@ MonoBehaviour:
   - {fileID: 5696700111124372419, guid: 06ad9e8150668a94b8d7fab258c14bfe, type: 3}
   pickupsToSpawn: 3
   spawnRadius: 0.5
+  spawnCollisionMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  walkableTilemap: {fileID: 0}
 --- !u!1 &8227713219577680936
 GameObject:
   m_ObjectHideFlags: 0

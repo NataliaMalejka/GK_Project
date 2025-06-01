@@ -1,21 +1,26 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
+/** 
+ * 
+ * @author Krzysztof Gach
+ * @version 1.0
+ */
 public class Fences : MonoBehaviour
 {
     [Header("Health Settings")]
     public int maxHealth = 3;
     public int currentHealth;
-    
+
     [Header("Visual Settings")]
     public Sprite[] damageSprites; // 0 = zdrowy, 1 = lekko uszkodzony, 2 = poważnie uszkodzony
-    
+
     [Header("Collision Settings")]
     public float[] radiusAtHealth; // radius dla każdego poziomu zdrowia [3hp, 2hp, 1hp]
 
     private SpriteRenderer spriteRenderer;
     private CircleCollider2D circleCollider;
-    
+
     public int CurrentHealth { get; private set; }
 
     public void SetHealth(int newHealth)
@@ -41,12 +46,12 @@ public class Fences : MonoBehaviour
     public void TakeDamage(int damage)
     {
         Debug.Log($"Fence {gameObject.name}: Taking {damage} damage. Health before: {currentHealth}");
-        
+
         currentHealth -= damage;
         currentHealth = Mathf.Max(currentHealth, 0);
-        
+
         Debug.Log($"Fence {gameObject.name}: Health after: {currentHealth}");
-        
+
         UpdateSpriteAndRadius();
 
         if (currentHealth <= 0)

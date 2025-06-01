@@ -1,7 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BatterySystem : MonoBehaviour, IGameSystem {
+/** 
+ * 
+ * @author Krzysztof Gach
+ * @version 1.0
+ */
+public class BatterySystem : MonoBehaviour, IGameSystem
+{
     [SerializeField] private int batteryCount = 0;
     [SerializeField] private Text batteryCountText;
 
