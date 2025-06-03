@@ -6,7 +6,7 @@ public class RangeEnemy : Enemy, IRangedAttacker
     private EnemyIdleState idleState;
     private EnemyRangeAttackState attackState;
 
-    [SerializeField] private RangedWeapon bulletPrefab;
+    [SerializeField] private RangedWeapon rangedweapon;
     [SerializeField] private float viewRange;
     [SerializeField] private LayerMask playerLayer;
 
@@ -21,7 +21,7 @@ public class RangeEnemy : Enemy, IRangedAttacker
 
         Dictionary<StateType, State<Enemy>> states = new Dictionary<StateType, State<Enemy>>();
 
-        bulletPool = new ObjectPool<RangedWeapon>(10, bulletPrefab);
+        bulletPool = new ObjectPool<RangedWeapon>(10, rangedweapon);
         RangedWeapon.Pool = bulletPool;
 
         idleState = new EnemyIdleState(this, stateMachine, states);
@@ -52,7 +52,7 @@ public class RangeEnemy : Enemy, IRangedAttacker
 
     public override Weapon GetWeapon()
     {
-        return bulletPrefab;
+        return rangedweapon;
     }
     public RangedWeapon GetRangedWeaponFromPool(Vector3 position)
     {

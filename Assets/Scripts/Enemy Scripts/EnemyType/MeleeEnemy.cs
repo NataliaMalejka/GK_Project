@@ -6,7 +6,7 @@ public class MeleeEnemy : Enemy, IMeleeAttack
     private EnemyIdleState idleState;
     private EnemyFollowState attackState;
 
-    [SerializeField] private Sword sword;
+    [SerializeField] private MeleeWeapon meeleWeapon;
     [SerializeField] private float viewRange;
     [SerializeField] private LayerMask playerLayer;
 
@@ -55,12 +55,12 @@ public class MeleeEnemy : Enemy, IMeleeAttack
 
     public override Weapon GetWeapon()
     {
-        return sword;
+        return meeleWeapon;
     }
 
     public void StartAttack()
     {
-        sword.StartAttack();
+        meeleWeapon.StartAttack();
     }
 
 }
