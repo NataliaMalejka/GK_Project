@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2007798535148782119}
   - component: {fileID: 993094179947055566}
-  m_Layer: 20
+  m_Layer: 0
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 3263448519451830055}
   - component: {fileID: 7251933761290266238}
   - component: {fileID: 2134961687338499739}
-  m_Layer: 20
+  m_Layer: 0
   m_Name: PF Plant - Bush 06
   m_TagString: Untagged
   m_Icon: {fileID: 0}

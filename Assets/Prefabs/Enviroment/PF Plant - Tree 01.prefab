@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 715333223096056532}
   - component: {fileID: 7205263979134865070}
-  m_Layer: 20
+  m_Layer: 0
   m_Name: Upper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2443335318362552107}
   - component: {fileID: 4713276587309222521}
-  m_Layer: 20
+  m_Layer: 0
   m_Name: Lower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -184,7 +184,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7777117422411430033}
   - component: {fileID: 8799622609344651219}
-  m_Layer: 20
+  m_Layer: 0
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -271,7 +271,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2014531491019767519}
   - component: {fileID: 3445598595355391633}
-  m_Layer: 20
+  m_Layer: 0
   m_Name: PF Plant - Tree 01
   m_TagString: Untagged
   m_Icon: {fileID: 0}

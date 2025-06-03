@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1166185159990850358}
   - component: {fileID: 118074936676561179}
   - component: {fileID: 6163704103737159406}
-  m_Layer: 20
+  m_Layer: 0
   m_Name: PF Props Pot B
   m_TagString: Pot
   m_Icon: {fileID: 0}
@@ -159,13 +159,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a1e5dd760f3e5242b6198a5e2804494, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickupPrefabs: []
-  pickupsToSpawn: 0
   spawnRadius: 0.5
+  pickupsToSpawn: 0
   spawnCollisionMask:
     serializedVersion: 2
     m_Bits: 4294967295
   walkableTilemap: {fileID: 0}
+  pickupPrefabs: []
 --- !u!1 &7585646008551350599
 GameObject:
   m_ObjectHideFlags: 0
@@ -176,7 +176,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2976093161906154413}
   - component: {fileID: 3595445607483642841}
-  m_Layer: 20
+  m_Layer: 0
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}

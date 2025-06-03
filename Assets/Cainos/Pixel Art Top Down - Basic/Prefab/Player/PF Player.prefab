@@ -166,6 +166,10 @@ GameObject:
   - component: {fileID: 5628018141983903116}
   - component: {fileID: 5628018141983903117}
   - component: {fileID: 4616719885696106401}
+  - component: {fileID: 804417702825953895}
+  - component: {fileID: 6875913281608876483}
+  - component: {fileID: 6138690735019103040}
+  - component: {fileID: 4047738344774485067}
   m_Layer: 20
   m_Name: PF Player
   m_TagString: Player
@@ -202,7 +206,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  batteryManager: {fileID: 0}
+  pushableDetectRadius: 1
+  damageRadius: 3
+  damageThresholds:
+  - 0.5
+  - 1.5
+  - 3
+  damageValues: 030000000200000001000000
+  batterySystem: {fileID: 804417702825953895}
 --- !u!212 &5628018141983903107
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -353,6 +364,61 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &804417702825953895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5628018141983903104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23489489e33bfd24099054fd7b42a595, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  batteryCount: 0
+  batteryCountText: {fileID: 0}
+--- !u!114 &6875913281608876483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5628018141983903104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e5f07d6f39a90e4798bb41e7f048fb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goldAmount: 0
+  goldAmountText: {fileID: 0}
+--- !u!114 &6138690735019103040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5628018141983903104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e23d5ec971304384d96255324dc10726, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHelath: 100
+--- !u!114 &4047738344774485067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5628018141983903104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41ccac128aee93644b67ec6efb63cfb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyCount: 0
+  keyCountText: {fileID: 0}
 --- !u!1 &8992590557175359213
 GameObject:
   m_ObjectHideFlags: 0

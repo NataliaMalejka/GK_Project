@@ -250,12 +250,12 @@ TextureImporter:
       name: Laser_station_6
       rect:
         serializedVersion: 2
-        x: 38
-        y: 18
+        x: 36
+        y: 19
         width: 24
         height: 24
       alignment: 9
-      pivot: {x: 0.5, y: -0.75}
+      pivot: {x: 0.5, y: -1}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []

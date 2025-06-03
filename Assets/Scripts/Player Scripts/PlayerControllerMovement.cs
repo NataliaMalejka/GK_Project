@@ -8,10 +8,22 @@ namespace Cainos.PixelArtTopDown_Basic
         public float speed;
         public float pushableDetectRadius = 2f;  // radius to find pushables
 
+        [Header("Damage Settings")]
+        public float damageRadius = 3f;
+
+        // Damage thresholds (radii) in ascending order
+        // e.g. [0.5, 1.5, 3.0] means: instant kill radius, heavy damage radius, max damage radius
+        public float[] damageThresholds = new float[] { 0.5f, 1.5f, 3.0f };
+
+        // Corresponding damage values for each threshold
+        // Must have the same length as damageThresholds
+        public int[] damageValues = new int[] { 3, 2, 1 };
+
         private Vector2 currentMoveDir; 
 
         [Header("UI Systems")]
         [SerializeField] private BatterySystem batterySystem;
+        private HealthSystem playerHealth;
 
         private Animator animator;
         private Rigidbody2D rb2d;
@@ -20,6 +32,7 @@ namespace Cainos.PixelArtTopDown_Basic
         {
             animator = GetComponent<Animator>();
             rb2d = GetComponent<Rigidbody2D>();
+            playerHealth = GetComponent<HealthSystem>();
 
             if (batterySystem == null)
             {
@@ -28,6 +41,11 @@ namespace Cainos.PixelArtTopDown_Basic
                 {
                     Debug.LogError("BatterySystem component not found on Player!");
                 }
+            }
+
+            if (playerHealth == null)
+            {
+                Debug.LogError("HealthSystem component missing on Player!");
             }
         }
 

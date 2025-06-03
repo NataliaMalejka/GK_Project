@@ -101,14 +101,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4194ef7ca078b84bb31b1e2ee54b097, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 3
-  currentHealth: 3
+  maxHealth: 2
+  currentHealth: 2
+  destroyOnZeroHealth: 1
   damageSprites:
   - {fileID: -2095906504, guid: 2009aec630ae9114396fe918bdd8b54e, type: 3}
   - {fileID: -1374645642, guid: 2009aec630ae9114396fe918bdd8b54e, type: 3}
-  - {fileID: 0}
   radiusAtHealth:
-  - 3
   - 2
   - 1
 --- !u!61 &6985051415227376705

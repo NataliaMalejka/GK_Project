@@ -2,7 +2,6 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using System.Collections.Generic;
 
-
 public class ExplosionTilemapController : MonoBehaviour
 {
     public Tilemap tilemap;
@@ -24,7 +23,7 @@ public class ExplosionTilemapController : MonoBehaviour
     [Header("Barrel Search Settings")]
     public float barrelSearchRadius = 10f; // Promień w którym szukamy beczek
 
-     public void ExplodeAt(Vector3 worldPos)
+    public void ExplodeAt(Vector3 worldPos)
     {
         // Stwórz hashset tylko raz dla całego łańcucha eksplozji
         HashSet<Fences> damagedFences = new HashSet<Fences>();
@@ -34,72 +33,52 @@ public class ExplosionTilemapController : MonoBehaviour
     private void ExplodeInternal(Vector3 worldPos, HashSet<Fences> damagedFences)
     {
         Vector3Int centerCell = tilemap.WorldToCell(worldPos);
-
-        // 1) Uszkodzenia dla płotków
+        int radiusInCells = Mathf.CeilToInt(explosionRadius);
+        
         ApplyDamageToFences(worldPos, damagedFences);
 
-        // 2) Uszkodzenia dla gracza
-        ApplyDamageToPlayer(worldPos);
-
-        // Własna eksplozja w centrum
-        HandleExplosionAtCell(centerCell, worldPos, damagedFences);
-
-        // Kierunki rozchodzenia się eksplozji
-        Vector3Int[] directions = new Vector3Int[]
+        for (int x = -radiusInCells; x <= radiusInCells; x++)
         {
-            Vector3Int.up,
-            Vector3Int.down,
-            Vector3Int.left,
-            Vector3Int.right
-        };
-
-        foreach (var dir in directions)
-        {
-            for (int i = 1; i <= explosionRadius; i++)
+            for (int y = -radiusInCells; y <= radiusInCells; y++)
             {
-                Vector3Int nextCell = centerCell + dir * i;
+                Vector3Int checkCell = centerCell + new Vector3Int(x, y, 0);
+                float dist = Vector2.Distance(
+                    new Vector2(centerCell.x, centerCell.y),
+                    new Vector2(checkCell.x, checkCell.y)
+                );
 
-                if (IsObstacleBetween(centerCell, nextCell)) break;
-
-                Vector3 worldCenter = tilemap.CellToWorld(nextCell) + tilemap.cellSize / 2f;
-
-                // Sprawdź, czy eksplozja została zablokowana przez płotek
-                Collider2D[] hits = Physics2D.OverlapCircleAll(worldCenter, 0.4f);
-                bool blockedByFence = false;
-
-                foreach (var hit in hits)
+                if (dist <= explosionRadius && !IsObstacleBetween(centerCell, checkCell))
                 {
-                    Fences fence = hit.GetComponent<Fences>();
-                    if (fence != null && !damagedFences.Contains(fence))
+                    Vector3 worldCenter = tilemap.CellToWorld(checkCell) + tilemap.cellSize / 2f;
+                    bool skipExplosionTile = false;
+
+                    // Sprawdź czy jest Fence w tej komórce
+                    Collider2D[] hits = Physics2D.OverlapCircleAll(worldCenter, 0.4f);
+                    foreach (var hit in hits)
                     {
-                        Vector3 closestBarrelPos = FindClosestBarrel(hit.transform.position);
-                        Vector3 damageOrigin = closestBarrelPos != Vector3.zero ? closestBarrelPos : worldPos;
-                        float distance = Vector2.Distance(damageOrigin, hit.transform.position);
-                        int damage = CalculateDamageByDistance(distance);
+                        Fences fence = hit.GetComponent<Fences>();
+                        if (fence != null)
+                        {
+                            // Znajdź najbliższą beczkę dla tego płotka
+                            Vector3 closestBarrelPos = FindClosestBarrel(hit.transform.position);
 
-                        fence.TakeDamage(damage);
-                        damagedFences.Add(fence);
+                            // Oblicz odległość od najbliższej beczki (lub od centrum wybuchu jeśli brak beczek)
+                            Vector3 damageOrigin = closestBarrelPos != Vector3.zero ? closestBarrelPos : worldPos;
+                            float distance = Vector2.Distance(damageOrigin, hit.transform.position);
+                            int projectedDamage = CalculateDamageByDistance(distance);
+                            Debug.Log($"[CELL CHECK] Płotek {fence.name} w komórce {checkCell} - przewidywane obrażenia: {projectedDamage} (odległość: {distance:F2})");
+                        }
+                    }
 
-                        Debug.Log($"[BLOCKED] Eksplozja zatrzymana przez płotek {fence.name} (cell: {nextCell}) z obrażeniami {damage}");
-                        blockedByFence = true;
-                        break;
+                    HandleTaggedDestruction(checkCell, damagedFences);
+
+                    if (!skipExplosionTile)
+                    {
+                        tilemap.SetTile(checkCell, explosionTile);
                     }
                 }
-
-                if (blockedByFence)
-                    break; // nie rozprzestrzeniaj dalej
-
-                HandleExplosionAtCell(nextCell, worldPos, damagedFences);
             }
         }
-    }
-
-    private void HandleExplosionAtCell(Vector3Int cell, Vector3 explosionOrigin, HashSet<Fences> damagedFences)
-    {
-        Vector3 worldCenter = tilemap.CellToWorld(cell) + tilemap.cellSize / 2f;
-
-        tilemap.SetTile(cell, explosionTile);
-        HandleTaggedDestruction(cell, damagedFences);
     }
 
     private Vector3 FindClosestBarrel(Vector3 fencePosition)
@@ -132,48 +111,6 @@ public class ExplosionTilemapController : MonoBehaviour
         }
 
         return closestBarrelPosition;
-    }
-
-    private void ApplyDamageToFences(Vector3 explosionCenter, HashSet<Fences> damagedFences)
-    {
-        Collider2D[] hits = Physics2D.OverlapCircleAll(explosionCenter, damageRadius);
-
-        foreach (var hit in hits)
-        {
-            Fences fence = hit.GetComponent<Fences>();
-            if (fence != null && !damagedFences.Contains(fence))
-            {
-                // Znajdź najbliższą beczkę dla tego płotka
-                Vector3 closestBarrelPos = FindClosestBarrel(hit.transform.position);
-
-                // Oblicz odległość od najbliższej beczki (lub od centrum wybuchu jeśli brak beczek)
-                Vector3 damageOrigin = closestBarrelPos != Vector3.zero ? closestBarrelPos : explosionCenter;
-                float distance = Vector2.Distance(damageOrigin, hit.transform.position);
-
-                Debug.Log($"[DAMAGE CALC] Płotek {hit.name} otrzyma obrażenia na podstawie odległości {distance:F2} od {(closestBarrelPos != Vector3.zero ? "beczki" : "centrum wybuchu")}");
-
-                if (distance <= instantKillRadius)
-                {
-                    Debug.Log($"[INSTANT KILL] Płotek {fence.name} zniszczony natychmiastowo (odległość: {distance:F2} <= {instantKillRadius})");
-                    Destroy(fence.gameObject);
-                    damagedFences.Add(fence);
-                }
-                else
-                {
-                    int damage = CalculateDamageByDistance(distance);
-                    if (damage > 0)
-                    {
-                        Debug.Log($"[DAMAGE APPLIED] Płotek {fence.name} otrzymuje {damage} obrażeń (odległość: {distance:F2})");
-                        fence.TakeDamage(damage);
-                        damagedFences.Add(fence);
-                    }
-                    else
-                    {
-                        Debug.Log($"[NO DAMAGE] Płotek {fence.name} poza zasięgiem obrażeń (odległość: {distance:F2})");
-                    }
-                }
-            }
-        }
     }
 
     private int CalculateDamageByDistance(float distance)
@@ -251,6 +188,48 @@ public class ExplosionTilemapController : MonoBehaviour
         }
     }
 
+    private void ApplyDamageToFences(Vector3 explosionCenter, HashSet<Fences> damagedFences)
+    {
+        Collider2D[] hits = Physics2D.OverlapCircleAll(explosionCenter, damageRadius);
+
+        foreach (var hit in hits)
+        {
+            Fences fence = hit.GetComponent<Fences>();
+            if (fence != null && !damagedFences.Contains(fence))
+            {
+                // Znajdź najbliższą beczkę dla tego płotka
+                Vector3 closestBarrelPos = FindClosestBarrel(hit.transform.position);
+                
+                // Oblicz odległość od najbliższej beczki (lub od centrum wybuchu jeśli brak beczek)
+                Vector3 damageOrigin = closestBarrelPos != Vector3.zero ? closestBarrelPos : explosionCenter;
+                float distance = Vector2.Distance(damageOrigin, hit.transform.position);
+
+                Debug.Log($"[DAMAGE CALC] Płotek {hit.name} otrzyma obrażenia na podstawie odległości {distance:F2} od {(closestBarrelPos != Vector3.zero ? "beczki" : "centrum wybuchu")}");
+
+                if (distance <= instantKillRadius)
+                {
+                    Debug.Log($"[INSTANT KILL] Płotek {fence.name} zniszczony natychmiastowo (odległość: {distance:F2} <= {instantKillRadius})");
+                    Destroy(fence.gameObject);
+                    damagedFences.Add(fence);
+                }
+                else
+                {
+                    int damage = CalculateDamageByDistance(distance);
+                    if (damage > 0)
+                    {
+                        Debug.Log($"[DAMAGE APPLIED] Płotek {fence.name} otrzymuje {damage} obrażeń (odległość: {distance:F2})");
+                        fence.TakeDamage(damage);
+                        damagedFences.Add(fence);
+                    }
+                    else
+                    {
+                        Debug.Log($"[NO DAMAGE] Płotek {fence.name} poza zasięgiem obrażeń (odległość: {distance:F2})");
+                    }
+                }
+            }
+        }
+    }
+
     private bool IsObstacleBetween(Vector3Int fromCell, Vector3Int toCell)
     {
         Vector3 fromWorld = tilemap.CellToWorld(fromCell) + tilemap.cellSize / 2f;
@@ -261,26 +240,6 @@ public class ExplosionTilemapController : MonoBehaviour
         direction.Normalize();
 
         return Physics2D.Raycast(fromWorld, direction, distance, obstacleLayers);
-    }
-
-    private void ApplyDamageToPlayer(Vector3 explosionCenter)
-    {
-        // Załóżmy, że gracz ma tag "Player" i komponent PlayerHealth
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        if (player == null) return;
-
-        HealthSystem playerHealth = player.GetComponent<HealthSystem>();
-        if (playerHealth == null) return;
-
-        float distance = Vector2.Distance(explosionCenter, player.transform.position);
-
-        if (distance > damageRadius) return; // poza zasięgiem obrażeń
-
-        int damage = CalculateDamageByDistance(distance);
-
-        Debug.Log($"[PLAYER DAMAGE] Gracz otrzymuje {damage} obrażeń (odległość od eksplozji: {distance:F2})");
-
-        playerHealth.GetDmg(damage);
     }
 
     private void OnDrawGizmosSelected()

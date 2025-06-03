@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5921146417271438763}
   - component: {fileID: 5511764573355692337}
   - component: {fileID: 8896743483382159599}
+  - component: {fileID: 817542817011116889}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -70,3 +71,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce1a48080931ffa45be2f808015bfc2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &817542817011116889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7031886132458555525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6584c34927bb3e40a3382ce2a40bea3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tilemap: {fileID: 0}
+  explosionTile: {fileID: 11400000, guid: c2280e1a21bd26b4d983df96f59795bc, type: 2}
+  explosionRadius: 3
+  obstacleLayers:
+    serializedVersion: 2
+    m_Bits: 2097153
+  maxDamage: 3
+  damageRadius: 3
+  instantKillRadius: 1
+  heavyDamageRadius: 2
+  instantKillDamage: 3
+  heavyDamage: 2
+  lightDamage: 1
+  barrelSearchRadius: 3

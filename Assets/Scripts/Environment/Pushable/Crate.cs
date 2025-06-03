@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class Crate : DestructibleWithPickup
 {
-    [Header("Pickup to spawn after destruction")]
-    public GameObject pickupPrefab;
+    [Header("Pickups to spawn after destruction")]
+    public GameObject[] pickupPrefabs;
 
     protected override GameObject[] GetPickupPrefabs()
     {
-        return pickupPrefab != null ? new GameObject[] { pickupPrefab } : null;
+        return pickupPrefabs;
     }
 }

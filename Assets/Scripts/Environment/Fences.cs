@@ -1,10 +1,10 @@
 using UnityEngine;
-using UnityEngine.Tilemaps;
 
-/** 
+/**
+ * Handles fence health, visuals, collider radius, and explosion damage.
  * 
  * @author Krzysztof Gach
- * @version 1.0
+ * @version 1.2
  */
 public class Fences : MonoBehaviour
 {
@@ -12,21 +12,19 @@ public class Fences : MonoBehaviour
     public int maxHealth = 3;
     public int currentHealth;
 
+    [Header("Destroy Settings")]
+    public bool destroyOnZeroHealth = true;
+
     [Header("Visual Settings")]
-    public Sprite[] damageSprites; // 0 = zdrowy, 1 = lekko uszkodzony, 2 = poważnie uszkodzony
+    public Sprite[] damageSprites; // 0 = healthy, 1 = medium, 2 = low health
 
     [Header("Collision Settings")]
-    public float[] radiusAtHealth; // radius dla każdego poziomu zdrowia [3hp, 2hp, 1hp]
+    public float[] radiusAtHealth; // [3hp, 2hp, 1hp]
 
     private SpriteRenderer spriteRenderer;
     private CircleCollider2D circleCollider;
 
     public int CurrentHealth { get; private set; }
-
-    public void SetHealth(int newHealth)
-    {
-        CurrentHealth = Mathf.Clamp(newHealth, 0, 3);
-    }
 
     private void Awake()
     {
@@ -34,10 +32,9 @@ public class Fences : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         circleCollider = GetComponent<CircleCollider2D>();
 
-        // Domyślne wartości radiusów jeśli nie zostały ustawione
         if (radiusAtHealth == null || radiusAtHealth.Length == 0)
         {
-            radiusAtHealth = new float[] { 0.5f, 0.3f, 0.15f }; // pełne zdrowie, uszkodzony, bardzo uszkodzony
+            radiusAtHealth = new float[] { 0.5f, 0.3f, 0.15f };
         }
 
         UpdateSpriteAndRadius();
@@ -56,14 +53,80 @@ public class Fences : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            Debug.Log($"Fence {gameObject.name}: Destroyed!");
-            Destroy(gameObject);
+            if (destroyOnZeroHealth)
+            {
+                Debug.Log($"Fence {gameObject.name}: Destroyed!");
+                Destroy(gameObject);
+            }
+            else
+            {
+                Debug.Log($"Fence {gameObject.name}: Disabled (not destroyed).");
+                if (circleCollider != null)
+                    circleCollider.enabled = false;
+
+                if (spriteRenderer != null)
+                    spriteRenderer.color = new Color(1f, 1f, 1f, 0.4f); // semi-transparent
+            }
         }
+    }
+
+    public void ApplyExplosionDamage(Vector3 explosionCenter, float damageRadius, float instantKillRadius, Vector3[] barrelPositions)
+    {
+        Vector3 closestBarrel = FindClosestBarrel(barrelPositions);
+        Vector3 damageOrigin = closestBarrel != Vector3.zero ? closestBarrel : explosionCenter;
+        float distance = Vector2.Distance(damageOrigin, transform.position);
+
+        if (distance > damageRadius)
+        {
+            Debug.Log($"[NO DAMAGE] {name} is outside the damage radius.");
+            return;
+        }
+
+        if (distance <= instantKillRadius)
+        {
+            Debug.Log($"[INSTANT KILL] {name} destroyed instantly (distance: {distance:F2} <= {instantKillRadius})");
+            Destroy(gameObject);
+            return;
+        }
+
+        int damage = CalculateDamageByDistance(distance, damageRadius);
+        if (damage > 0)
+        {
+            Debug.Log($"[DAMAGE APPLIED] {name} takes {damage} damage (distance: {distance:F2})");
+            TakeDamage(damage);
+        }
+        else
+        {
+            Debug.Log($"[NO DAMAGE] {name} within radius but damage is 0 (distance: {distance:F2})");
+        }
+    }
+
+    private Vector3 FindClosestBarrel(Vector3[] barrelPositions)
+    {
+        Vector3 closest = Vector3.zero;
+        float minDist = float.MaxValue;
+
+        foreach (var pos in barrelPositions)
+        {
+            float dist = Vector2.Distance(pos, transform.position);
+            if (dist < minDist)
+            {
+                minDist = dist;
+                closest = pos;
+            }
+        }
+
+        return closest;
+    }
+
+    private int CalculateDamageByDistance(float distance, float maxRadius)
+    {
+        float normalized = 1f - (distance / maxRadius);
+        return Mathf.CeilToInt(normalized * maxHealth); // e.g. maxHealth = max damage
     }
 
     private void UpdateSpriteAndRadius()
     {
-        // Aktualizuj sprite na podstawie zdrowia
         if (currentHealth == maxHealth && damageSprites.Length > 0)
         {
             spriteRenderer.sprite = damageSprites[0];
@@ -77,7 +140,6 @@ public class Fences : MonoBehaviour
             spriteRenderer.sprite = damageSprites[2];
         }
 
-        // Aktualizuj radius kolizji na podstawie zdrowia
         UpdateCollisionRadius();
     }
 
@@ -85,27 +147,24 @@ public class Fences : MonoBehaviour
     {
         if (circleCollider == null) return;
 
-        // Ustaw radius na podstawie aktualnego zdrowia
         if (currentHealth == maxHealth && radiusAtHealth.Length > 0)
         {
-            circleCollider.radius = radiusAtHealth[0]; // pełne zdrowie
+            circleCollider.radius = radiusAtHealth[0];
         }
         else if (currentHealth == 2 && radiusAtHealth.Length > 1)
         {
-            circleCollider.radius = radiusAtHealth[1]; // uszkodzony
+            circleCollider.radius = radiusAtHealth[1];
         }
         else if (currentHealth == 1 && radiusAtHealth.Length > 2)
         {
-            circleCollider.radius = radiusAtHealth[2]; // bardzo uszkodzony
+            circleCollider.radius = radiusAtHealth[2];
         }
         else if (currentHealth > 0)
         {
-            // Fallback - użyj ostatniego dostępnego radiusu
             circleCollider.radius = radiusAtHealth[radiusAtHealth.Length - 1];
         }
     }
 
-    // Pomocnicza metoda do debugowania - pokaż aktualny radius w Scene View
     private void OnDrawGizmosSelected()
     {
         if (circleCollider != null)
@@ -115,7 +174,7 @@ public class Fences : MonoBehaviour
         }
     }
 
-    // Opcjonalna metoda do ręcznego ustawienia zdrowia (do testowania)
+    // Context menu utilities for testing
     [ContextMenu("Set Health to 1")]
     public void SetHealthToOne()
     {

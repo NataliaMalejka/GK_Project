@@ -97,7 +97,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6803869905093336867}
   - component: {fileID: 8494189633855846284}
-  m_Layer: 20
+  m_Layer: 0
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -186,7 +186,7 @@ GameObject:
   - component: {fileID: 3708300685282820602}
   - component: {fileID: 4436231738192075484}
   - component: {fileID: 544879583359556866}
-  m_Layer: 20
+  m_Layer: 0
   m_Name: PF Props Altar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -599,7 +599,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3072308113962983740}
-  m_Layer: 20
+  m_Layer: 0
   m_Name: Rune
   m_TagString: Untagged
   m_Icon: {fileID: 0}

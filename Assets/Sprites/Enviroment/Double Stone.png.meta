@@ -1,19 +1,10 @@
 fileFormatVersion: 2
-guid: 318d965b01bbd974aaa6812f9fd9c335
+guid: 0ef4c8a93f094a5479a30b408b3ddfd9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 9024456277726564719
-    second: reflektor_0
-  - first:
-      213: -8606592872966773195
-    second: reflektor_1
-  - first:
-      213: 3813108928553958527
-    second: reflektor_2
-  - first:
-      213: -5013087617516042344
-    second: reflektor_3
+      213: 4813258741263324184
+    second: Double Stone_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -109,89 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: reflektor_0
+      name: Double Stone_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 135
-        width: 33
-        height: 49
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        y: 46
+        width: 64
+        height: 46
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f619fe4cb2f4d3d70800000000000000
-      internalID: 9024456277726564719
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: reflektor_1
-      rect:
-        serializedVersion: 2
-        x: 63
-        y: 135
-        width: 34
-        height: 37
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5362868b16d3f8880800000000000000
-      internalID: -8606592872966773195
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: reflektor_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 87
-        width: 33
-        height: 37
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f7c34582e52eae430800000000000000
-      internalID: 3813108928553958527
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: reflektor_3
-      rect:
-        serializedVersion: 2
-        x: 63
-        y: 87
-        width: 34
-        height: 37
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8970c025f5fed6ab0800000000000000
-      internalID: -5013087617516042344
+      spriteID: 8145b0dc2512cc240800000000000000
+      internalID: 4813258741263324184
       vertices: []
       indices: 
       edges: []
@@ -200,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: a13ab852f9960c542a4a8de6dece72e9
     internalID: 0
     vertices: []
     indices: 
@@ -210,10 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      reflektor_0: 9024456277726564719
-      reflektor_1: -8606592872966773195
-      reflektor_2: 3813108928553958527
-      reflektor_3: -5013087617516042344
+      Double Stone_0: 4813258741263324184
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

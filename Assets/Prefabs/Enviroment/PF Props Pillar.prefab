@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5984286534858544686}
   - component: {fileID: 5235633455701836623}
-  m_Layer: 20
+  m_Layer: 0
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 6483354623541388222}
   - component: {fileID: 17106946640226526}
   - component: {fileID: 8090620205087095376}
-  m_Layer: 20
+  m_Layer: 0
   m_Name: PF Props Pillar
   m_TagString: Untagged
   m_Icon: {fileID: 0}

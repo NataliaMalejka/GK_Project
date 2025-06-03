@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8726926104445236177}
   - component: {fileID: 5400193101564278995}
   - component: {fileID: 3093955079014368631}
-  m_Layer: 20
+  m_Layer: 0
   m_Name: PF Props Stone Coffin V
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,7 +145,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6365629256105174292}
   - component: {fileID: 5773551336170997430}
-  m_Layer: 20
+  m_Layer: 0
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}

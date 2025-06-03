@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public abstract class DestructibleWithPickup : MonoBehaviour
+public abstract class DestructibleWithPickup : MonoBehaviour, IDestructible
 {
     [Header("Pickup Settings")]
     public float spawnRadius = 0.5f;
@@ -13,7 +13,7 @@ public abstract class DestructibleWithPickup : MonoBehaviour
 
     private bool isDestroyed = false;
 
-    public void DestroySelf()
+    public virtual void DestroySelf()
     {
         if (isDestroyed) return;
         isDestroyed = true;
