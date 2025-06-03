@@ -16,20 +16,23 @@ public class EnemyIdleState : State<Enemy>
     {
         controller.rb.linearVelocity = Vector3.zero;
 
-        int closestIndex = 0;
-        float closestDistance = float.MaxValue;
-
-        for (int i = 0; i < controller.wayPoints.Length; i++)
+        if (controller is IMeleeAttack rangedAttacker)
         {
-            float dist = Vector2.Distance(controller.transform.position, controller.wayPoints[i].transform.position);
-            if (dist < closestDistance)
-            {
-                closestDistance = dist;
-                closestIndex = i;
-            }
-        }
+            int closestIndex = 0;
+            float closestDistance = float.MaxValue;
 
-        nextWaypoint = closestIndex;
+            for (int i = 0; i < controller.wayPoints.Length; i++)
+            {
+                float dist = Vector2.Distance(controller.transform.position, controller.wayPoints[i].transform.position);
+                if (dist < closestDistance)
+                {
+                    closestDistance = dist;
+                    closestIndex = i;
+                }
+            }
+
+            nextWaypoint = closestIndex;
+        }
 
         if (!IsFacingWaypoint())
             TakeTurn();

@@ -6,7 +6,7 @@ public class RangeEnemy : Enemy, IRangedAttacker
     private EnemyIdleState idleState;
     private EnemyRangeAttackState attackState;
 
-    [SerializeField] private Bullet bulletPrefab;
+    [SerializeField] private RangedWeapon bulletPrefab;
     [SerializeField] private float viewRange;
     [SerializeField] private LayerMask playerLayer;
 
