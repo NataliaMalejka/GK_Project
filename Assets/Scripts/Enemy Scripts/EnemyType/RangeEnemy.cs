@@ -7,6 +7,7 @@ public class RangeEnemy : Enemy, IRangedAttacker
     private EnemyRangeAttackState attackState;
 
     [SerializeField] private RangedWeapon rangedweapon;
+    public int rangedweaponCount;
     [SerializeField] private float viewRange;
     [SerializeField] private LayerMask playerLayer;
 
@@ -54,9 +55,20 @@ public class RangeEnemy : Enemy, IRangedAttacker
     {
         return rangedweapon;
     }
+
     public RangedWeapon GetRangedWeaponFromPool(Vector3 position)
     {
-        return bulletPool.GetObjectFromPool(position);
+        return bulletPool.GetObjectFromPool(position, null);
+    }
+
+    public RangedWeapon GetRangedWeaponFromPoolAndSetDirection(Vector3 position, Vector3 dir)
+    {
+        return bulletPool.GetObjectFromPool(position, dir);
+    }
+
+    public int GetRangedWeaponCount()
+    {
+        return rangedweaponCount;
     }
 
     private void OnDrawGizmos()

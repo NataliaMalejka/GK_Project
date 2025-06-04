@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.UI.Image;
 
 public class EnemyRangeAttackState : State<Enemy>
 {
@@ -40,7 +41,23 @@ public class EnemyRangeAttackState : State<Enemy>
     {
         if (controller is IRangedAttacker rangedAttacker)
         {
-            RangedWeapon weapon = rangedAttacker.GetRangedWeaponFromPool(controller.transform.position);
+            int count = rangedAttacker.GetRangedWeaponCount();
+
+            if (count == 1)
+            {
+                RangedWeapon weapon = rangedAttacker.GetRangedWeaponFromPool(controller.transform.position);
+            }
+            else
+            {
+                for (int i = 0; i < count; i++)
+                {
+                    float angle = i * (360f / count);
+                    float radians = angle * Mathf.Deg2Rad;
+                    Vector3 direction = new Vector3(Mathf.Cos(radians), Mathf.Sin(radians), 0f).normalized;
+
+                    RangedWeapon bullet = rangedAttacker.GetRangedWeaponFromPoolAndSetDirection(controller.transform.position, direction);
+                }
+            }
            
         }
     }

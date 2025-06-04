@@ -351,7 +351,8 @@ MonoBehaviour:
   - {fileID: 8392724943883185900}
   seePlayer: 0
   rb: {fileID: 0}
-  meeleWeapon: {fileID: 0}
+  meeleWeapon: {fileID: 8969835671338633544, guid: 429a25fddafdebc4db37b48365b76ff7,
+    type: 3}
   viewRange: 7
   playerLayer:
     serializedVersion: 2

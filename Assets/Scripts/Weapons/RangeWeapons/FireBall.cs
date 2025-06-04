@@ -42,6 +42,12 @@ public class FireBall : RangedWeapon, IFixedUpdateObserver
         currentLifeTime = 0f;
     }
 
+    public override void OnGetFromPool(Vector3 dir)
+    {
+        direction = dir;
+        currentLifeTime = 0f;
+    }
+
     public void RetunToPool()
     {
         rb.linearVelocity = Vector2.zero;

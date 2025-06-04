@@ -68,6 +68,11 @@ PrefabInstance:
       propertyPath: sword
       value: 
       objectReference: {fileID: 8896869502481367958}
+    - target: {fileID: 9180196644225531418, guid: 5b630a08e9fa7204584530d668ab0b1d,
+        type: 3}
+      propertyPath: meeleWeapon
+      value: 
+      objectReference: {fileID: 8896869502481367958}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 2955303823823480006, guid: 5b630a08e9fa7204584530d668ab0b1d, type: 3}

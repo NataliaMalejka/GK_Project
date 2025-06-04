@@ -69,6 +69,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4374265903480653811, guid: f740661e9859c04439b5b1b9a889bc34,
         type: 3}
+    - target: {fileID: 2813321540713864654, guid: 4ab7b677feb662e49933361f4e05f9a6,
+        type: 3}
+      propertyPath: rangedweapon
+      value: 
+      objectReference: {fileID: 4374265903480653811, guid: f740661e9859c04439b5b1b9a889bc34,
+        type: 3}
     - target: {fileID: 4136357932779428883, guid: 4ab7b677feb662e49933361f4e05f9a6,
         type: 3}
       propertyPath: m_Sprite

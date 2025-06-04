@@ -30,7 +30,7 @@ public class ObjectPool<T> where T: MonoBehaviour, IPoolable
         return obj;
     }
 
-    public T GetObjectFromPool(Vector3? spawnPosition = null)
+    public T GetObjectFromPool(Vector3? spawnPosition = null, Vector3? dir = null)
     {
         T obj = (pool.Count > 0) ? pool.Dequeue() : CreateNewObject();
         obj.gameObject.SetActive(true);
@@ -40,7 +40,15 @@ public class ObjectPool<T> where T: MonoBehaviour, IPoolable
             obj.transform.position = spawnPosition.Value;
         }
 
-        obj.OnGetFromPool();
+        if (dir.HasValue)
+        {
+            obj.OnGetFromPool(dir.Value);
+        }
+        else
+        {
+            obj.OnGetFromPool();
+        }
+        
         return obj;
     }
 
