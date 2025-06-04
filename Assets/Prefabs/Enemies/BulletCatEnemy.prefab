@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 20206254284263070}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.79, y: 0, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -182,8 +182,7 @@ MonoBehaviour:
   - {fileID: 406812155505914710}
   seePlayer: 0
   rb: {fileID: 0}
-  bulletPrefab: {fileID: 5361991904607399351, guid: 88642fe0da03b264bae4ee61c86a5d67,
-    type: 3}
+  rangedweapon: {fileID: 0}
   viewRange: 5
   playerLayer:
     serializedVersion: 2
@@ -242,7 +241,7 @@ GameObject:
   m_Component:
   - component: {fileID: 145342111428493147}
   m_Layer: 0
-  m_Name: BrownCatEnemy
+  m_Name: BulletCatEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
