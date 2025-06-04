@@ -29,26 +29,25 @@ public class PlayerIdleState : State<PlayerController>
             {
                 Player.Instance.staminaSystem.ReduceStamina(controller.dashNeededStamina);
                 stateMachine.ChangeState(controller.playerDashState);
-            }
-            
+            }          
         }
     }
 
     private void UpdateAttack()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && controller.cooldowntimer <= 0f) 
         {
             controller.weapon = Player.Instance.weaponSwitcher.GetCurrentWeapon();
 
-            if (controller.weapon != null && !controller.weapon.gameObject.activeSelf)
+            if (controller.weapon != null)
             {
                 if (Player.Instance.staminaSystem.currentStamina >= controller.weapon.neededStamina && Player.Instance.manaSystem.currentmMna >= controller.weapon.neededMana)
 
                 Player.Instance.staminaSystem.ReduceStamina(controller.weapon.neededStamina);
                 Player.Instance.manaSystem.ReudceMana(controller.weapon.neededMana);
                 
-                //animacja gracza
-                //trigger
+                controller.weapon.StartAttack();
+                controller.cooldowntimer = controller.weapon.cooldown;
             }
 
         }

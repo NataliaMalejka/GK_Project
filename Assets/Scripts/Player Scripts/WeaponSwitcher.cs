@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class WeaponSwitcher : MonoBehaviour
 {
-    public List<Weapon> weapons = new List<Weapon>();
+    public List<MeleeWeapon> weapons = new List<MeleeWeapon>();
     private int currentWeaponIndex = 0;
-    private Weapon currentWeapon;
+    private MeleeWeapon currentWeapon;
 
     private void Start()
     {
@@ -41,7 +41,7 @@ public class WeaponSwitcher : MonoBehaviour
         currentWeapon = weapons[currentWeaponIndex];
     }
 
-    public Weapon GetCurrentWeapon()
+    public MeleeWeapon GetCurrentWeapon()
     {
         return currentWeapon;
     }

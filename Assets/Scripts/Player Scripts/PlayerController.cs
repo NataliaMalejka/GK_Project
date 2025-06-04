@@ -19,7 +19,9 @@ public class PlayerController : MonoBehaviour, IUpdateObserver, IFixedUpdateObse
     [HideInInspector] public PlayerIdleState playerIdleState;
     [HideInInspector] public PlayerDashState playerDashState;
 
-    public Weapon weapon;
+    [Header("Weapon")]
+    [HideInInspector] public float cooldowntimer = 0f;
+    [HideInInspector] public MeleeWeapon weapon;
 
     private void OnEnable()
     {
@@ -56,7 +58,13 @@ public class PlayerController : MonoBehaviour, IUpdateObserver, IFixedUpdateObse
 
     public void ObserveFixedUpdate() 
     {
-        stateMachine.FixedUpdateCurrentState();   
+        stateMachine.FixedUpdateCurrentState();
+        cooldownTimerUpdate();
+    }
+
+    private void cooldownTimerUpdate()
+    {
+        cooldowntimer -= Time.fixedDeltaTime;
     }
 
     public void ObserveLateUpdate()
