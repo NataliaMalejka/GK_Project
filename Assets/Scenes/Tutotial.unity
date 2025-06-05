@@ -13733,12 +13733,12 @@ PrefabInstance:
     - target: {fileID: 3263448519451830055, guid: 02c1fe84e5fd9a748ba3f9b07b543472,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -22.999908
+      value: -23
       objectReference: {fileID: 0}
     - target: {fileID: 3263448519451830055, guid: 02c1fe84e5fd9a748ba3f9b07b543472,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3263448519451830055, guid: 02c1fe84e5fd9a748ba3f9b07b543472,
         type: 3}
@@ -19593,24 +19593,6 @@ Tilemap:
       e31: 0
       e32: 0
       e33: 1
-  - m_RefCount: 0
-    m_Data:
-      e00: 0
-      e01: 0
-      e02: 1e-45
-      e03: 6.917536e+19
-      e10: 0
-      e11: 0
-      e12: 0
-      e13: 8.34e-43
-      e20: 240026.25
-      e21: 6.917536e+19
-      e22: -2.009842
-      e23: -7.4016824e-19
-      e30: 4.5914e-41
-      e31: 8.34e-43
-      e32: 8.37e-43
-      e33: 8.34e-43
   m_TileColorArray:
   - m_RefCount: 153
     m_Data: {r: 1, g: 1, b: 1, a: 1}
@@ -27743,7 +27725,7 @@ PrefabInstance:
     - target: {fileID: 5628018141983903106, guid: ef67ba864d1ecc042b5f4cf48455c0a6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.5
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 5628018141983903106, guid: ef67ba864d1ecc042b5f4cf48455c0a6,
         type: 3}

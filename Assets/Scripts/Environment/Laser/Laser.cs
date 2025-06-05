@@ -142,10 +142,22 @@ public class Laser : MonoBehaviour
                     break;
                 }
 
-                if(hit.collider.CompareTag("Crate"))
+                if (hit.collider.CompareTag("Crate"))
                 {
-                    Debug.Log("Laser hit a crate!");
-                    hit.collider.GetComponent<Crate>()?.DestroySelf();
+                    Debug.Log($"Laser hit a crate: {hit.collider.name}");
+
+                    // Get Crate component from parent or self
+                    var crate = hit.collider.GetComponentInParent<Crate>();
+                    if (crate == null)
+                    {
+                        Debug.LogWarning("Tagged 'Crate' but no Crate component found in parent!");
+                    }
+                    else
+                    {
+                        crate.DestroySelf();
+                        Debug.Log("Called DestroySelf() on crate");
+                    }
+
                     break;
                 }
 
