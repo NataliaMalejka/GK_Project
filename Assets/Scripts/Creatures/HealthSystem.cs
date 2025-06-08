@@ -1,27 +1,43 @@
 using System.Collections;
-using System.Runtime.CompilerServices;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class HealthSystem : MonoBehaviour
 {
     [SerializeField] private int maxHelath;
-    private int currentHelath;
+    public int currentHelath;
 
     private void Awake()
     {
         currentHelath = maxHelath;
     }
 
-    public void GetDmg(int dmg)
+    public void GetDmg(int dmg, int duration)
+    {
+        if(duration > 1)
+        {
+            ApplyDamageOverTime(dmg, duration);
+        }
+        else
+        {
+            ReduceHealth(dmg);
+        }          
+    }
+
+    private void ReduceHealth(int dmg)
     {
         currentHelath -= dmg;
 
-        if(currentHelath <= 0)
+        if (currentHelath <= 0)
         {
             currentHelath = 0;
-            Die();
-        }               
+
+            IDamageable damageable = this.gameObject.GetComponent<IDamageable>();
+
+            if (damageable != null)
+            {
+                damageable.Die();
+            }
+        }
     }
 
     public void ApplyDamageOverTime(int damagePerSecond, int duration)
@@ -35,8 +51,8 @@ public class HealthSystem : MonoBehaviour
 
         while (elapsed < duration)
         {
-            GetDmg(damagePerSecond);
-            yield return new WaitForSeconds(1f);
+            GetDmg(damagePerSecond, 0);
+            yield return new WaitForSeconds(0.5f);
             elapsed += 1f;
         }
     }
@@ -55,10 +71,5 @@ public class HealthSystem : MonoBehaviour
     {
         maxHelath += amound;
         Heal(amound);
-    }
-
-    private void Die()
-    {
-
     }
 }

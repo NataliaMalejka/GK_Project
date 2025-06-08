@@ -71,6 +71,11 @@ public class RangeEnemy : Enemy, IRangedAttacker
         return rangedweaponCount;
     }
 
+    public GameObject GetController()
+    {
+        return this.gameObject;
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;

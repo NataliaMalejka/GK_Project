@@ -15,13 +15,16 @@ public class PositionBulletShield : MeleeWeapon, IFixedUpdateObserver
 
     public void ObserveFixedUpdate()
     {
-       this.gameObject.transform.position = parentEnemy.transform.position;
+        if (parentEnemy != null)
+        {
+            this.gameObject.transform.position = parentEnemy.transform.position;
+        }
+        else
+            Destroy(this.gameObject);
     }
 
-    public override void StartAttack()
+    public override void StartAttack(GameObject controller)
     {
-        
+        base.StartAttack(controller);
     }
-
-    
 }

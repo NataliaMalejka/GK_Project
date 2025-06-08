@@ -60,7 +60,7 @@ public class MeleeEnemy : Enemy, IMeleeAttack
 
     public void StartAttack()
     {
-        meeleWeapon.StartAttack();
+        meeleWeapon.StartAttack(this.gameObject);
     }
 
 }

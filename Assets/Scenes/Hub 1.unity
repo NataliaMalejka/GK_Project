@@ -8563,6 +8563,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 364216828520452006, guid: 429a25fddafdebc4db37b48365b76ff7,
         type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 364216828520452006, guid: 429a25fddafdebc4db37b48365b76ff7,
+        type: 3}
       propertyPath: m_Name
       value: Hand
       objectReference: {fileID: 0}
@@ -8635,6 +8640,11 @@ PrefabInstance:
         type: 3}
       propertyPath: cooldown
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9024220888167694377, guid: 429a25fddafdebc4db37b48365b76ff7,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10741,6 +10751,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 690904895}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &379508249 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1797261406827442389, guid: 5b630a08e9fa7204584530d668ab0b1d,
+    type: 3}
+  m_PrefabInstance: {fileID: 5362702244877376942}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e1e6f6713d024c46810498b48774fcc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &380837431
 GameObject:
   m_ObjectHideFlags: 0
@@ -19596,12 +19618,12 @@ PrefabInstance:
     - target: {fileID: 8826948764483295098, guid: 3a17c2383ce1fa946bcca6e52a4c5700,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -20.67
+      value: 8.08
       objectReference: {fileID: 0}
     - target: {fileID: 8826948764483295098, guid: 3a17c2383ce1fa946bcca6e52a4c5700,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.88
+      value: 7.83
       objectReference: {fileID: 0}
     - target: {fileID: 8826948764483295098, guid: 3a17c2383ce1fa946bcca6e52a4c5700,
         type: 3}
@@ -20489,6 +20511,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BulletCatEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 4272835271210009303, guid: 4ab7b677feb662e49933361f4e05f9a6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -21059,6 +21086,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'BulletShieldCatEnemy '
       objectReference: {fileID: 0}
+    - target: {fileID: 3694721602176487847, guid: ad5bdbf60cb8e64419de6ad1474dbfeb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -21099,6 +21131,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BoomerangCatEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 6684207577778893605, guid: 7229791e381d70441a5be11210046415,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7317049271652322985, guid: 7229791e381d70441a5be11210046415,
         type: 3}
@@ -21163,10 +21200,20 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2955303823823480006, guid: 5b630a08e9fa7204584530d668ab0b1d,
+        type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5373236723640803181, guid: 5b630a08e9fa7204584530d668ab0b1d,
         type: 3}
       propertyPath: m_Name
       value: 'SwordCatEnemy '
+      objectReference: {fileID: 0}
+    - target: {fileID: 5373236723640803181, guid: 5b630a08e9fa7204584530d668ab0b1d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8347950499144901345, guid: 5b630a08e9fa7204584530d668ab0b1d,
         type: 3}
@@ -21222,8 +21269,7 @@ PrefabInstance:
         type: 3}
       propertyPath: meeleWeapon
       value: 
-      objectReference: {fileID: 8969835671338633544, guid: 429a25fddafdebc4db37b48365b76ff7,
-        type: 3}
+      objectReference: {fileID: 379508249}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -21296,6 +21342,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: 'FireBallCatEnemy '
+      objectReference: {fileID: 0}
+    - target: {fileID: 4445965889322952261, guid: 7db1ac77b070daa42812bdbc4c72db7d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -21526,12 +21577,12 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 2099390521}
+  - {fileID: 1217196113}
   - {fileID: 1589938357}
   - {fileID: 1710540877903341768}
   - {fileID: 7853188880043836795}
   - {fileID: 1132555194}
   - {fileID: 1633222126}
-  - {fileID: 1217196113}
   - {fileID: 4157803204038011075}
   - {fileID: 5362702244877376942}
   - {fileID: 2528041238898733942}

@@ -6,7 +6,7 @@ public enum StateType
     Attack
 }
 
-public abstract class Enemy : MonoBehaviour,IUpdateObserver, IFixedUpdateObserver, ILateUpdateObserver
+public abstract class Enemy : MonoBehaviour,IUpdateObserver, IFixedUpdateObserver, ILateUpdateObserver, IDamageable
 {
     public HealthSystem healthSystem { get; private set; }
 
@@ -45,4 +45,14 @@ public abstract class Enemy : MonoBehaviour,IUpdateObserver, IFixedUpdateObserve
     public virtual void ObserveUpdate() => stateMachine.UpdateCurrentState();
     public virtual void ObserveFixedUpdate() => stateMachine.FixedUpdateCurrentState();
     public virtual void ObserveLateUpdate() => stateMachine.LateUpdateCurrentState();
+
+    public void ReduceHP(int dmg, int duration)
+    {
+        healthSystem.GetDmg(dmg, duration);
+    }
+
+    public void Die()
+    {
+        Destroy(this.gameObject);
+    }
 }

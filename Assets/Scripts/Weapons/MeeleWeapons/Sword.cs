@@ -1,32 +1,23 @@
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
 public class Sword : MeleeWeapon
 {
     private Collider2D weaponCollider;
     private Animator animator;
-
+    
     protected override void Awake()
     {
         weaponCollider = GetComponent<Collider2D>();
         animator = GetComponent<Animator>();
+        weaponCollider.enabled = false;
     }
 
-    public override void StartAttack()
+    public override void StartAttack(GameObject controller)
     {
+        base.StartAttack(controller);
+
         animator.SetTrigger("Attack");
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        IPlayer player = other.GetComponent<IPlayer>();
-
-        if (player != null)
-        {
-            if (Player.Instance.controller.stateMachine.currentState != Player.Instance.controller.playerDashState)
-            {
-                Player.Instance.healthSystem.GetDmg(dmg);
-            }
-        }
     }
 
     public void EnableCollider()

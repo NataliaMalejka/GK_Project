@@ -46,6 +46,7 @@ public class EnemyRangeAttackState : State<Enemy>
             if (count == 1)
             {
                 RangedWeapon weapon = rangedAttacker.GetRangedWeaponFromPool(controller.transform.position);
+                weapon.Setcontroller(rangedAttacker.GetController());
             }
             else
             {
@@ -55,7 +56,9 @@ public class EnemyRangeAttackState : State<Enemy>
                     float radians = angle * Mathf.Deg2Rad;
                     Vector3 direction = new Vector3(Mathf.Cos(radians), Mathf.Sin(radians), 0f).normalized;
 
-                    RangedWeapon bullet = rangedAttacker.GetRangedWeaponFromPoolAndSetDirection(controller.transform.position, direction);
+                    RangedWeapon weapon = rangedAttacker.GetRangedWeaponFromPoolAndSetDirection(controller.transform.position, direction);
+                    weapon.Setcontroller(rangedAttacker.GetController());
+                        
                 }
             }
            

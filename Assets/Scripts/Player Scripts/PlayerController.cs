@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour, IUpdateObserver, IFixedUpdateObserver, ILateUpdateObserver
+public class PlayerController : MonoBehaviour, IUpdateObserver, IFixedUpdateObserver, ILateUpdateObserver, IDamageable, IMeleeAttack
 {
     [HideInInspector] public Rigidbody2D rb;
 
@@ -54,6 +54,8 @@ public class PlayerController : MonoBehaviour, IUpdateObserver, IFixedUpdateObse
     {
         stateMachine.UpdateCurrentState();
         Player.Instance.weaponSwitcher.Switcher_Update();
+
+        Debug.Log(Player.Instance.healthSystem.currentHelath);
     }
 
     public void ObserveFixedUpdate() 
@@ -73,11 +75,26 @@ public class PlayerController : MonoBehaviour, IUpdateObserver, IFixedUpdateObse
         animate();
     }
 
+    public void StartAttack()
+    {
+        weapon.StartAttack(this.gameObject);
+    }
+
     private void animate()
     {
         float we = 90 - 90 * Mathf.Sign(direction);
         Vector3 rotator = new Vector3(transform.rotation.x, we, transform.rotation.z);
         transform.rotation = Quaternion.Euler(rotator);
 
+    }
+
+    public void ReduceHP(int dmg, int duration)
+    {
+        Player.Instance.healthSystem.GetDmg(dmg, duration);
+    }
+
+    public void Die()
+    {
+        Debug.Log("You are dead");
     }
 }
