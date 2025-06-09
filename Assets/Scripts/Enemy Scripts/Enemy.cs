@@ -53,6 +53,13 @@ public abstract class Enemy : MonoBehaviour,IUpdateObserver, IFixedUpdateObserve
 
     public void Die()
     {
+        RangeEnemy rangeEnemy = this.gameObject.GetComponent<RangeEnemy>();
+
+        if (rangeEnemy != null)
+        {
+            
+        }
+
         Destroy(this.gameObject);
     }
 }

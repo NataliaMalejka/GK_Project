@@ -11,12 +11,12 @@ PrefabInstance:
     - target: {fileID: 145342111428493147, guid: 4ab7b677feb662e49933361f4e05f9a6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.3
+      value: -2.1
       objectReference: {fileID: 0}
     - target: {fileID: 145342111428493147, guid: 4ab7b677feb662e49933361f4e05f9a6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 13.2
+      value: -36.9
       objectReference: {fileID: 0}
     - target: {fileID: 145342111428493147, guid: 4ab7b677feb662e49933361f4e05f9a6,
         type: 3}
@@ -69,6 +69,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7328370720631830932, guid: 15f818247532a6f4480354cd99fd64e0,
         type: 3}
+    - target: {fileID: 2813321540713864654, guid: 4ab7b677feb662e49933361f4e05f9a6,
+        type: 3}
+      propertyPath: rangedweaponCount
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4272835271210009303, guid: 4ab7b677feb662e49933361f4e05f9a6,
         type: 3}
       propertyPath: m_Name

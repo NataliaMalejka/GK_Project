@@ -2,23 +2,41 @@ using UnityEngine;
 
 public class GoldSystem: MonoBehaviour
 {
-    private int goldAmound = 0;
+    [SerializeField] private int goldAmount = 0;
+    //[SerializeField] private Text goldAmountText;
 
-    public bool CanPay(int amound)
+    public void Initialize()
     {
-        if(goldAmound >= amound)
-            return true; 
-        else
-            return false;
+        UpdateUI();
     }
 
-    public void ReduceGold(int amound)
+    public void CollectGold(int amount)
     {
-        goldAmound -= amound;
+        goldAmount += amount;
+        UpdateUI();
     }
 
-    public void CollectGold(int amound)
+    public bool CanPay(int amount) => goldAmount >= amount;
+
+    public bool ReduceGold(int amount)
     {
-        goldAmound += amound;
+        if (CanPay(amount))
+        {
+            goldAmount -= amount;
+            UpdateUI();
+            return true;
+        }
+
+        return false;
+    }
+
+    public int GetGoldAmount() => goldAmount;
+
+    public void UpdateUI()
+    {
+    //    if (goldAmountText != null)
+    //    {
+    //        goldAmountText.text = $"Gold: {goldAmount}";
+    //    }
     }
 }

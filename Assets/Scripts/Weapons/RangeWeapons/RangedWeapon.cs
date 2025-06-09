@@ -2,7 +2,7 @@ using UnityEngine;
 
 public abstract class RangedWeapon : Weapon, IPoolable, IFixedUpdateObserver
 {
-    public static ObjectPool<RangedWeapon> Pool;
+    private ObjectPool<RangedWeapon> pool;
 
     [SerializeField] protected float velocity;
     [SerializeField] protected float maxLifeTime;
@@ -29,6 +29,10 @@ public abstract class RangedWeapon : Weapon, IPoolable, IFixedUpdateObserver
 
     public virtual void ObserveFixedUpdate() { }
 
+    public void SetPool<T>(ObjectPool<T> pool) where T : MonoBehaviour, IPoolable
+    {
+        this.pool = pool as ObjectPool<RangedWeapon>;
+    }
 
     public void Setcontroller(GameObject controller)
     {
@@ -54,6 +58,7 @@ public abstract class RangedWeapon : Weapon, IPoolable, IFixedUpdateObserver
 
     public void ReturnToPool()
     {
-        Pool.ReturnToPool(this);
+        pool.ReturnToPool(this);
     }
+
 }

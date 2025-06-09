@@ -184,6 +184,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   rangedweapon: {fileID: 5361991904607399351, guid: 88642fe0da03b264bae4ee61c86a5d67,
     type: 3}
+  rangedweaponCount: 1
   viewRange: 5
   playerLayer:
     serializedVersion: 2
@@ -201,6 +202,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHelath: 10
+  currentHelath: 0
 --- !u!1 &406812155505914710
 GameObject:
   m_ObjectHideFlags: 0

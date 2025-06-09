@@ -51,7 +51,7 @@ public class HealthSystem : MonoBehaviour
 
         while (elapsed < duration)
         {
-            GetDmg(damagePerSecond, 0);
+            ReduceHealth(damagePerSecond);
             yield return new WaitForSeconds(0.5f);
             elapsed += 1f;
         }

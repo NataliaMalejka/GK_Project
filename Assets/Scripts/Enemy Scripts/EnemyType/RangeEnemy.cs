@@ -23,7 +23,7 @@ public class RangeEnemy : Enemy, IRangedAttacker
         Dictionary<StateType, State<Enemy>> states = new Dictionary<StateType, State<Enemy>>();
 
         bulletPool = new ObjectPool<RangedWeapon>(10, rangedweapon);
-        RangedWeapon.Pool = bulletPool;
+        //RangedWeapon.Pool = bulletPool;
 
         idleState = new EnemyIdleState(this, stateMachine, states);
         attackState = new EnemyRangeAttackState(this, stateMachine, states, bulletPool);

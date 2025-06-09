@@ -27,6 +27,7 @@ public class ObjectPool<T> where T: MonoBehaviour, IPoolable
     {
         T obj = Object.Instantiate(prefab);
         obj.gameObject.SetActive(false);
+        obj.SetPool(this);
         return obj;
     }
 

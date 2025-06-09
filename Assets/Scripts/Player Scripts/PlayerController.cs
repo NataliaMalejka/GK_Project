@@ -54,8 +54,6 @@ public class PlayerController : MonoBehaviour, IUpdateObserver, IFixedUpdateObse
     {
         stateMachine.UpdateCurrentState();
         Player.Instance.weaponSwitcher.Switcher_Update();
-
-        Debug.Log(Player.Instance.healthSystem.currentHelath);
     }
 
     public void ObserveFixedUpdate() 
