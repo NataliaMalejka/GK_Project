@@ -3,18 +3,6 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenuController : MonoBehaviour, IUpdateObserver
 {
-    /*    // Start is called once before the first execution of Update after the MonoBehaviour is created
-        void Start()
-        {
-
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
-        }*/
-
     [SerializeField] private PlayerController _player;
     [SerializeField] private GameObject pauseMenuPanel;
     private bool _isPaused = false;
@@ -40,41 +28,31 @@ public class PauseMenuController : MonoBehaviour, IUpdateObserver
             {
                 PauseGame();
             }
+            else
+            {
+                PlayGame();
+            }
         }
     }
 
     private void PauseGame()
     {
         pauseMenuPanel.SetActive(true);
-        _player.enabled = false;
+
         Time.timeScale = 0f;
         _isPaused = true;
     }
 
     public void PlayGame()
     {
-        //int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        //int nextSceneIndex = (currentSceneIndex + 1) % SceneManager.sceneCountInBuildSettings;
+        pauseMenuPanel.SetActive(false);
 
-        //SceneManager.LoadScene(nextSceneIndex);
-        SceneManager.LoadScene(1); // Dave hello world
+        Time.timeScale = 1f;
+        _isPaused = false;
     }
-
-    //public void Options()
-    //{
-    //    OptionPanel.alpha = 1;
-    //    OptionPanel.blocksRaycasts = true;
-    //}
-    //
-    //public void Back()
-    //{
-    //    OptionPanel.alpha = 0;
-    //    OptionPanel.blocksRaycasts = false;
-    //}
 
     public void QuitGame()
     {
         Application.Quit();
     }
-
 }

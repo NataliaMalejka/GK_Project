@@ -4,7 +4,7 @@ public class StaminaSystem : MonoBehaviour, IFixedUpdateObserver
 {
     [SerializeField] private float staminaIncrease;
     [SerializeField] private float maxStamina;
-    private float currentStamina;
+    public float currentStamina;
 
     private void OnEnable()
     {
@@ -42,6 +42,11 @@ public class StaminaSystem : MonoBehaviour, IFixedUpdateObserver
     public void ReduceStamina(float amound)
     {
         currentStamina -= amound;
+    }
+
+    public void IncreaseStamina(float amound)
+    {
+        currentStamina += amound;
     }
 
     public void IncreaseMaxStamnina(float amound)

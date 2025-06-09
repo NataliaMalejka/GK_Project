@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour, IUpdateObserver, IFixedUpdateObserver, ILateUpdateObserver
+public class PlayerController : MonoBehaviour, IUpdateObserver, IFixedUpdateObserver, ILateUpdateObserver, IDamageable, IMeleeAttack
 {
-    [HideInInspector] public Rigidbody rb;
+    [HideInInspector] public Rigidbody2D rb;
 
     [Header("Basic Movement")]
     [HideInInspector] public float xVelocity;
@@ -13,10 +13,15 @@ public class PlayerController : MonoBehaviour, IUpdateObserver, IFixedUpdateObse
     [Header("Dash")]
     public int dashTime;
     public float dashForce;
+    public float dashNeededStamina;
 
     [HideInInspector] public StateMachine<PlayerController> stateMachine = new StateMachine<PlayerController>();
     [HideInInspector] public PlayerIdleState playerIdleState;
     [HideInInspector] public PlayerDashState playerDashState;
+
+    [Header("Weapon")]
+    [HideInInspector] public float cooldowntimer = 0f;
+    [HideInInspector] public MeleeWeapon weapon;
 
     private void OnEnable()
     {
@@ -34,7 +39,7 @@ public class PlayerController : MonoBehaviour, IUpdateObserver, IFixedUpdateObse
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody2D>();
 
         playerIdleState = new PlayerIdleState(this, stateMachine);
         playerDashState = new PlayerDashState(this, stateMachine);
@@ -48,11 +53,20 @@ public class PlayerController : MonoBehaviour, IUpdateObserver, IFixedUpdateObse
     public void ObserveUpdate()
     {
         stateMachine.UpdateCurrentState();
+        Player.Instance.weaponSwitcher.Switcher_Update();
+
+        Debug.Log(Player.Instance.healthSystem.currentHelath);
     }
 
-    public void ObserveFixedUpdate()
+    public void ObserveFixedUpdate() 
     {
-       stateMachine.FixedUpdateCurrentState();
+        stateMachine.FixedUpdateCurrentState();
+        cooldownTimerUpdate();
+    }
+
+    private void cooldownTimerUpdate()
+    {
+        cooldowntimer -= Time.fixedDeltaTime;
     }
 
     public void ObserveLateUpdate()
@@ -61,11 +75,26 @@ public class PlayerController : MonoBehaviour, IUpdateObserver, IFixedUpdateObse
         animate();
     }
 
+    public void StartAttack()
+    {
+        weapon.StartAttack(this.gameObject);
+    }
+
     private void animate()
     {
         float we = 90 - 90 * Mathf.Sign(direction);
         Vector3 rotator = new Vector3(transform.rotation.x, we, transform.rotation.z);
         transform.rotation = Quaternion.Euler(rotator);
 
+    }
+
+    public void ReduceHP(int dmg, int duration)
+    {
+        Player.Instance.healthSystem.GetDmg(dmg, duration);
+    }
+
+    public void Die()
+    {
+        Debug.Log("You are dead");
     }
 }
