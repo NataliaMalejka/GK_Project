@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      lifestar_half_0: -349005446568706277
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
