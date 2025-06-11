@@ -11,6 +11,7 @@ TagManager:
   - Fence
   - Gold
   - Key
+  - HUD_Canvas
   layers:
   - Default
   - TransparentFX

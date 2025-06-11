@@ -5058,6 +5058,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1363350233}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &694537952 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 317882542191119810, guid: c9bf36595c5c0db43a69e663e0ba1d54,
+    type: 3}
+  m_PrefabInstance: {fileID: 1628122808610775985}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &734031283
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8434,6 +8446,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: piesek-astro
       objectReference: {fileID: 0}
+    - target: {fileID: 3623427748311881574, guid: 3a17c2383ce1fa946bcca6e52a4c5700,
+        type: 3}
+      propertyPath: staminaFillBar
+      value: 
+      objectReference: {fileID: 694537952}
     - target: {fileID: 8826948764483295098, guid: 3a17c2383ce1fa946bcca6e52a4c5700,
         type: 3}
       propertyPath: m_LocalPosition.x
