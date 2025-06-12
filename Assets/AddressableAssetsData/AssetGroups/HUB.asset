@@ -14,7 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_GroupName: HUB
   m_GUID: 078f33a600f42f24b8efbd5ea77465eb
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 8105016687592461f977c054a80ce2f2
+    m_Address: Assets/Readme.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 4fe59ea7e348c5a4b96c7687a89f94a6, type: 2}
   m_SchemaSet:
