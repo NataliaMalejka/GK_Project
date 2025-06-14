@@ -5,24 +5,24 @@ using static UnityEngine.Rendering.DebugUI;
 
 public class Dialogues : MonoBehaviour, IUpdateObserver
 {
-    [SerializeField] private GameObject buttonPanel;
-    [SerializeField] private GameObject dialoguePanel;
+    [SerializeField] protected GameObject buttonPanel;
+    [SerializeField] protected GameObject dialoguePanel;
 
-    [SerializeField] private TextMeshPro textComponent;
-    [SerializeField] private string[] lines;
+    [SerializeField] protected TextMeshPro textComponent;
+    [SerializeField] protected string[] lines;
     public float textSpeed;
-    private int index;
+    protected int index;
 
-    private bool inTrigger;
-    private bool isDialogue;
+    protected bool inTrigger;
+    protected bool isDialogue;
 
-    void Start()
+    protected virtual void Start()
     {
         inTrigger = false;
         isDialogue = false;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected void OnTriggerEnter2D(Collider2D collision)
     {
         IPlayer player = collision.GetComponent<IPlayer>();
 
@@ -33,7 +33,7 @@ public class Dialogues : MonoBehaviour, IUpdateObserver
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    protected void OnTriggerExit2D(Collider2D collision)
     {
         IPlayer player = collision.GetComponent<IPlayer>();
 
@@ -45,12 +45,12 @@ public class Dialogues : MonoBehaviour, IUpdateObserver
         }      
     }
 
-    private void OnEnable()
+    protected void OnEnable()
     {
         UpdateManager.AddToList(this);
     }
 
-    private void OnDisable()
+    protected void OnDisable()
     {
         UpdateManager.RemoveFromList(this);
     }
@@ -81,7 +81,7 @@ public class Dialogues : MonoBehaviour, IUpdateObserver
         }
     }
 
-    private void StartDialogue()
+    protected void StartDialogue()
     {
         index = 0;
         textComponent.text = string.Empty;
@@ -97,7 +97,7 @@ public class Dialogues : MonoBehaviour, IUpdateObserver
         }
     }
 
-    private void NextLine()
+    protected void NextLine()
     {
         if (index < lines.Length - 1)
         {
@@ -111,7 +111,7 @@ public class Dialogues : MonoBehaviour, IUpdateObserver
         }
     }
 
-    private void EndDialogue()
+    protected virtual void EndDialogue()
     {
         isDialogue = false;
 
