@@ -1,45 +1,52 @@
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
-    public Image image;
-    public Text costText;
+    private Image image;
 
-    [HideInInspector] public Item item;
-    [HideInInspector] public int cost = 1;
-    [HideInInspector] public Transform parentAfterDrag;
+    [SerializeField] private Item item;
+    [SerializeField] private int cost;
+    [SerializeField] private TextMeshProUGUI costText;
+    [SerializeField] private TextMeshProUGUI detailsText;
+    [SerializeField] private GameObject detailsPanel;
+    [SerializeField] private bool isPlayerWeapon = false;
 
-    public void InitialiseItem(Item newItem)
+    public void Start()
     {
-        item = newItem;
-        image.sprite = newItem.sprite;
-        RefreshCount();
+        image = GetComponent<Image>();
+        image.sprite = item.sprite;
+
+        if(!isPlayerWeapon)
+            costText.text = cost.ToString();
+
+        detailsPanel.layer = 1;
+        SetText();
     }
 
-    public void RefreshCount()
+    private void SetText()
     {
-        costText.text = cost.ToString();
-        bool textActive = cost > 0;
-        costText.gameObject.SetActive(textActive);
+        detailsText.text=item.name + "\n" + "Dmg: " + item.dmg.ToString() + "\n" + "Dmg duration: " + item.damageDuration + "\n" + "Stamina: " + item.neededStamina + "\n" + "Mana: " + item.neededMana;
     }
 
-    public void OnBeginDrag(PointerEventData eventData)
+    public void OnPointerEnter(PointerEventData eventData)
     {
-        image.raycastTarget = false;
-        parentAfterDrag = transform.parent;
-        transform.SetParent(transform.root);
+        detailsPanel.SetActive(true);
     }
 
-    public void OnDrag(PointerEventData eventData)
+    public void OnPointerExit(PointerEventData eventData)
     {
-        transform.position = Input.mousePosition;
+        detailsPanel.SetActive(false);
     }
 
-    public void OnEndDrag(PointerEventData eventData)
+    public void OnPointerClick(PointerEventData eventData)
     {
-        image.raycastTarget = true;
-        transform.SetParent(parentAfterDrag);
+        if (eventData.button == PointerEventData.InputButton.Left)
+        {
+            Player.Instance.goldSystem.ReduceGold(cost);
+        }
     }
 }
