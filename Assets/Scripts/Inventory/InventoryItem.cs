@@ -18,12 +18,28 @@ public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     public void Start()
     {
         image = GetComponent<Image>();
-        image.sprite = item.sprite;
+        LoadItem();
 
-        if(!isPlayerWeapon)
-            costText.text = cost.ToString();
+        if (!isPlayerWeapon)
+            LoadCost();
 
         SetText();
+    }
+
+    private void LoadItem()
+    {
+        image.sprite = item.sprite;
+    }
+
+    public void SetItem(Item item)
+    {
+        this.item = item;
+        LoadItem();
+    }
+
+    private void LoadCost()
+    {
+        costText.text = cost.ToString();
     }
 
     private void SetText()
@@ -47,7 +63,6 @@ public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     private void OnDisable()
     {
-        Debug.Log("disable");
         detailsPanel.gameObject.SetActive(false);
         detailsPanel.raycastTarget = false;
     }
@@ -65,6 +80,11 @@ public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
                 weapon.SetDamageDuration(item.damageDuration);
                 weapon.setNeededMana(item.neededMana);
                 weapon.SetNeededStamina(item.neededStamina);
+
+                cost = 0;
+                LoadCost();
+
+                SlotManager.Instance.NewPlayerWeapon(item);
             }
         }
     }

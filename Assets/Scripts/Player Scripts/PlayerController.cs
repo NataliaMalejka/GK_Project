@@ -100,4 +100,26 @@ public class PlayerController : MonoBehaviour, IUpdateObserver, IFixedUpdateObse
     {
         Debug.Log("You are dead");
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log("Player collided with: " + other.name);
+
+        if (other.CompareTag("Battery"))
+        {
+            Player.Instance.batterySystem.AddBattery();
+            Destroy(other.gameObject);
+        }
+        else if (other.CompareTag("Pot"))
+        {
+            Pot pot = other.GetComponent<Pot>();
+            pot?.DestroySelf();
+        }
+
+        if (other.TryGetComponent<IPickup>(out var pickup))
+        {
+            Debug.Log("Found IPickup on " + other.name);
+            pickup.Collect(gameObject);
+        }
+    }
 }

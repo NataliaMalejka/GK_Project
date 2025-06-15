@@ -20,7 +20,7 @@ public class Shop : Dialogues
         {
             shopPanel.SetActive(true);
             isShopActive = true;
-            Time.timeScale = 0f;
+            GameManager.Instance.PauseGame();
 
             isDialogue = true;
         }
@@ -28,7 +28,7 @@ public class Shop : Dialogues
         {
             shopPanel.SetActive(false);
             isShopActive = false;
-            Time.timeScale = 1f;
+            GameManager.Instance.PlayGame();
 
             isDialogue = false;
         }

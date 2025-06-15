@@ -37,7 +37,7 @@ public class PauseMenuController : MonoBehaviour, IUpdateObserver
     {
         pauseMenuPanel.SetActive(true);
 
-        Time.timeScale = 0f;
+        GameManager.Instance.PauseGame();
         _isPaused = true;
     }
 
@@ -45,7 +45,7 @@ public class PauseMenuController : MonoBehaviour, IUpdateObserver
     {
         pauseMenuPanel.SetActive(false);
 
-        Time.timeScale = 1f;
+        GameManager.Instance.PlayGame();
         _isPaused = false;
     }
 

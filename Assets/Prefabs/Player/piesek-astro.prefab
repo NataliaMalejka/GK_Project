@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 1950058637992133156}
   m_Layer: 20
   m_Name: piesek-astro
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -260,7 +260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapons:
-  - {fileID: 6046372230074682157}
+  - {fileID: 405517661989094457}
 --- !u!114 &1950058637992133156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -294,14 +294,50 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2049293213462628766, guid: 429a25fddafdebc4db37b48365b76ff7,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2049293213462628766, guid: 429a25fddafdebc4db37b48365b76ff7,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2049293213462628766, guid: 429a25fddafdebc4db37b48365b76ff7,
+        type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.026
+      value: 0.011
       objectReference: {fileID: 0}
     - target: {fileID: 2049293213462628766, guid: 429a25fddafdebc4db37b48365b76ff7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.422
+      value: 0.466
       objectReference: {fileID: 0}
+    - target: {fileID: 2049293213462628766, guid: 429a25fddafdebc4db37b48365b76ff7,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2049293213462628766, guid: 429a25fddafdebc4db37b48365b76ff7,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.94466305
+      objectReference: {fileID: 0}
+    - target: {fileID: 2049293213462628766, guid: 429a25fddafdebc4db37b48365b76ff7,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.32804236
+      objectReference: {fileID: 0}
+    - target: {fileID: 2049293213462628766, guid: 429a25fddafdebc4db37b48365b76ff7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 38.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5992280224054146187, guid: 429a25fddafdebc4db37b48365b76ff7,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -267587109, guid: 6eb16e372762d6b4cb708c44ebfab931,
+        type: 3}
     - target: {fileID: 5992280224054146187, guid: 429a25fddafdebc4db37b48365b76ff7,
         type: 3}
       propertyPath: m_Enabled
@@ -392,23 +428,39 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8969835671338633544, guid: 429a25fddafdebc4db37b48365b76ff7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 364216828520452006, guid: 429a25fddafdebc4db37b48365b76ff7,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 405517661989094457}
   m_SourcePrefab: {fileID: 100100000, guid: 429a25fddafdebc4db37b48365b76ff7, type: 3}
---- !u!114 &6046372230074682157 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8969835671338633544, guid: 429a25fddafdebc4db37b48365b76ff7,
+--- !u!1 &3071367811038793155 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 364216828520452006, guid: 429a25fddafdebc4db37b48365b76ff7,
     type: 3}
   m_PrefabInstance: {fileID: 3427878711610245733}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+--- !u!114 &405517661989094457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3071367811038793155}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e1e6f6713d024c46810498b48774fcc, type: 3}
+  m_Script: {fileID: 11500000, guid: 3b9c6df3ef799884391fbd756cf1f8c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dmg: 1
+  damageDuration: 1
+  cooldown: 0.4
+  neededStamina: 1
+  neededMana: 0
 --- !u!4 &8837196002401250737 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6140169323014516692, guid: 429a25fddafdebc4db37b48365b76ff7,
