@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 1717154485042158402}
   - component: {fileID: 3623427748311881574}
   - component: {fileID: 6609672343783801351}
+  - component: {fileID: 1950058637992133156}
   m_Layer: 20
   m_Name: piesek-astro
   m_TagString: Untagged
@@ -260,6 +261,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapons:
   - {fileID: 6046372230074682157}
+--- !u!114 &1950058637992133156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1217993646366099607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 193235c4313bb3b4b8e1a75081269522, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goldAmount: 0
 --- !u!1001 &3427878711610245733
 PrefabInstance:
   m_ObjectHideFlags: 0

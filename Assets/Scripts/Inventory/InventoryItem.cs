@@ -12,7 +12,7 @@ public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     [SerializeField] private int cost;
     [SerializeField] private TextMeshProUGUI costText;
     [SerializeField] private TextMeshProUGUI detailsText;
-    [SerializeField] private GameObject detailsPanel;
+    [SerializeField] private Image detailsPanel;
     [SerializeField] private bool isPlayerWeapon = false;
 
     public void Start()
@@ -23,7 +23,6 @@ public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         if(!isPlayerWeapon)
             costText.text = cost.ToString();
 
-        detailsPanel.layer = 1;
         SetText();
     }
 
@@ -34,12 +33,23 @@ public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        detailsPanel.SetActive(true);
+        detailsPanel.raycastTarget = false;
+        detailsPanel.transform.SetParent(transform.root);
+        detailsPanel.gameObject.SetActive(true);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        detailsPanel.SetActive(false);
+        detailsPanel.gameObject.SetActive(false);
+        detailsPanel.raycastTarget = false;
+        detailsPanel.transform.SetParent(this.gameObject.transform);
+    }
+
+    private void OnDisable()
+    {
+        Debug.Log("disable");
+        detailsPanel.gameObject.SetActive(false);
+        detailsPanel.raycastTarget = false;
     }
 
     public void OnPointerClick(PointerEventData eventData)

@@ -8,8 +8,6 @@ public class PauseMenuController : MonoBehaviour, IUpdateObserver
     private bool _isPaused = false;
 
 
-    public CanvasGroup OptionPanel;
-
     private void OnEnable()
     {
         UpdateManager.AddToList(this);

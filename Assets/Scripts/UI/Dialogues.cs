@@ -41,7 +41,8 @@ public class Dialogues : MonoBehaviour, IUpdateObserver
         {
             buttonPanel.SetActive(false);
             inTrigger = false;
-            EndDialogue();
+            isDialogue = false;
+            dialoguePanel.SetActive(false);
         }      
     }
 
@@ -55,7 +56,7 @@ public class Dialogues : MonoBehaviour, IUpdateObserver
         UpdateManager.RemoveFromList(this);
     }
 
-    public void ObserveUpdate()
+    public virtual void ObserveUpdate()
     {
         if (Input.GetKeyDown(KeyCode.F))
         {

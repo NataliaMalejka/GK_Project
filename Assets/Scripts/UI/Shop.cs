@@ -4,6 +4,7 @@ using UnityEngine.UIElements;
 public class Shop : Dialogues
 {
     [SerializeField] GameObject shopPanel;
+    private bool isShopActive = false;
 
     protected override void Start()
     {
@@ -12,8 +13,25 @@ public class Shop : Dialogues
     }
 
     protected override void EndDialogue()
-    {
+    { 
         base.EndDialogue();
-        shopPanel.SetActive(true);
+
+        if(!isShopActive)
+        {
+            shopPanel.SetActive(true);
+            isShopActive = true;
+            Time.timeScale = 0f;
+
+            isDialogue = true;
+        }
+        else
+        {
+            shopPanel.SetActive(false);
+            isShopActive = false;
+            Time.timeScale = 1f;
+
+            isDialogue = false;
+        }
+        
     }
 }
