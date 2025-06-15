@@ -37,7 +37,7 @@ public class PlayerIdleState : State<PlayerController>
     {
         if (Input.GetMouseButtonDown(0) && controller.cooldowntimer <= 0f) 
         {
-            controller.weapon = Player.Instance.weaponSwitcher.GetCurrentWeapon();
+            controller.weapon = (PlayerWeapon)Player.Instance.weaponSwitcher.GetCurrentWeapon();
 
             if (controller.weapon != null)
             {

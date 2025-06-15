@@ -56,7 +56,16 @@ public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     {
         if (eventData.button == PointerEventData.InputButton.Left)
         {
-            Player.Instance.goldSystem.ReduceGold(cost);
+            if(Player.Instance.goldSystem.ReduceGold(cost))
+            {
+                PlayerWeapon weapon = Player.Instance.controller.GetWeapon();
+
+                weapon.SetSprite(item.sprite);
+                weapon.SetDmg(item.dmg);
+                weapon.SetDamageDuration(item.damageDuration);
+                weapon.setNeededMana(item.neededMana);
+                weapon.SetNeededStamina(item.neededStamina);
+            }
         }
     }
 }

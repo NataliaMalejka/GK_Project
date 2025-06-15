@@ -1,0 +1,169 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &609968597061007452
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1492052745631696386, guid: 930f7c66da84ac24f9d320c6ba19e74b,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1492052745631696386, guid: 930f7c66da84ac24f9d320c6ba19e74b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 1492052745631696386, guid: 930f7c66da84ac24f9d320c6ba19e74b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -38.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1492052745631696386, guid: 930f7c66da84ac24f9d320c6ba19e74b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1492052745631696386, guid: 930f7c66da84ac24f9d320c6ba19e74b,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1492052745631696386, guid: 930f7c66da84ac24f9d320c6ba19e74b,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1492052745631696386, guid: 930f7c66da84ac24f9d320c6ba19e74b,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1492052745631696386, guid: 930f7c66da84ac24f9d320c6ba19e74b,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1492052745631696386, guid: 930f7c66da84ac24f9d320c6ba19e74b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1492052745631696386, guid: 930f7c66da84ac24f9d320c6ba19e74b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1492052745631696386, guid: 930f7c66da84ac24f9d320c6ba19e74b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1776061656797825234, guid: 930f7c66da84ac24f9d320c6ba19e74b,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.4253738
+      objectReference: {fileID: 0}
+    - target: {fileID: 1776061656797825234, guid: 930f7c66da84ac24f9d320c6ba19e74b,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.5664172
+      objectReference: {fileID: 0}
+    - target: {fileID: 1776061656797825234, guid: 930f7c66da84ac24f9d320c6ba19e74b,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.745283
+      objectReference: {fileID: 0}
+    - target: {fileID: 3089027255994979259, guid: 930f7c66da84ac24f9d320c6ba19e74b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3299853198772842810, guid: 930f7c66da84ac24f9d320c6ba19e74b,
+        type: 3}
+      propertyPath: lines.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3299853198772842810, guid: 930f7c66da84ac24f9d320c6ba19e74b,
+        type: 3}
+      propertyPath: 'lines.Array.data[0]'
+      value: "Mo\u017Cesz tu kupi\u0107 lepsz\u0105 bro\u0144"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3299853198772842810, guid: 930f7c66da84ac24f9d320c6ba19e74b,
+        type: 3}
+      propertyPath: 'lines.Array.data[1]'
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3406186827178105192, guid: 930f7c66da84ac24f9d320c6ba19e74b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6804093333139589316, guid: 930f7c66da84ac24f9d320c6ba19e74b,
+        type: 3}
+      propertyPath: m_Name
+      value: CatNPCshop Variant
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3299853198772842810, guid: 930f7c66da84ac24f9d320c6ba19e74b, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6804093333139589316, guid: 930f7c66da84ac24f9d320c6ba19e74b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6883586221996852666}
+  m_SourcePrefab: {fileID: 100100000, guid: 930f7c66da84ac24f9d320c6ba19e74b, type: 3}
+--- !u!114 &934281536753798987 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 324319846053213975, guid: 930f7c66da84ac24f9d320c6ba19e74b,
+    type: 3}
+  m_PrefabInstance: {fileID: 609968597061007452}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &2497640551770385383 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3089027255994979259, guid: 930f7c66da84ac24f9d320c6ba19e74b,
+    type: 3}
+  m_PrefabInstance: {fileID: 609968597061007452}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2824390192438583604 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3406186827178105192, guid: 930f7c66da84ac24f9d320c6ba19e74b,
+    type: 3}
+  m_PrefabInstance: {fileID: 609968597061007452}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6204823267804803224 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6804093333139589316, guid: 930f7c66da84ac24f9d320c6ba19e74b,
+    type: 3}
+  m_PrefabInstance: {fileID: 609968597061007452}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6883586221996852666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6204823267804803224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a091e570e7de1a428bc36f892fd4995, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonPanel: {fileID: 2497640551770385383}
+  dialoguePanel: {fileID: 2824390192438583604}
+  textComponent: {fileID: 934281536753798987}
+  lines:
+  - "Tu mo\u017Cesz kupi\u0107 lepszy miecz"
+  textSpeed: 0.05
+  shopPanel: {fileID: 0}

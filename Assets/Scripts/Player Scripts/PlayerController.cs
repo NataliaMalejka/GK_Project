@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour, IUpdateObserver, IFixedUpdateObse
 
     [Header("Weapon")]
     [HideInInspector] public float cooldowntimer = 0f;
-    [HideInInspector] public MeleeWeapon weapon;
+    [HideInInspector] public PlayerWeapon weapon;
 
     private void OnEnable()
     {
@@ -76,6 +76,11 @@ public class PlayerController : MonoBehaviour, IUpdateObserver, IFixedUpdateObse
     public void StartAttack()
     {
         weapon.StartAttack(this.gameObject);
+    }
+
+    public PlayerWeapon GetWeapon()
+    { 
+        return weapon; 
     }
 
     private void animate()

@@ -21,9 +21,8 @@ public abstract class RangedWeapon : Weapon, IPoolable, IFixedUpdateObserver
         FixedUpdateManager.RemoveFromList(this);
     }
 
-    protected override void Awake()
+    protected virtual void Awake()
     {
-        base.Awake();
         rb = GetComponent<Rigidbody2D>() ?? gameObject.AddComponent<Rigidbody2D>();
     }
 
