@@ -11,12 +11,12 @@ public abstract class RangedWeapon : Weapon, IPoolable, IFixedUpdateObserver
     protected Rigidbody2D rb;
     protected Vector3 direction;
 
-    protected void OnEnable()
+    protected virtual void OnEnable()
     {
         FixedUpdateManager.AddToList(this);
     }
 
-    protected void OnDisable()
+    protected virtual void OnDisable()
     {
         FixedUpdateManager.RemoveFromList(this);
     }

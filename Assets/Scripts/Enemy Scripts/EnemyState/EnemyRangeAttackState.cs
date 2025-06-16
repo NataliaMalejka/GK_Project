@@ -1,18 +1,15 @@
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.UI.Image;
 
 public class EnemyRangeAttackState : State<Enemy>
 {
     private Dictionary<StateType, State<Enemy>> availableStates;
-    private ObjectPool<RangedWeapon> rangedWeaponPool;
     private float cooldownTimer = 0f;
 
-    public EnemyRangeAttackState(Enemy controller, StateMachine<Enemy> stateMachine, Dictionary<StateType, State<Enemy>> availableStates, ObjectPool<RangedWeapon> bulletPool)
+    public EnemyRangeAttackState(Enemy controller, StateMachine<Enemy> stateMachine, Dictionary<StateType, State<Enemy>> availableStates)
         : base(controller, stateMachine)
     {
         this.availableStates = availableStates;
-        this.rangedWeaponPool = bulletPool;
     }
 
     public override void EnterState()

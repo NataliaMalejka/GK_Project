@@ -7,11 +7,6 @@ public class MeleeEnemy : Enemy, IMeleeAttack
     private EnemyFollowState attackState;
 
     [SerializeField] private MeleeWeapon meeleWeapon;
-    [SerializeField] private float viewRange;
-    [SerializeField] private LayerMask playerLayer;
-
-    Vector3 boxSize;
-    Vector3 center;
 
     protected override void Awake()
     {

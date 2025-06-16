@@ -34,8 +34,11 @@ public class EnemyIdleState : State<Enemy>
             nextWaypoint = closestIndex;
         }
 
-        if (!IsFacingWaypoint())
-            TakeTurn();
+        if (controller.wayPoints.Length > 1)
+        {
+            if (!IsFacingWaypoint())
+                TakeTurn();
+        }
 
     }
 
@@ -46,7 +49,8 @@ public class EnemyIdleState : State<Enemy>
 
     public override void FixedUpdateState()
     {
-        Move();
+        if (controller.wayPoints.Length > 1)
+            Move();
 
         if (controller.seePlayer)
         {
@@ -74,7 +78,7 @@ public class EnemyIdleState : State<Enemy>
     void chooseNext()
     {
         nextWaypoint++;
-        if (nextWaypoint == controller.wayPoints.Length)
+        if (nextWaypoint >= controller.wayPoints.Length)
         {
             nextWaypoint = 0;
         }

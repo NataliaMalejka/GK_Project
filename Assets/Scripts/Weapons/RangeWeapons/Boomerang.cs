@@ -1,19 +1,27 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Boomerang : RangedWeapon, IFixedUpdateObserver
 {
     [SerializeField] private float acceleration;
+    private float currentAcceleration;
     private bool isReturning;
+
+    protected override void OnEnable()
+    {
+        base.OnEnable();
+        currentAcceleration = acceleration;
+    }
 
     public override void ObserveFixedUpdate()
     {
         if (isReturning)
         {
-            velocity += acceleration * Time.fixedDeltaTime * -1;
+            velocity += currentAcceleration * Time.fixedDeltaTime * -1;
         }
         else
         {
-            velocity -= acceleration * Time.fixedDeltaTime;
+            velocity -= currentAcceleration * Time.fixedDeltaTime;
             if (velocity <= 0)
             {
                 velocity = 0;
@@ -26,6 +34,7 @@ public class Boomerang : RangedWeapon, IFixedUpdateObserver
 
         if (currentLifeTime > maxLifeTime)
         {
+            currentAcceleration = acceleration;
             ReturnToPool();
         }
     }

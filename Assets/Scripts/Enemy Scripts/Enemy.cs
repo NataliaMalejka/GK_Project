@@ -8,13 +8,19 @@ public enum StateType
 
 public abstract class Enemy : MonoBehaviour,IUpdateObserver, IFixedUpdateObserver, ILateUpdateObserver, IDamageable
 {
-    public HealthSystem healthSystem { get; private set; }
+    public HealthSystem healthSystem { get; protected set; }
 
     public float speed;
     public GameObject[] wayPoints;
 
     [HideInInspector] public bool seePlayer;
     [HideInInspector] public Rigidbody2D rb;
+
+    [SerializeField] protected float viewRange;
+    [SerializeField] protected LayerMask playerLayer;
+
+    protected Vector3 boxSize;
+    protected Vector3 center;
 
     protected StateMachine<Enemy> stateMachine = new StateMachine<Enemy>();
 
@@ -35,7 +41,6 @@ public abstract class Enemy : MonoBehaviour,IUpdateObserver, IFixedUpdateObserve
     protected virtual void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-
         healthSystem = GetComponent<HealthSystem>();
     }
 
@@ -51,15 +56,8 @@ public abstract class Enemy : MonoBehaviour,IUpdateObserver, IFixedUpdateObserve
         healthSystem.GetDmg(dmg, duration);
     }
 
-    public void Die()
+    public virtual void Die()
     {
-        RangeEnemy rangeEnemy = this.gameObject.GetComponent<RangeEnemy>();
-
-        if (rangeEnemy != null)
-        {
-            
-        }
-
         Destroy(this.gameObject);
     }
 }

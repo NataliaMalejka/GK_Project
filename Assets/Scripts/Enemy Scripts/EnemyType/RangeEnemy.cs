@@ -3,18 +3,13 @@ using UnityEngine;
 
 public class RangeEnemy : Enemy, IRangedAttacker
 {
-    private EnemyIdleState idleState;
-    private EnemyRangeAttackState attackState;
+    protected EnemyIdleState idleState;
+    protected EnemyRangeAttackState attackState;
 
     [SerializeField] private RangedWeapon rangedweapon;
-    public int rangedweaponCount;
-    [SerializeField] private float viewRange;
-    [SerializeField] private LayerMask playerLayer;
+    [SerializeField] private int rangedweaponCount;
 
     private ObjectPool<RangedWeapon> bulletPool;
-
-    Vector3 boxSize;
-    Vector3 center;
 
     protected override void Awake()
     {
@@ -23,16 +18,15 @@ public class RangeEnemy : Enemy, IRangedAttacker
         Dictionary<StateType, State<Enemy>> states = new Dictionary<StateType, State<Enemy>>();
 
         bulletPool = new ObjectPool<RangedWeapon>(10, rangedweapon);
-        //RangedWeapon.Pool = bulletPool;
 
         idleState = new EnemyIdleState(this, stateMachine, states);
-        attackState = new EnemyRangeAttackState(this, stateMachine, states, bulletPool);
+        attackState = new EnemyRangeAttackState(this, stateMachine, states);
 
         states.Add(StateType.Idle, idleState);
         states.Add(StateType.Attack, attackState);
     }
 
-    private void Start()
+    protected void Start()
     {
         stateMachine.InitializeState(idleState);
         boxSize = new Vector3(viewRange, viewRange, 2f);
@@ -56,17 +50,17 @@ public class RangeEnemy : Enemy, IRangedAttacker
         return rangedweapon;
     }
 
-    public RangedWeapon GetRangedWeaponFromPool(Vector3 position)
+    public virtual RangedWeapon GetRangedWeaponFromPool(Vector3 position)
     {
         return bulletPool.GetObjectFromPool(position, null);
     }
 
-    public RangedWeapon GetRangedWeaponFromPoolAndSetDirection(Vector3 position, Vector3 dir)
+    public virtual RangedWeapon GetRangedWeaponFromPoolAndSetDirection(Vector3 position, Vector3 dir)
     {
         return bulletPool.GetObjectFromPool(position, dir);
     }
 
-    public int GetRangedWeaponCount()
+    public virtual int GetRangedWeaponCount()
     {
         return rangedweaponCount;
     }
@@ -76,7 +70,7 @@ public class RangeEnemy : Enemy, IRangedAttacker
         return this.gameObject;
     }
 
-    private void OnDrawGizmos()
+    protected void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
         Gizmos.DrawWireCube(center, boxSize);
