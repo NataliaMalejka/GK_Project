@@ -10,6 +10,7 @@ public class Player : PersistentSingleton<Player>, IPlayer
     public GoldSystem goldSystem { get; private set; }
     public WeaponSwitcher weaponSwitcher { get; private set; }
     public BatterySystem batterySystem { get; private set; }
+    public KeySystem keySystem { get; private set; }
 
     protected override void Awake()
     {
@@ -21,5 +22,6 @@ public class Player : PersistentSingleton<Player>, IPlayer
         weaponSwitcher = GetComponent<WeaponSwitcher>();
         goldSystem = GetComponent<GoldSystem>();
         batterySystem = GetComponent<BatterySystem>();
+        keySystem = GetComponent<KeySystem>();
     }
 }

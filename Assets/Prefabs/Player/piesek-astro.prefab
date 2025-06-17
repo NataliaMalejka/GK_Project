@@ -19,6 +19,8 @@ GameObject:
   - component: {fileID: 3623427748311881574}
   - component: {fileID: 6609672343783801351}
   - component: {fileID: 1950058637992133156}
+  - component: {fileID: 5139545835148139460}
+  - component: {fileID: 2360865013010035637}
   m_Layer: 20
   m_Name: piesek-astro
   m_TagString: Player
@@ -274,6 +276,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goldAmount: 0
+--- !u!114 &5139545835148139460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1217993646366099607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41ccac128aee93644b67ec6efb63cfb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyCount: 0
+  keyCountText: {fileID: 0}
+--- !u!114 &2360865013010035637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1217993646366099607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23489489e33bfd24099054fd7b42a595, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  batteryCount: 0
+  batteryCountText: {fileID: 0}
 --- !u!1001 &3427878711610245733
 PrefabInstance:
   m_ObjectHideFlags: 0

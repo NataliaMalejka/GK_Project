@@ -17,6 +17,9 @@ public class Gate : MonoBehaviour
     private Transform player;
     private KeySystem keySystem;
 
+    private Animator animator;
+    [SerializeField] private GameObject textPanel;
+
     private void Start()
     {
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
@@ -29,6 +32,8 @@ public class Gate : MonoBehaviour
         {
             Debug.LogWarning("Gate: Player object with tag 'Player' not found.");
         }
+
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -57,14 +62,42 @@ public class Gate : MonoBehaviour
         {
             IsOpen = true;
             Debug.Log("Gate opened!");
+            animator?.SetTrigger("OpenGate");
 
-            Collider2D col = GetComponent<Collider2D>();
-            if (col != null)
-            {
-                col.enabled = false; // Disable the collider to let the player walk through
-            }
 
             // Optional: Play open animation or sound
         }
+    }
+
+    public void DisenableCollider()
+    {
+        BoxCollider2D col = GetComponent<BoxCollider2D>();
+        CircleCollider2D circleCollider2D = GetComponent<CircleCollider2D>();
+        if (col != null)
+        {
+            col.enabled = false; // Disable the collider to let the player walk through
+            circleCollider2D.enabled = false; // Disenable text view
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        IPlayer player = collision.GetComponent<IPlayer>();
+
+        if (player != null)
+        {
+            textPanel.SetActive(true); // Show interaction prompt when player is near
+        }
+       
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        IPlayer player = collision.GetComponent<IPlayer>();
+
+        if (player != null)
+        {
+            textPanel.SetActive(false); // Hide interaction prompt when player leaves
+        }  
     }
 }
