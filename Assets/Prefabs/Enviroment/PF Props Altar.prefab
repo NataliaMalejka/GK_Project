@@ -329,6 +329,8 @@ MonoBehaviour:
   - {fileID: 1110694439145118253}
   - {fileID: 4058706326204734447}
   lerpSpeed: 3
+  TimeToTeleport: 1
+  currentTime: 0
 --- !u!1 &6058849618925925500
 GameObject:
   m_ObjectHideFlags: 0

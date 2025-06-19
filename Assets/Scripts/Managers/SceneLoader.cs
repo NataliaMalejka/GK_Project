@@ -8,8 +8,8 @@ using UnityEngine.SceneManagement;
 public static class SceneLoader 
 {
     private static AsyncOperationHandle<SceneInstance>? _currentSceneHandle;
-
-    public static async Task LoadSceneSingle(string sceneKey)
+ 
+    public static async Task LoadSceneSingle(string sceneKey, Vector3 spawnPosition)
     {
         if (_currentSceneHandle.HasValue && _currentSceneHandle.Value.IsValid())
         {
@@ -19,6 +19,8 @@ public static class SceneLoader
         var newSceneHandle = Addressables.LoadSceneAsync(sceneKey, LoadSceneMode.Single);
         await newSceneHandle.Task;
         _currentSceneHandle = newSceneHandle;
+
+        Player.Instance.transform.position = spawnPosition;
     }
 
     public static async Task LoadSceneAdditive(string sceneKey)

@@ -32,7 +32,12 @@ public class GoldSystem: MonoBehaviour
 
     public int GetGoldAmount() => goldAmount;
 
-    public void UpdateUI()
+    public void SetGoldAmound(int amount)
+    {
+        goldAmount = amount;
+    }
+
+public void UpdateUI()
     {
     //    if (goldAmountText != null)
     //    {

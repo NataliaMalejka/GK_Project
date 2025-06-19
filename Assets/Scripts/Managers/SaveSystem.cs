@@ -4,12 +4,14 @@ using UnityEngine;
 [System.Serializable]
 public class SaveData
 {
-    
+    public int startLevelIndex;
+    public int playerGold;
+    public Item playerWeapon;
 }
 
 public static class SaveSystem
 {
-    private static string SavePath => Path.Combine(Application.persistentDataPath, "BecomingGame.json");
+    private static string SavePath => Path.Combine(Application.persistentDataPath, "AstroGame.json");
 
     public static void SaveGame(SaveData data)
     {

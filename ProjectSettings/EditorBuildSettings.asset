@@ -9,8 +9,26 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: c6d43a072b5ba1c49b5ead6fa0c69766
   - enabled: 1
-    path: Assets/Scenes/Hub 1.unity
+    path: Assets/Scenes/Tutotial.unity
     guid: f52899b232fd0ee4da6c25b51925495b
+  - enabled: 1
+    path: Assets/Scenes/Hub 1.unity
+    guid: f4a5ca07080e05645b963a5fdd42213c
+  - enabled: 1
+    path: Assets/Scenes/Level 1.unity
+    guid: 871efaf58fcb1d649a20735361f61bdc
+  - enabled: 1
+    path: Assets/Scenes/Level 2.unity
+    guid: 70bb6887cde159c4f8dde35ec1fb3bb7
+  - enabled: 1
+    path: Assets/Scenes/Level 3.unity
+    guid: 55bb1efd805e7bd43a83466a99d0c278
+  - enabled: 1
+    path: Assets/Scenes/Level 4.unity
+    guid: e71389bcf0b3dda4ab29a88d9f02e5c0
+  - enabled: 1
+    path: Assets/Scenes/Level 5.unity
+    guid: cece8eb268bae454684a0bf0d4b66a27
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 8cae495787e69fd4b8208be58bb843d8,
       type: 2}

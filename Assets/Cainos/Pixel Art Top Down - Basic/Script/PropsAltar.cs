@@ -1,42 +1,78 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.Rendering.DebugUI;
 
-//when something get into the alta, make the runes glow
-namespace Cainos.PixelArtTopDown_Basic
+public class PropsAltar : MonoBehaviour, IFixedUpdateObserver
 {
+    public List<SpriteRenderer> runes;
+    public float lerpSpeed;
 
-    public class PropsAltar : MonoBehaviour
+    private Color curColor;
+    private Color targetColor;
+
+    [SerializeField] private float TimeToTeleport;
+    [SerializeField] private float currentTime = 0;
+
+    private bool inPortal = false;
+
+    private void Awake()
     {
-        public List<SpriteRenderer> runes;
-        public float lerpSpeed;
+        targetColor = runes[0].color;
+    }
 
-        private Color curColor;
-        private Color targetColor;
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        IPlayer player = other.GetComponent<IPlayer>();
 
-        private void Awake()
-        {
-            targetColor = runes[0].color;
-        }
-
-        private void OnTriggerEnter2D(Collider2D other)
+        if (player != null)
         {
             targetColor.a = 1.0f;
+            inPortal = true;
         }
+        
+    }
 
-        private void OnTriggerExit2D(Collider2D other)
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        IPlayer player = other.GetComponent<IPlayer>();
+
+        if (player != null)
         {
             targetColor.a = 0.0f;
+            inPortal = false;
+        }
+    }
+
+    private void OnEnable()
+    {
+        FixedUpdateManager.AddToList(this);
+    }
+
+    private void OnDisable()
+    {
+        FixedUpdateManager.RemoveFromList(this);
+    }
+
+    public void ObserveFixedUpdate()
+    {
+        curColor = Color.Lerp(curColor, targetColor, lerpSpeed * Time.fixedDeltaTime);
+
+        foreach (var r in runes)
+        {
+            r.color = curColor;
         }
 
-        private void Update()
+        if(inPortal)
         {
-            curColor = Color.Lerp(curColor, targetColor, lerpSpeed * Time.deltaTime);
+            currentTime += Time.fixedDeltaTime;
 
-            foreach (var r in runes)
+            if (currentTime >= TimeToTeleport)
             {
-                r.color = curColor;
+                GameManager.Instance.Teleport();
+                currentTime = 0;
             }
+
+            Debug.Log(currentTime);
         }
     }
 }
