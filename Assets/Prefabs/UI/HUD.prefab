@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 1795152285259340235}
   - component: {fileID: 21701719373130898}
   m_Layer: 5
-  m_Name: Mana-full
+  m_Name: Mana-fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -473,7 +473,7 @@ GameObject:
   - component: {fileID: 646982267461915358}
   - component: {fileID: 317882542191119810}
   m_Layer: 5
-  m_Name: Stamina-full
+  m_Name: Stamina-fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -565,7 +565,7 @@ RectTransform:
   m_GameObject: {fileID: 7365380991565439935}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.2412081, y: 1.2412081, z: 1.2412081}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4018881944336945647}

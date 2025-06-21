@@ -43,13 +43,15 @@ public class PlayerIdleState : State<PlayerController>
 
             if (controller.weapon != null)
             {
-                if (Player.Instance.staminaSystem.currentStamina >= controller.weapon.neededStamina && Player.Instance.manaSystem.currentmMna >= controller.weapon.neededMana)
-
-                Player.Instance.staminaSystem.ReduceStamina(controller.weapon.neededStamina);
-                Player.Instance.manaSystem.ReudceMana(controller.weapon.neededMana);
+                if (Player.Instance.staminaSystem.currentStamina >= controller.weapon.neededStamina && 
+                    Player.Instance.manaSystem.currentMana >= controller.weapon.neededMana)
+                {
+                    Player.Instance.staminaSystem.ReduceStamina(controller.weapon.neededStamina);
+                    Player.Instance.manaSystem.ReudceMana(controller.weapon.neededMana);
                 
-                controller.StartAttack();
-                controller.cooldowntimer = controller.weapon.cooldown;
+                    controller.StartAttack();
+                    controller.cooldowntimer = controller.weapon.cooldown;
+                }
             }
 
         }
