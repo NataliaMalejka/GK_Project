@@ -54,4 +54,9 @@ public class StaminaSystem : MonoBehaviour, IFixedUpdateObserver
         maxStamina += amound;
         currentStamina += amound;
     }
+
+    public void RegenerateStamina()
+    {
+        currentStamina = maxStamina;
+    }
 }

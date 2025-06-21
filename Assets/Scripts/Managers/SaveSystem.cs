@@ -7,6 +7,7 @@ public class SaveData
     public int startLevelIndex;
     public int playerGold;
     public Item playerWeapon;
+    public int[] costItemList;
 }
 
 public static class SaveSystem

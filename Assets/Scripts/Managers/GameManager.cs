@@ -1,6 +1,8 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SceneStartData
 {
@@ -22,10 +24,9 @@ public class GameManager : PersistentSingleton<GameManager>
     {
         base.Awake();
         Application.targetFrameRate = 60;
-        currentLevelIndex = 1;
 
         scenes.Add(new SceneStartData { sceneName = "MainMenu", startPosition = new Vector3(0, 0, 0) });
-        scenes.Add(new SceneStartData { sceneName = "Tutoria", startPosition = new Vector3(0, 0, 0) });
+        scenes.Add(new SceneStartData { sceneName = "Tutotial", startPosition = new Vector3(0, 0, 0) });
         scenes.Add(new SceneStartData { sceneName = "Hub 1", startPosition = new Vector3(0, 0, 0) });
 
         scenes.Add(new SceneStartData { sceneName = "Level 1", startPosition = new Vector3(0, 0, 0) });
@@ -51,9 +52,62 @@ public class GameManager : PersistentSingleton<GameManager>
             Time.timeScale = 1f;
     }
 
-    public void Teleport()
+    public async Task Teleport()
     {
+        currentLevelIndex++;
 
+        if (SceneManager.GetActiveScene().name == "Hub 1")
+        {
+            currentLevelIndex = 0;
+            GetRandomLevels();
+            
+        }
+        else if (SceneManager.GetActiveScene().name == "Tutotial")
+        {
+            await SceneLoader.LoadSceneSingle("Hub 1", new Vector3(0,0,0));
+        }
+        else if (currentLevelIndex == 3)
+        {
+            await SceneLoader.LoadSceneSingle("Boss Arena 1", new Vector3(0, 0, 0));
+        }
+        else
+        {
+            await SceneLoader.LoadSceneSingle(scenes[randomLevels[currentLevelIndex]].sceneName, scenes[randomLevels[currentLevelIndex]].startPosition);
+        }
+
+        RegeneratePlayer();
+    }
+
+    private void RegeneratePlayer()
+    {
+        Player.Instance.healthSystem.RegenerateHealth();
+        Player.Instance.staminaSystem.RegenerateStamina();
+        Player.Instance.manaSystem.RegenerateMana();
+    }
+
+    private void GetRandomLevels()
+    {
+        int count = 0;
+        while (count < 3)
+        {
+            int random = Random.Range(3, 8); 
+
+            bool alreadyExists = false;
+            for (int j = 0; j < count; j++)
+            {
+                if (randomLevels[j] == random)
+                {
+                    alreadyExists = true;
+                    break;
+                }
+            }
+
+            if (!alreadyExists)
+            {
+                randomLevels[count] = random;
+                count++;
+            }
+        }
     }
 
     public async Task LoadStartLevel()

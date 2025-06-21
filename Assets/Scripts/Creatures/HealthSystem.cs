@@ -72,4 +72,9 @@ public class HealthSystem : MonoBehaviour
         maxHelath += amound;
         Heal(amound);
     }
+
+    public void RegenerateHealth()
+    {
+        currentHelath = maxHelath;
+    }
 }

@@ -36,4 +36,9 @@ public class ManaSystem : MonoBehaviour
         maxMana += amound;
         IncreaseCurrentMana(amound);
     }
+
+    public void RegenerateMana()
+    {
+        currentmMna = maxMana;
+    }       
 }
