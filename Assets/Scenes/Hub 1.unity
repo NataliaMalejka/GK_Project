@@ -5058,18 +5058,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1363350233}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &694537952 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 317882542191119810, guid: c9bf36595c5c0db43a69e663e0ba1d54,
-    type: 3}
-  m_PrefabInstance: {fileID: 1628122808610775985}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &734031283
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8446,11 +8434,45 @@ PrefabInstance:
       propertyPath: m_Name
       value: piesek-astro
       objectReference: {fileID: 0}
-    - target: {fileID: 3623427748311881574, guid: 3a17c2383ce1fa946bcca6e52a4c5700,
+    - target: {fileID: 1717154485042158402, guid: 3a17c2383ce1fa946bcca6e52a4c5700,
         type: 3}
-      propertyPath: staminaFillBar
+      propertyPath: maxHelath
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 1717154485042158402, guid: 3a17c2383ce1fa946bcca6e52a4c5700,
+        type: 3}
+      propertyPath: currentHelath
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1717154485042158402, guid: 3a17c2383ce1fa946bcca6e52a4c5700,
+        type: 3}
+      propertyPath: lifestarfullPrefab
       value: 
-      objectReference: {fileID: 694537952}
+      objectReference: {fileID: 2558390959713750868, guid: 51ba50cdfa1cfc349ad88698dae3c2e1,
+        type: 3}
+    - target: {fileID: 1717154485042158402, guid: 3a17c2383ce1fa946bcca6e52a4c5700,
+        type: 3}
+      propertyPath: lifestarhalfPrefab
+      value: 
+      objectReference: {fileID: 2558390959713750868, guid: 0cb3fc7aeb35f08408bf466c03589c55,
+        type: 3}
+    - target: {fileID: 1717154485042158402, guid: 3a17c2383ce1fa946bcca6e52a4c5700,
+        type: 3}
+      propertyPath: lifestaremptyPrefab
+      value: 
+      objectReference: {fileID: 2558390959713750868, guid: f989338c292ce9d43ac95096af5431b0,
+        type: 3}
+    - target: {fileID: 1717154485042158402, guid: 3a17c2383ce1fa946bcca6e52a4c5700,
+        type: 3}
+      propertyPath: lifestarhalffullPrefab
+      value: 
+      objectReference: {fileID: 2558390959713750868, guid: 14c73354e1565b144ba5382b1826c5eb,
+        type: 3}
+    - target: {fileID: 8024158003849042400, guid: 3a17c2383ce1fa946bcca6e52a4c5700,
+        type: 3}
+      propertyPath: maxMana
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8826948764483295098, guid: 3a17c2383ce1fa946bcca6e52a4c5700,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8504,7 +8526,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1217993646366099607, guid: 3a17c2383ce1fa946bcca6e52a4c5700,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1770325077}
   m_SourcePrefab: {fileID: 100100000, guid: 3a17c2383ce1fa946bcca6e52a4c5700, type: 3}
 --- !u!4 &1217196114 stripped
 Transform:
@@ -9609,6 +9635,25 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1760476601}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1770325067 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1217993646366099607, guid: 3a17c2383ce1fa946bcca6e52a4c5700,
+    type: 3}
+  m_PrefabInstance: {fileID: 1217196113}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1770325077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1770325067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 193235c4313bb3b4b8e1a75081269522, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goldAmount: 0
 --- !u!1 &1806807890
 GameObject:
   m_ObjectHideFlags: 0

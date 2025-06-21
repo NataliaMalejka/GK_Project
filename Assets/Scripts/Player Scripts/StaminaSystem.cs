@@ -7,8 +7,7 @@ public class StaminaSystem : MonoBehaviour, IFixedUpdateObserver
     [SerializeField] private float maxStamina;
     public float currentStamina;
 
-    [Header("UI (auto-found at runtime)")]
-    [SerializeField] private Image staminaFillBar;
+    private Image staminaFillBar; //auto found at runtime
 
 
     private void OnEnable()

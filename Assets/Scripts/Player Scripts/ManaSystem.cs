@@ -6,8 +6,7 @@ public class ManaSystem : MonoBehaviour
     [SerializeField] private int maxMana;
     public int currentMana;
 
-    [Header("UI (auto-found at runtime)")]
-    [SerializeField] private Image manaFillBar;
+    private Image manaFillBar; //auto found at runtime
 
     private void Awake()
     {
@@ -20,9 +19,9 @@ public class ManaSystem : MonoBehaviour
         }
 
         // now find your specific child by name:
-        var staminaTransform = hudGO.transform.Find("Mana/Mana-fill");
-        if (staminaTransform != null)
-            manaFillBar = staminaTransform.GetComponent<Image>();
+        var manaTransform = hudGO.transform.Find("Mana/Mana-fill");
+        if (manaTransform != null)
+            manaFillBar = manaTransform.GetComponent<Image>();
         else
             Debug.LogError("Could not find Mana/Mana-fill under HUD!");
 
