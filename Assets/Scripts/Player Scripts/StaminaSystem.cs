@@ -7,7 +7,8 @@ public class StaminaSystem : MonoBehaviour, IFixedUpdateObserver
     [SerializeField] private float maxStamina;
     public float currentStamina;
 
-    private Image staminaFillBar; //auto found at runtime
+
+    public float getMaxStamina() => maxStamina;
 
 
     private void OnEnable()
@@ -22,24 +23,8 @@ public class StaminaSystem : MonoBehaviour, IFixedUpdateObserver
 
     private void Awake()
     {
-        // find the canvas root once
-        var hudGO = GameObject.FindGameObjectWithTag("HUD");
-        if (hudGO == null)
-        {
-            Debug.LogError("HUD tag missing on your Canvas/HUD!");
-            return;
-        }
-
-        // now find your specific child by name:
-        var staminaTransform = hudGO.transform.Find("Stamina/Stamina-fill");
-        if (staminaTransform != null)
-            staminaFillBar = staminaTransform.GetComponent<Image>();
-        else
-            Debug.LogError("Could not find Stamina/Stamina-fill under HUD!");
-
-
         currentStamina = maxStamina;
-        updateStaminaBar();
+        //updateStaminaBar();
     }
 
     public void ObserveFixedUpdate()
@@ -50,7 +35,7 @@ public class StaminaSystem : MonoBehaviour, IFixedUpdateObserver
         {
             currentStamina = maxStamina;
         }
-        updateStaminaBar();
+        //updateStaminaBar(); // - done in FixedUpdateManager.cs
     }
 
     public bool CanReduceStamina(float amound)
@@ -64,32 +49,27 @@ public class StaminaSystem : MonoBehaviour, IFixedUpdateObserver
     public void ReduceStamina(float amound)
     {
         currentStamina -= amound;
-        updateStaminaBar();
+        //updateStaminaBar();
     }
 
     public void IncreaseStamina(float amound)
     {
         currentStamina += amound;
-        updateStaminaBar();
+        //updateStaminaBar();
     }
 
     public void IncreaseMaxStamnina(float amound)
     {
         maxStamina += amound;
         currentStamina += amound;
-        updateStaminaBar();
+        //updateStaminaBar();
     }
 
     public void RegenerateStamina()
     {
         currentStamina = maxStamina;
+        //updateStaminaBar();
     }
 
 
-
-
-    private void updateStaminaBar()
-    {
-        staminaFillBar.fillAmount = currentStamina / maxStamina;
-    }
 }

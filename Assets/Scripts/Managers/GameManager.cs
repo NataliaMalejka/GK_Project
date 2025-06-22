@@ -81,8 +81,14 @@ public class GameManager : PersistentSingleton<GameManager>
     private void RegeneratePlayer()
     {
         Player.Instance.healthSystem.RegenerateHealth();
+        Player.Instance.hudUpdater.updateHealthIcons(Player.Instance.healthSystem.currentHelath, Player.Instance.healthSystem.getMaxHealth());
+
         Player.Instance.staminaSystem.RegenerateStamina();
+        Player.Instance.hudUpdater.updateStaminaBar(Player.Instance.staminaSystem.currentStamina, Player.Instance.staminaSystem.getMaxStamina());
+
+
         Player.Instance.manaSystem.RegenerateMana();
+        Player.Instance.hudUpdater.updateManaBar(Player.Instance.manaSystem.currentMana, Player.Instance.manaSystem.getMaxMana());
     }
 
     private void GetRandomLevels()
@@ -118,6 +124,8 @@ public class GameManager : PersistentSingleton<GameManager>
         {
             startLevelIndex = data.startLevelIndex;
             Player.Instance.goldSystem.SetGoldAmound(data.playerGold);
+            Player.Instance.hudUpdater.updateGold(Player.Instance.goldSystem.GetGoldAmount());
+
             SlotManager.Instance.SetPlayerWeapon(data.playerWeapon);
         }
 

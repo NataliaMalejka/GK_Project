@@ -11,6 +11,8 @@ public class StamineMixture : MonoBehaviour
         if (player != null)
         {
             Player.Instance.staminaSystem.IncreaseStamina(stamine);
+            Player.Instance.hudUpdater.updateStaminaBar(Player.Instance.staminaSystem.currentStamina, Player.Instance.staminaSystem.getMaxStamina());
+
             Destroy(this.gameObject);
         }
     }

@@ -80,6 +80,8 @@ public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         {
             if(Player.Instance.goldSystem.ReduceGold(cost))
             {
+                Player.Instance.hudUpdater.updateGold(Player.Instance.goldSystem.GetGoldAmount());
+
                 SlotManager.Instance.SetPlayerWeapon(item);
 
                 SetCost(0);

@@ -11,6 +11,8 @@ public class Coin : MonoBehaviour
         if (player != null)
         {
             Player.Instance.goldSystem.CollectGold(value);
+            Player.Instance.hudUpdater.updateGold(Player.Instance.goldSystem.GetGoldAmount());
+
             Destroy(this.gameObject);
         }
     }

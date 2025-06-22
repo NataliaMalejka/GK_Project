@@ -12,6 +12,7 @@ public class HealthMixture : MonoBehaviour
         if (player != null)
         {
             Player.Instance.healthSystem.Heal(health);
+            Player.Instance.hudUpdater.updateHealthIcons(Player.Instance.healthSystem.currentHelath, Player.Instance.healthSystem.getMaxHealth());
             Destroy(this.gameObject);
         }
     }

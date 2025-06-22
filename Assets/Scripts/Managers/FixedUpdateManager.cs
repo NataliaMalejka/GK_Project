@@ -31,6 +31,11 @@ public class FixedUpdateManager : MonoBehaviour
         {
             observer.ObserveFixedUpdate();
         }
+
+
+        //Player.Instance.hudUpdater.updateHealthIcons(Player.Instance.healthSystem.currentHelath, Player.Instance.healthSystem.getMaxHealth());
+        Player.Instance.hudUpdater.updateStaminaBar(Player.Instance.staminaSystem.currentStamina, Player.Instance.staminaSystem.getMaxStamina());
+        //Player.Instance.hudUpdater.updateManaBar(Player.Instance.manaSystem.currentMana, Player.Instance.manaSystem.getMaxMana());
     }
 
     public static void AddToList(IFixedUpdateObserver observer)

@@ -11,6 +11,8 @@ public class ManaMixture : MonoBehaviour
         if (player != null)
         {
             Player.Instance.manaSystem.IncreaseCurrentMana(mana);
+            Player.Instance.hudUpdater.updateManaBar(Player.Instance.manaSystem.currentMana, Player.Instance.manaSystem.getMaxMana());
+
             Destroy(this.gameObject);
         }
     }
