@@ -24,6 +24,18 @@ public class SlotManager : StaticInstance<SlotManager>
         }
     }
 
+    public int[] GetCostLIst()
+    {
+        int[] costList = new int[itemsList.Count()];
+
+        for (int i = 0; i < itemsList.Count(); i++)
+        {
+            costList[i] = itemsList[i].GetCost();
+        }
+
+        return costList;
+    }
+
     public void SetPlayerWeapon(Item item)
     {
         PlayerWeapon weapon = Player.Instance.controller.GetWeapon();

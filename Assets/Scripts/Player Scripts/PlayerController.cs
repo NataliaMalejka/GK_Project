@@ -23,6 +23,10 @@ public class PlayerController : MonoBehaviour, IUpdateObserver, IFixedUpdateObse
     [HideInInspector] public float cooldowntimer = 0f;
     [HideInInspector] public PlayerWeapon weapon;
 
+    [Header("Heal")]
+    [HideInInspector] public int manaToHeal;
+    [HideInInspector] public int healthRegenerate;
+
     private void OnEnable()
     {
         UpdateManager.AddToList(this);

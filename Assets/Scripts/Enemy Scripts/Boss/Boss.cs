@@ -82,6 +82,7 @@ public class Boss : Enemy, IRangedAttacker
     public override void Die()
     {
         base.Die();
+        _=GameManager.Instance.AfterPlayerDead();
     }
 
     protected void OnDrawGizmos()

@@ -182,13 +182,14 @@ MonoBehaviour:
   - {fileID: 406812155505914710}
   seePlayer: 0
   rb: {fileID: 0}
-  rangedweapon: {fileID: 5361991904607399351, guid: 88642fe0da03b264bae4ee61c86a5d67,
-    type: 3}
-  rangedweaponCount: 1
   viewRange: 5
   playerLayer:
     serializedVersion: 2
     m_Bits: 1048576
+  coin: {fileID: 2119243273201763213, guid: 1e5c93b20c9a76747ad181fc4d8a482a, type: 3}
+  rangedweapon: {fileID: 5361991904607399351, guid: 88642fe0da03b264bae4ee61c86a5d67,
+    type: 3}
+  rangedweaponCount: 1
 --- !u!114 &750861271902609151
 MonoBehaviour:
   m_ObjectHideFlags: 0

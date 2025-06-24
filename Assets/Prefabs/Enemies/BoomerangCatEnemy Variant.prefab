@@ -65,6 +65,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2813321540713864654, guid: 4ab7b677feb662e49933361f4e05f9a6,
         type: 3}
+      propertyPath: coin
+      value: 
+      objectReference: {fileID: 2119243273201763213, guid: 1e5c93b20c9a76747ad181fc4d8a482a,
+        type: 3}
+    - target: {fileID: 2813321540713864654, guid: 4ab7b677feb662e49933361f4e05f9a6,
+        type: 3}
       propertyPath: bulletPrefab
       value: 
       objectReference: {fileID: 4374265903480653811, guid: f740661e9859c04439b5b1b9a889bc34,

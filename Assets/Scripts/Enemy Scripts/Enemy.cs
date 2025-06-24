@@ -24,6 +24,8 @@ public abstract class Enemy : MonoBehaviour,IUpdateObserver, IFixedUpdateObserve
 
     protected StateMachine<Enemy> stateMachine = new StateMachine<Enemy>();
 
+    [SerializeField] private GameObject coin;
+
     protected void OnEnable()
     {
         UpdateManager.AddToList(this);
@@ -58,6 +60,13 @@ public abstract class Enemy : MonoBehaviour,IUpdateObserver, IFixedUpdateObserve
 
     public virtual void Die()
     {
+        int random = Random.Range(0, 2);
+
+        if (random == 0 && coin!=null)
+        {
+            Instantiate(coin, transform.position, Quaternion.identity);
+        }
+
         Destroy(this.gameObject);
     }
 }

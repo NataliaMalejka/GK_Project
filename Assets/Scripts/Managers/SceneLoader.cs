@@ -9,8 +9,10 @@ public static class SceneLoader
 {
     private static AsyncOperationHandle<SceneInstance>? _currentSceneHandle;
  
-    public static async Task LoadSceneSingle(string sceneKey, Vector3 spawnPosition)
+    public static async Task LoadSceneSingle(string sceneKey)
     {
+        Debug.Log(sceneKey);
+
         if (_currentSceneHandle.HasValue && _currentSceneHandle.Value.IsValid())
         {
             await Addressables.UnloadSceneAsync(_currentSceneHandle.Value).Task;
@@ -20,7 +22,7 @@ public static class SceneLoader
         await newSceneHandle.Task;
         _currentSceneHandle = newSceneHandle;
 
-        Player.Instance.transform.position = spawnPosition;
+        Player.Instance.transform.position = Vector3.zero;
     }
 
     public static async Task LoadSceneAdditive(string sceneKey)

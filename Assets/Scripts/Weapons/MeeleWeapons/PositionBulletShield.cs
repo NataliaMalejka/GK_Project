@@ -25,6 +25,6 @@ public class PositionBulletShield : MeleeWeapon, IFixedUpdateObserver
 
     public override void StartAttack(GameObject controller)
     {
-        base.StartAttack(controller);
+        //base.StartAttack(controller);
     }
 }

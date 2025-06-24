@@ -117,8 +117,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dmg: 5
   damageDuration: 0
-  neededStamina: 0
-  neededMana: 0
   cooldown: 2
 --- !u!1 &7241959553289496011
 GameObject:
@@ -352,11 +350,12 @@ MonoBehaviour:
   - {fileID: 8392724943883185900}
   seePlayer: 0
   rb: {fileID: 0}
-  meeleWeapon: {fileID: 1797261406827442389}
   viewRange: 7
   playerLayer:
     serializedVersion: 2
     m_Bits: 1048576
+  coin: {fileID: 2119243273201763213, guid: 1e5c93b20c9a76747ad181fc4d8a482a, type: 3}
+  meeleWeapon: {fileID: 1797261406827442389}
 --- !u!114 &3146676557955834816
 MonoBehaviour:
   m_ObjectHideFlags: 0

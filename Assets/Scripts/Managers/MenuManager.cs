@@ -5,7 +5,7 @@ public class MenuManager : MonoBehaviour
 {
     public void StartGame()
     {
-        SceneManager.LoadScene("Hub 1");
+        _=GameManager.Instance.LoadStartLevel();
     }
 
     public void GameExit()

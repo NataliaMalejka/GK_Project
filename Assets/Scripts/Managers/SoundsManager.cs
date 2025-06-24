@@ -3,8 +3,11 @@ using UnityEngine;
 public enum Sounds
 {
     CollectCoin,
+    CollectMixtures,
     Die,
-    ButtonClick
+    ButtonClick,
+    Explosion,
+    GetDmg
 }
 
 public class SoundsManager : PersistentSingleton<SoundsManager>
@@ -22,6 +25,7 @@ public class SoundsManager : PersistentSingleton<SoundsManager>
 
     public void PlayAudioClip(Sounds sound)
     {
+
         switch (sound)
         {
             case Sounds.CollectCoin:

@@ -18,6 +18,7 @@ public class Shop : Dialogues
 
         if(!isShopActive)
         {
+            GameManager.Instance.LoadCostList();
             shopPanel.SetActive(true);
             isShopActive = true;
             GameManager.Instance.PauseGame();
@@ -31,6 +32,9 @@ public class Shop : Dialogues
             GameManager.Instance.PlayGame();
 
             isDialogue = false;
+
+            GameManager.Instance.SaveCostList();
+            GameManager.Instance.SaveGame();
         }
         
     }

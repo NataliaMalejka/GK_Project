@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
-using static UnityEngine.Rendering.DebugUI;
 
 public class PropsAltar : MonoBehaviour, IFixedUpdateObserver
 {
@@ -14,6 +14,7 @@ public class PropsAltar : MonoBehaviour, IFixedUpdateObserver
     [SerializeField] private float currentTime = 0;
 
     private bool inPortal = false;
+    private bool isTeleporting = false;
 
     private void Awake()
     {
@@ -55,6 +56,11 @@ public class PropsAltar : MonoBehaviour, IFixedUpdateObserver
 
     public void ObserveFixedUpdate()
     {
+        _ = ChangeColor();
+    }
+
+    public async Task ChangeColor()
+    {
         curColor = Color.Lerp(curColor, targetColor, lerpSpeed * Time.fixedDeltaTime);
 
         foreach (var r in runes)
@@ -62,17 +68,22 @@ public class PropsAltar : MonoBehaviour, IFixedUpdateObserver
             r.color = curColor;
         }
 
-        if(inPortal)
+        if(inPortal && !isTeleporting)
         {
             currentTime += Time.fixedDeltaTime;
 
             if (currentTime >= TimeToTeleport)
             {
-                GameManager.Instance.Teleport();
+                isTeleporting = true;
+                Debug.Log("teleport");
+                await GameManager.Instance.Teleport();
                 currentTime = 0;
+                isTeleporting = false;
             }
-
-            Debug.Log(currentTime);
+        }
+        else if (!inPortal)
+        {
+            currentTime = 0; 
         }
     }
 }

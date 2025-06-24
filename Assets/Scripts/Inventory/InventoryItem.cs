@@ -47,7 +47,10 @@ public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         this.cost = cost;
     }
 
-        
+    public int GetCost()
+    {
+        return cost;
+    }
 
     private void SetText()
     {

@@ -1,41 +1,37 @@
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
-public class SceneStartData
-{
-    public string sceneName;
-    public Vector3 startPosition;
-}
 
 public class GameManager : PersistentSingleton<GameManager>
 {
     private int pauseCount = 0;
 
-    private List<SceneStartData> scenes = new List<SceneStartData>();
+    private List<string> scenes = new List<string>();
     private int[] randomLevels = new int[3];
 
-    private int startLevelIndex = 1;
+    private int startLevelIndex = 6;
     private int currentLevelIndex;
+
+    private int[] costItemList = new int[15];
 
     protected override void Awake()
     {
         base.Awake();
         Application.targetFrameRate = 60;
 
-        scenes.Add(new SceneStartData { sceneName = "MainMenu", startPosition = new Vector3(0, 0, 0) });
-        scenes.Add(new SceneStartData { sceneName = "Tutotial", startPosition = new Vector3(0, 0, 0) });
-        scenes.Add(new SceneStartData { sceneName = "Hub 1", startPosition = new Vector3(0, 0, 0) });
+        scenes.Add("MainMenu");
 
-        scenes.Add(new SceneStartData { sceneName = "Level 1", startPosition = new Vector3(0, 0, 0) });
-        scenes.Add(new SceneStartData { sceneName = "Level 2", startPosition = new Vector3(0, 0, 0) });
-        scenes.Add(new SceneStartData { sceneName = "Level 3", startPosition = new Vector3(0, 0, 0) });
-        scenes.Add(new SceneStartData { sceneName = "Level 4", startPosition = new Vector3(0, 0, 0) });
-        scenes.Add(new SceneStartData { sceneName = "Level 5", startPosition = new Vector3(0, 0, 0) });
+        scenes.Add("Level 1");
+        scenes.Add("Level 2");
+        scenes.Add("Level 3");
+        scenes.Add("Level 4");
+        scenes.Add("Level 5");
 
-        scenes.Add(new SceneStartData { sceneName = "Boss Arena 1", startPosition = new Vector3(0, 0, 0) });
+        scenes.Add("Tutotial");
+        scenes.Add("Hub 1");
+
+        scenes.Add("Boss Arena 1");
     }
 
     public void PauseGame()
@@ -56,26 +52,30 @@ public class GameManager : PersistentSingleton<GameManager>
     {
         currentLevelIndex++;
 
+        RegeneratePlayer();
+
         if (SceneManager.GetActiveScene().name == "Hub 1")
         {
             currentLevelIndex = 0;
             GetRandomLevels();
-            
+            Debug.Log("hub 1");
         }
         else if (SceneManager.GetActiveScene().name == "Tutotial")
         {
-            await SceneLoader.LoadSceneSingle("Hub 1", new Vector3(0,0,0));
+            await SceneLoader.LoadSceneSingle("Hub 1");
+            Debug.Log("tutotial");
+            return;
         }
         else if (currentLevelIndex == 3)
         {
-            await SceneLoader.LoadSceneSingle("Boss Arena 1", new Vector3(0, 0, 0));
-        }
-        else
-        {
-            await SceneLoader.LoadSceneSingle(scenes[randomLevels[currentLevelIndex]].sceneName, scenes[randomLevels[currentLevelIndex]].startPosition);
+            await SceneLoader.LoadSceneSingle("Boss Arena 1");
+            Debug.Log("index 3");
+            return;
         }
 
-        RegeneratePlayer();
+        await SceneLoader.LoadSceneSingle(scenes[randomLevels[currentLevelIndex]]);
+
+        Debug.Log(randomLevels[0] + " " + randomLevels[1] + " " + randomLevels[2] + " " + currentLevelIndex);
     }
 
     private void RegeneratePlayer()
@@ -85,12 +85,18 @@ public class GameManager : PersistentSingleton<GameManager>
         Player.Instance.manaSystem.RegenerateMana();
     }
 
+    public async Task AfterPlayerDead()
+    {
+        await SceneLoader.LoadSceneSingle("Hub 1");
+        RegeneratePlayer();
+    }
+
     private void GetRandomLevels()
     {
         int count = 0;
         while (count < 3)
         {
-            int random = Random.Range(3, 8); 
+            int random = Random.Range(1, 6); 
 
             bool alreadyExists = false;
             for (int j = 0; j < count; j++)
@@ -110,6 +116,16 @@ public class GameManager : PersistentSingleton<GameManager>
         }
     }
 
+    public void LoadCostList()
+    {
+        SlotManager.Instance.LoadItemsCost(costItemList);
+    }
+
+    public void SaveCostList()
+    {
+        costItemList = SlotManager.Instance.GetCostLIst();
+    }
+
     public async Task LoadStartLevel()
     {
         var data = SaveSystem.LoadGame();
@@ -119,9 +135,10 @@ public class GameManager : PersistentSingleton<GameManager>
             startLevelIndex = data.startLevelIndex;
             Player.Instance.goldSystem.SetGoldAmound(data.playerGold);
             SlotManager.Instance.SetPlayerWeapon(data.playerWeapon);
+            this.costItemList = data.costItemList;
         }
 
-        await SceneLoader.LoadSceneSingle(scenes[startLevelIndex].sceneName, scenes[startLevelIndex].startPosition);
+        await SceneLoader.LoadSceneSingle(scenes[startLevelIndex]);
 
     }
 
@@ -131,7 +148,8 @@ public class GameManager : PersistentSingleton<GameManager>
         {
             startLevelIndex = this.startLevelIndex,
             playerGold = Player.Instance.goldSystem.GetGoldAmount(),
-            playerWeapon = SlotManager.Instance.GetPlayerWeapon()
+            playerWeapon = SlotManager.Instance.GetPlayerWeapon(),
+            costItemList = this.costItemList
         };
         SaveSystem.SaveGame(data);
     }

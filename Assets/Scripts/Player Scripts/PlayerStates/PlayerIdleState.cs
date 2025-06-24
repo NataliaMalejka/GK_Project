@@ -55,6 +55,18 @@ public class PlayerIdleState : State<PlayerController>
         }
     }
 
+    private void UpdateHealth()
+    {
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            if (Player.Instance.manaSystem.currentmMna >= controller.manaToHeal)
+            {
+                Player.Instance.manaSystem.ReudceMana(controller.manaToHeal);
+                Player.Instance.healthSystem.Heal(controller.healthRegenerate);
+            }
+        }
+    }
+
     public override void FixedUpdateState()
     {
         move();
