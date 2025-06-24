@@ -12,6 +12,8 @@ public class Player : PersistentSingleton<Player>, IPlayer
     public BatterySystem batterySystem { get; private set; }
     public KeySystem keySystem { get; private set; }
 
+    public HudUpdater hudUpdater { get; private set; }
+
     protected override void Awake()
     {
         base.Awake();
@@ -23,5 +25,11 @@ public class Player : PersistentSingleton<Player>, IPlayer
         goldSystem = GetComponent<GoldSystem>();
         batterySystem = GetComponent<BatterySystem>();
         keySystem = GetComponent<KeySystem>();
+
+        hudUpdater = GetComponent<HudUpdater>();
+        hudUpdater.manualInit(healthSystem.currentHelath, healthSystem.getMaxHealth(), 
+            staminaSystem.currentStamina, staminaSystem.getMaxStamina(),
+            manaSystem.currentMana, manaSystem.getMaxMana(),
+            goldSystem.GetGoldAmount());
     }
 }

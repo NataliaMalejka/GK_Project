@@ -12,6 +12,7 @@ public class HealthMixture : MonoBehaviour
         {
             Player.Instance.healthSystem.Heal(health);
             SoundsManager.Instance.PlayAudioClip(Sounds.CollectMixtures);
+            Player.Instance.hudUpdater.updateHealthIcons(Player.Instance.healthSystem.currentHelath, Player.Instance.healthSystem.getMaxHealth());
             Destroy(this.gameObject);
         }
     }

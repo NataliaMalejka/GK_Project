@@ -12,6 +12,7 @@ public class ManaMixture : MonoBehaviour
         {
             Player.Instance.manaSystem.IncreaseCurrentMana(mana);
             SoundsManager.Instance.PlayAudioClip(Sounds.CollectMixtures);
+            Player.Instance.hudUpdater.updateManaBar(Player.Instance.manaSystem.currentMana, Player.Instance.manaSystem.getMaxMana());
             Destroy(this.gameObject);
         }
     }

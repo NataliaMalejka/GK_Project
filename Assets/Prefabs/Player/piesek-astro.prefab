@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 1950058637992133156}
   - component: {fileID: 5139545835148139460}
   - component: {fileID: 2360865013010035637}
+  - component: {fileID: 2719284630345531572}
   m_Layer: 20
   m_Name: piesek-astro
   m_TagString: Player
@@ -203,7 +204,7 @@ MonoBehaviour:
   runSpeed: 5
   dashTime: 8
   dashForce: 15
-  dashNeededStamina: 0
+  dashNeededStamina: 2
   cooldowntimer: 0
   weapon: {fileID: 0}
 --- !u!114 &8024158003849042400
@@ -219,7 +220,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxMana: 10
-  currentmMna: 0
+  currentMana: 0
 --- !u!114 &1717154485042158402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,7 +233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e23d5ec971304384d96255324dc10726, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHelath: 20
+  maxHelath: 13
   currentHelath: 0
 --- !u!114 &3623427748311881574
 MonoBehaviour:
@@ -246,7 +247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f63c24a8bb6cb834f9145f5f17233f82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  staminaIncrease: 0.5
+  staminaIncrease: 0.05
   maxStamina: 10
   currentStamina: 0
 --- !u!114 &6609672343783801351
@@ -304,6 +305,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   batteryCount: 0
   batteryCountText: {fileID: 0}
+--- !u!114 &2719284630345531572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1217993646366099607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dc1443872c6eef4a94ff1358b67f7a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifestarfullPrefab: {fileID: 2558390959713750868, guid: 51ba50cdfa1cfc349ad88698dae3c2e1,
+    type: 3}
+  lifestarhalfPrefab: {fileID: 2558390959713750868, guid: 0cb3fc7aeb35f08408bf466c03589c55,
+    type: 3}
+  lifestarhalffullPrefab: {fileID: 2558390959713750868, guid: 14c73354e1565b144ba5382b1826c5eb,
+    type: 3}
+  lifestaremptyPrefab: {fileID: 2558390959713750868, guid: f989338c292ce9d43ac95096af5431b0,
+    type: 3}
 --- !u!1001 &3427878711610245733
 PrefabInstance:
   m_ObjectHideFlags: 0

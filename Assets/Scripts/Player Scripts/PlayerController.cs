@@ -98,6 +98,7 @@ public class PlayerController : MonoBehaviour, IUpdateObserver, IFixedUpdateObse
     public void ReduceHP(int dmg, int duration)
     {
         Player.Instance.healthSystem.GetDmg(dmg, duration);
+        Player.Instance.hudUpdater.updateHealthIcons(Player.Instance.healthSystem.currentHelath, Player.Instance.healthSystem.getMaxHealth());
     }
 
     public void Die()

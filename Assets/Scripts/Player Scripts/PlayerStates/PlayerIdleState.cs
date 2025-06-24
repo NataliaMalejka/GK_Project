@@ -30,6 +30,8 @@ public class PlayerIdleState : State<PlayerController>
             if(Player.Instance.staminaSystem.currentStamina >= controller.dashNeededStamina)
             {
                 Player.Instance.staminaSystem.ReduceStamina(controller.dashNeededStamina);
+                Player.Instance.hudUpdater.updateStaminaBar(Player.Instance.staminaSystem.currentStamina, Player.Instance.staminaSystem.getMaxStamina());
+
                 stateMachine.ChangeState(controller.playerDashState);
             }          
         }
@@ -43,13 +45,19 @@ public class PlayerIdleState : State<PlayerController>
 
             if (controller.weapon != null)
             {
-                if (Player.Instance.staminaSystem.currentStamina >= controller.weapon.neededStamina && Player.Instance.manaSystem.currentmMna >= controller.weapon.neededMana)
+                if (Player.Instance.staminaSystem.currentStamina >= controller.weapon.neededStamina && 
+                    Player.Instance.manaSystem.currentMana >= controller.weapon.neededMana)
+                {
+                    Player.Instance.staminaSystem.ReduceStamina(controller.weapon.neededStamina);
+                    Player.Instance.hudUpdater.updateStaminaBar(Player.Instance.staminaSystem.currentStamina, Player.Instance.staminaSystem.getMaxStamina());
 
-                Player.Instance.staminaSystem.ReduceStamina(controller.weapon.neededStamina);
-                Player.Instance.manaSystem.ReudceMana(controller.weapon.neededMana);
-                
-                controller.StartAttack();
-                controller.cooldowntimer = controller.weapon.cooldown;
+                    Player.Instance.manaSystem.ReudceMana(controller.weapon.neededMana);
+                    Player.Instance.hudUpdater.updateManaBar(Player.Instance.manaSystem.currentMana, Player.Instance.manaSystem.getMaxMana());
+
+
+                    controller.StartAttack();
+                    controller.cooldowntimer = controller.weapon.cooldown;
+                }
             }
 
         }

@@ -1,18 +1,24 @@
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class ManaSystem : MonoBehaviour
 {
     [SerializeField] private int maxMana;
-    public int currentmMna;
+    public int currentMana;
+
+
+    public int getMaxMana() => maxMana;
 
     private void Awake()
     {
-        currentmMna = maxMana;
+        currentMana = maxMana;
+        //updateManaBar();
     }
 
     public bool CanReduceMana(int amound)
     {
-        if (currentmMna >= amound)
+        if (currentMana >= amound)
             return true;
         else
             return false;
@@ -20,25 +26,32 @@ public class ManaSystem : MonoBehaviour
 
     public void ReudceMana(int amound)
     {
-        currentmMna -= amound;
-    }    
+        currentMana -= amound;
+        //updateManaBar();
+    }
 
     public void IncreaseCurrentMana(int amound)
     {
-        currentmMna += amound;
+        currentMana += amound;
 
-        if(currentmMna > maxMana)
-            currentmMna = maxMana;
+        if (currentMana > maxMana)
+            currentMana = maxMana;
+        //updateManaBar();
     }
 
     public void IncreaseMaxMana(int amound)
     {
         maxMana += amound;
         IncreaseCurrentMana(amound);
+
+        //updateManaBar();
     }
 
     public void RegenerateMana()
     {
-        currentmMna = maxMana;
-    }       
+        currentMana = maxMana;
+
+        //updateManaBar();
+    }
+
 }

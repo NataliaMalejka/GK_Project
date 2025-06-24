@@ -1,19 +1,29 @@
 using UnityEngine;
+using TMPro;
 
-public class GoldSystem: MonoBehaviour
+public class GoldSystem : MonoBehaviour
 {
     [SerializeField] private int goldAmount = 0;
-    //[SerializeField] private Text goldAmountText;
 
-    public void Initialize()
+
+    public void Awake()
     {
-        UpdateUI();
+
     }
+
+    public int GetGoldAmount() => goldAmount;
+
+    public void SetGoldAmound(int amount)
+    {
+        goldAmount = amount;
+        //UpdateGold();
+    }
+
 
     public void CollectGold(int amount)
     {
         goldAmount += amount;
-        UpdateUI();
+        //UpdateGold();
     }
 
     public bool CanPay(int amount) => goldAmount >= amount;
@@ -23,25 +33,11 @@ public class GoldSystem: MonoBehaviour
         if (CanPay(amount))
         {
             goldAmount -= amount;
-            UpdateUI();
+            //UpdateGold();
             return true;
         }
 
         return false;
     }
 
-    public int GetGoldAmount() => goldAmount;
-
-    public void SetGoldAmound(int amount)
-    {
-        goldAmount = amount;
-    }
-
-public void UpdateUI()
-    {
-    //    if (goldAmountText != null)
-    //    {
-    //        goldAmountText.text = $"Gold: {goldAmount}";
-    //    }
-    }
 }

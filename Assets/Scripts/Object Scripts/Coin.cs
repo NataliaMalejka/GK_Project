@@ -12,6 +12,8 @@ public class Coin : MonoBehaviour
         {
             Player.Instance.goldSystem.CollectGold(value);
             SoundsManager.Instance.PlayAudioClip(Sounds.CollectEnemyCoin);
+            Player.Instance.hudUpdater.updateGold(Player.Instance.goldSystem.GetGoldAmount());
+
             Destroy(this.gameObject);
         }
     }

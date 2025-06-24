@@ -12,6 +12,7 @@ public class StamineMixture : MonoBehaviour
         {
             Player.Instance.staminaSystem.IncreaseStamina(stamine);
             SoundsManager.Instance.PlayAudioClip(Sounds.CollectMixtures);
+            Player.Instance.hudUpdater.updateStaminaBar(Player.Instance.staminaSystem.currentStamina, Player.Instance.staminaSystem.getMaxStamina());
             Destroy(this.gameObject);
         }
     }

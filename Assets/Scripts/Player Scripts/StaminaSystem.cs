@@ -1,10 +1,15 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StaminaSystem : MonoBehaviour, IFixedUpdateObserver
 {
     [SerializeField] private float staminaIncrease;
     [SerializeField] private float maxStamina;
     public float currentStamina;
+
+
+    public float getMaxStamina() => maxStamina;
+
 
     private void OnEnable()
     {
@@ -19,6 +24,7 @@ public class StaminaSystem : MonoBehaviour, IFixedUpdateObserver
     private void Awake()
     {
         currentStamina = maxStamina;
+        //updateStaminaBar();
     }
 
     public void ObserveFixedUpdate()
@@ -29,6 +35,7 @@ public class StaminaSystem : MonoBehaviour, IFixedUpdateObserver
         {
             currentStamina = maxStamina;
         }
+        //updateStaminaBar(); // - done in FixedUpdateManager.cs
     }
 
     public bool CanReduceStamina(float amound)
@@ -42,21 +49,27 @@ public class StaminaSystem : MonoBehaviour, IFixedUpdateObserver
     public void ReduceStamina(float amound)
     {
         currentStamina -= amound;
+        //updateStaminaBar();
     }
 
     public void IncreaseStamina(float amound)
     {
         currentStamina += amound;
+        //updateStaminaBar();
     }
 
     public void IncreaseMaxStamnina(float amound)
     {
         maxStamina += amound;
         currentStamina += amound;
+        //updateStaminaBar();
     }
 
     public void RegenerateStamina()
     {
         currentStamina = maxStamina;
+        //updateStaminaBar();
     }
+
+
 }

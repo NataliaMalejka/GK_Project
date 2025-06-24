@@ -1,26 +1,36 @@
 using System.Collections;
 using UnityEngine;
 
+
+//bug: gwiazdki zycia znikaja podczas trafienia w przeciwnika
+//needs fix: serializable prefaby trzeba zmienic globalnie, w PlayerController or sth
+//todo next: environment/pickups/HealthPickups.cs i ObjectScripts/HealthMixture.cs
+
 public class HealthSystem : MonoBehaviour
 {
     [SerializeField] private int maxHelath;
     public int currentHelath;
 
+
+    public int getMaxHealth() => maxHelath;
+
     private void Awake()
     {
+
         currentHelath = maxHelath;
+        //updateHealthIcons();
     }
 
     public void GetDmg(int dmg, int duration)
     {
-        if(duration > 1)
+        if (duration > 1)
         {
             ApplyDamageOverTime(dmg, duration);
         }
         else
         {
             ReduceHealth(dmg);
-        }          
+        }
     }
 
     private void ReduceHealth(int dmg)
@@ -31,6 +41,7 @@ public class HealthSystem : MonoBehaviour
         if (currentHelath <= 0)
         {
             currentHelath = 0;
+            //updateHealthIcons();
 
             IDamageable damageable = this.gameObject.GetComponent<IDamageable>();
 
@@ -39,6 +50,7 @@ public class HealthSystem : MonoBehaviour
                 damageable.Die();
             }
         }
+        //updateHealthIcons();
     }
 
     public void ApplyDamageOverTime(int damagePerSecond, int duration)
@@ -62,20 +74,24 @@ public class HealthSystem : MonoBehaviour
     {
         currentHelath += amound;
 
-        if(currentHelath >= maxHelath)
+        if (currentHelath >= maxHelath)
         {
             currentHelath = maxHelath;
         }
+        //updateHealthIcons();
     }
 
     public void IncreaseMaxHelath(int amound)
     {
         maxHelath += amound;
         Heal(amound);
+        //updateHealthIcons();
     }
 
     public void RegenerateHealth()
     {
         currentHelath = maxHelath;
+        //updateHealthIcons();
     }
+
 }
