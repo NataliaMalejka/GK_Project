@@ -11,6 +11,7 @@ public class ManaMixture : MonoBehaviour
         if (player != null)
         {
             Player.Instance.manaSystem.IncreaseCurrentMana(mana);
+            SoundsManager.Instance.PlayAudioClip(Sounds.CollectMixtures);
             Destroy(this.gameObject);
         }
     }

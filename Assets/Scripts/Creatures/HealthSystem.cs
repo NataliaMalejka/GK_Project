@@ -26,6 +26,7 @@ public class HealthSystem : MonoBehaviour
     private void ReduceHealth(int dmg)
     {
         currentHelath -= dmg;
+        SoundsManager.Instance.PlayAudioClip(Sounds.GetDmg);
 
         if (currentHelath <= 0)
         {

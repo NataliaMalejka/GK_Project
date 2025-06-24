@@ -17,7 +17,7 @@ public class GoldPickup : MonoBehaviour, IPickup
         if (goldSystem != null)
         {
             goldSystem.CollectGold(goldValue);
-            // Optional: play sound, animation, etc.
+            SoundsManager.Instance.PlayAudioClip(Sounds.CollectCoin);
             Destroy(gameObject);
         }
         else

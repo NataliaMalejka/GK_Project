@@ -3,9 +3,8 @@ using UnityEngine;
 public enum Sounds
 {
     CollectCoin,
+    CollectEnemyCoin,
     CollectMixtures,
-    Die,
-    ButtonClick,
     Explosion,
     GetDmg
 }
@@ -13,8 +12,11 @@ public enum Sounds
 public class SoundsManager : PersistentSingleton<SoundsManager>
 {
     [SerializeField] private AudioClip collectCoin;
-    [SerializeField] private AudioClip die;
-    [SerializeField] private AudioClip buttonClick;
+    [SerializeField] private AudioClip collectEnemyCoin;
+    [SerializeField] private AudioClip collectMixtures;
+    [SerializeField] private AudioClip explosion;
+    [SerializeField] private AudioClip getDmg;
+
 
     private AudioSource audiosource;
     
@@ -31,11 +33,17 @@ public class SoundsManager : PersistentSingleton<SoundsManager>
             case Sounds.CollectCoin:
                 audiosource.PlayOneShot(collectCoin);
                 break;
-            case Sounds.Die:
-                audiosource.PlayOneShot(die);
+            case Sounds.CollectEnemyCoin:
+                audiosource.PlayOneShot(collectEnemyCoin);
                 break;
-            case Sounds.ButtonClick:
-                audiosource.PlayOneShot(buttonClick);
+            case Sounds.CollectMixtures:
+                audiosource.PlayOneShot(collectMixtures);
+                break;
+            case Sounds.Explosion:
+                audiosource.PlayOneShot(explosion);
+                break;
+            case Sounds.GetDmg:
+                audiosource.PlayOneShot(getDmg);
                 break;
             default:
                 break;

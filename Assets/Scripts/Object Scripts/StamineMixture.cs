@@ -11,6 +11,7 @@ public class StamineMixture : MonoBehaviour
         if (player != null)
         {
             Player.Instance.staminaSystem.IncreaseStamina(stamine);
+            SoundsManager.Instance.PlayAudioClip(Sounds.CollectMixtures);
             Destroy(this.gameObject);
         }
     }

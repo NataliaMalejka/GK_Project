@@ -19,7 +19,7 @@ public class Barrel : DestructibleWithPickup, IExplodable
 
     public void Explode(Vector3 explosionCenter, HashSet<Fences> damagedFences)
     {
-        // Optionally instantiate explosion effect
+        SoundsManager.Instance.PlayAudioClip(Sounds.Explosion);
         if (explosionPrefab != null)
         {
             Instantiate(explosionPrefab, explosionCenter, Quaternion.identity);

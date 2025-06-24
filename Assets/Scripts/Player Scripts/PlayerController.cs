@@ -103,6 +103,7 @@ public class PlayerController : MonoBehaviour, IUpdateObserver, IFixedUpdateObse
     public void Die()
     {
         Debug.Log("You are dead");
+        _ = GameManager.Instance.AfterPlayerDead();
     }
 
     private void OnTriggerEnter2D(Collider2D other)

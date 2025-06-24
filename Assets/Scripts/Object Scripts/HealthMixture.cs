@@ -1,5 +1,4 @@
 using UnityEngine;
-using static UnityEngine.Rendering.DebugUI;
 
 public class HealthMixture : MonoBehaviour
 {
@@ -12,6 +11,7 @@ public class HealthMixture : MonoBehaviour
         if (player != null)
         {
             Player.Instance.healthSystem.Heal(health);
+            SoundsManager.Instance.PlayAudioClip(Sounds.CollectMixtures);
             Destroy(this.gameObject);
         }
     }

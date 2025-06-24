@@ -15,7 +15,7 @@ public class BatteryPickup : MonoBehaviour, IPickup
         if (batterySystem != null)
         {
             batterySystem.AddBattery();
-            // Optional: play sound, animation, etc.
+            SoundsManager.Instance.PlayAudioClip(Sounds.CollectCoin);
             Destroy(gameObject);
         }
         else

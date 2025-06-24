@@ -22600,7 +22600,7 @@ PrefabInstance:
     - target: {fileID: 145342111428493147, guid: 4ab7b677feb662e49933361f4e05f9a6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.971862
+      value: -7.77
       objectReference: {fileID: 0}
     - target: {fileID: 145342111428493147, guid: 4ab7b677feb662e49933361f4e05f9a6,
         type: 3}
@@ -25793,12 +25793,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Resource
       value: 
-      objectReference: {fileID: 8300000, guid: 174fb236aca7f7943b22acbe922ce885, type: 3}
+      objectReference: {fileID: 8300000, guid: adb6f87c1e5aa1a4d99198f09d2c59e8, type: 3}
     - target: {fileID: 1305757861586444883, guid: 493a788217f1bfd4ea67d17ba38e6557,
         type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 174fb236aca7f7943b22acbe922ce885, type: 3}
+      objectReference: {fileID: 8300000, guid: adb6f87c1e5aa1a4d99198f09d2c59e8, type: 3}
     - target: {fileID: 6286580037081940442, guid: 493a788217f1bfd4ea67d17ba38e6557,
         type: 3}
       propertyPath: m_Name
@@ -25807,7 +25807,7 @@ PrefabInstance:
     - target: {fileID: 6286580037081940442, guid: 493a788217f1bfd4ea67d17ba38e6557,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7469348026618544551, guid: 493a788217f1bfd4ea67d17ba38e6557,
         type: 3}
@@ -25859,6 +25859,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8838162682753913064, guid: 493a788217f1bfd4ea67d17ba38e6557,
+        type: 3}
+      propertyPath: getDmg
+      value: 
+      objectReference: {fileID: 8300000, guid: a692c518cab10da439d8a620704fb238, type: 3}
+    - target: {fileID: 8838162682753913064, guid: 493a788217f1bfd4ea67d17ba38e6557,
+        type: 3}
+      propertyPath: explosion
+      value: 
+      objectReference: {fileID: 8300000, guid: a479c794045a1054a900f1fbdcf75c0a, type: 3}
+    - target: {fileID: 8838162682753913064, guid: 493a788217f1bfd4ea67d17ba38e6557,
+        type: 3}
+      propertyPath: collectCoin
+      value: 
+      objectReference: {fileID: 8300000, guid: d69fa4faa53bdee4581cb6fd1fed4aef, type: 3}
+    - target: {fileID: 8838162682753913064, guid: 493a788217f1bfd4ea67d17ba38e6557,
+        type: 3}
+      propertyPath: collectMixtures
+      value: 
+      objectReference: {fileID: 8300000, guid: e21ae6f74498ada498a604a6cccbe035, type: 3}
+    - target: {fileID: 8838162682753913064, guid: 493a788217f1bfd4ea67d17ba38e6557,
+        type: 3}
+      propertyPath: collectEnemyCoin
+      value: 
+      objectReference: {fileID: 8300000, guid: da882207f11507d468488d280249f2d4, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

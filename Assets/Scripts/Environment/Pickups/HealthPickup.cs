@@ -8,7 +8,7 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class HealthPickup : MonoBehaviour, IPickup
 {
-    [SerializeField] private int healAmount = 20;
+    [SerializeField] private int healAmount = 2;
 
     public void Collect(GameObject collector)
     {
@@ -16,7 +16,7 @@ public class HealthPickup : MonoBehaviour, IPickup
         if (healthSystem != null)
         {
             healthSystem.Heal(healAmount);
-            // Optional: play sound, animation, etc.
+            SoundsManager.Instance.PlayAudioClip(Sounds.CollectCoin);
             Destroy(gameObject);
         }
         else

@@ -15,7 +15,7 @@ public class KeyPickup : MonoBehaviour, IPickup
         if (keySystem != null)
         {
             keySystem.AddKey();
-            // Optional: play sound, animation, etc.
+            SoundsManager.Instance.PlayAudioClip(Sounds.CollectCoin);
             Destroy(gameObject);
         }
         else
