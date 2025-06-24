@@ -16400,7 +16400,6 @@ MonoBehaviour:
     m_Bits: 1048576
   coin: {fileID: 0}
   rangedweapons:
-  - {fileID: 4374265903480653811, guid: f740661e9859c04439b5b1b9a889bc34, type: 3}
   - {fileID: 5361991904607399351, guid: 88642fe0da03b264bae4ee61c86a5d67, type: 3}
   - {fileID: 7328370720631830932, guid: 15f818247532a6f4480354cd99fd64e0, type: 3}
   minRangedWeaponCount: 5
@@ -17255,12 +17254,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Resource
       value: 
-      objectReference: {fileID: 8300000, guid: 174fb236aca7f7943b22acbe922ce885, type: 3}
+      objectReference: {fileID: 8300000, guid: adb6f87c1e5aa1a4d99198f09d2c59e8, type: 3}
     - target: {fileID: 1305757861586444883, guid: 493a788217f1bfd4ea67d17ba38e6557,
         type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 174fb236aca7f7943b22acbe922ce885, type: 3}
+      objectReference: {fileID: 8300000, guid: adb6f87c1e5aa1a4d99198f09d2c59e8, type: 3}
     - target: {fileID: 6286580037081940442, guid: 493a788217f1bfd4ea67d17ba38e6557,
         type: 3}
       propertyPath: m_Name
@@ -17269,7 +17268,7 @@ PrefabInstance:
     - target: {fileID: 6286580037081940442, guid: 493a788217f1bfd4ea67d17ba38e6557,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7469348026618544551, guid: 493a788217f1bfd4ea67d17ba38e6557,
         type: 3}

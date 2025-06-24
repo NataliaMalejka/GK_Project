@@ -17,6 +17,7 @@ public class HealthPickup : MonoBehaviour, IPickup
         {
             healthSystem.Heal(healAmount);
             SoundsManager.Instance.PlayAudioClip(Sounds.CollectCoin);
+            Player.Instance.hudUpdater.updateHealthIcons(Player.Instance.healthSystem.currentHelath, Player.Instance.healthSystem.getMaxHealth());
             Destroy(gameObject);
         }
         else

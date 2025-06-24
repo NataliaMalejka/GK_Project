@@ -18,6 +18,7 @@ public class GoldPickup : MonoBehaviour, IPickup
         {
             goldSystem.CollectGold(goldValue);
             SoundsManager.Instance.PlayAudioClip(Sounds.CollectCoin);
+            Player.Instance.hudUpdater.updateGold(Player.Instance.goldSystem.GetGoldAmount());
             Destroy(gameObject);
         }
         else

@@ -22343,12 +22343,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Resource
       value: 
-      objectReference: {fileID: 8300000, guid: 174fb236aca7f7943b22acbe922ce885, type: 3}
+      objectReference: {fileID: 8300000, guid: adb6f87c1e5aa1a4d99198f09d2c59e8, type: 3}
     - target: {fileID: 1305757861586444883, guid: 493a788217f1bfd4ea67d17ba38e6557,
         type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 174fb236aca7f7943b22acbe922ce885, type: 3}
+      objectReference: {fileID: 8300000, guid: adb6f87c1e5aa1a4d99198f09d2c59e8, type: 3}
     - target: {fileID: 6286580037081940442, guid: 493a788217f1bfd4ea67d17ba38e6557,
         type: 3}
       propertyPath: m_Name
@@ -22357,7 +22357,7 @@ PrefabInstance:
     - target: {fileID: 6286580037081940442, guid: 493a788217f1bfd4ea67d17ba38e6557,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7469348026618544551, guid: 493a788217f1bfd4ea67d17ba38e6557,
         type: 3}

@@ -24,6 +24,12 @@ public class HudUpdater : MonoBehaviour
 
     void Awake()
     {
+
+        restart();
+    }
+
+    public void restart()
+    {
         // find the canvas root once
         var hudGO = GameObject.FindGameObjectWithTag("HUD");
         if (hudGO == null)
@@ -65,7 +71,6 @@ public class HudUpdater : MonoBehaviour
             healthIconsContainer = healthTransform.gameObject;
         else
             Debug.LogError("Could not find Health under HUD!");
-
     }
 
     public void manualInit(int currentHelath, int getMaxHealth,
@@ -81,13 +86,15 @@ public class HudUpdater : MonoBehaviour
 
     public void updateManaBar(int currentMana, int maxMana)
     {
-        manaFillBar.fillAmount = 1.0f * currentMana / maxMana;
+        if (manaFillBar != null)
+            manaFillBar.fillAmount = 1.0f * currentMana / maxMana;
     }
 
 
     public void updateStaminaBar(float currentStamina, float maxStamina)
     {
-        staminaFillBar.fillAmount = currentStamina / maxStamina;
+        if (staminaFillBar != null)
+            staminaFillBar.fillAmount = currentStamina / maxStamina;
     }
 
     public void updateGold(int goldAmount)

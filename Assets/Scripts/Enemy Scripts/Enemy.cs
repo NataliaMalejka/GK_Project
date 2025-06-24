@@ -67,6 +67,9 @@ public abstract class Enemy : MonoBehaviour,IUpdateObserver, IFixedUpdateObserve
             Instantiate(coin, transform.position, Quaternion.identity);
         }
 
+        Player.Instance.manaSystem.IncreaseCurrentMana(5);
+        Player.Instance.hudUpdater.updateStaminaBar(Player.Instance.staminaSystem.currentStamina, Player.Instance.staminaSystem.getMaxStamina());
+
         Destroy(this.gameObject);
     }
 }

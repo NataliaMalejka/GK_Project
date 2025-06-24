@@ -43,8 +43,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: adb6f87c1e5aa1a4d99198f09d2c59e8, type: 3}
+  m_Resource: {fileID: 8300000, guid: adb6f87c1e5aa1a4d99198f09d2c59e8, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -142,6 +142,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0079dd4fb01592d429c049c77ce2779b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collectCoin: {fileID: 0}
-  die: {fileID: 0}
-  buttonClick: {fileID: 0}
+  collectCoin: {fileID: 8300000, guid: d69fa4faa53bdee4581cb6fd1fed4aef, type: 3}
+  collectEnemyCoin: {fileID: 8300000, guid: da882207f11507d468488d280249f2d4, type: 3}
+  collectMixtures: {fileID: 8300000, guid: e21ae6f74498ada498a604a6cccbe035, type: 3}
+  explosion: {fileID: 8300000, guid: a479c794045a1054a900f1fbdcf75c0a, type: 3}
+  getDmg: {fileID: 8300000, guid: a692c518cab10da439d8a620704fb238, type: 3}

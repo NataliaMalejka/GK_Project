@@ -67,10 +67,13 @@ public class PlayerIdleState : State<PlayerController>
     {
         if (Input.GetKeyDown(KeyCode.H))
         {
-            if (Player.Instance.manaSystem.currentmMna >= controller.manaToHeal)
+            if (Player.Instance.manaSystem.currentMana >= controller.manaToHeal)
             {
                 Player.Instance.manaSystem.ReudceMana(controller.manaToHeal);
+                Player.Instance.hudUpdater.updateManaBar(Player.Instance.manaSystem.currentMana, Player.Instance.manaSystem.getMaxMana());
+
                 Player.Instance.healthSystem.Heal(controller.healthRegenerate);
+                Player.Instance.hudUpdater.updateHealthIcons(Player.Instance.healthSystem.currentHelath, Player.Instance.healthSystem.getMaxHealth());
             }
         }
     }

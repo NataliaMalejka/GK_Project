@@ -207,6 +207,8 @@ MonoBehaviour:
   dashNeededStamina: 2
   cooldowntimer: 0
   weapon: {fileID: 0}
+  manaToHeal: 1
+  healthRegenerate: 2
 --- !u!114 &8024158003849042400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -233,7 +235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e23d5ec971304384d96255324dc10726, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHelath: 13
+  maxHelath: 14
   currentHelath: 0
 --- !u!114 &3623427748311881574
 MonoBehaviour:

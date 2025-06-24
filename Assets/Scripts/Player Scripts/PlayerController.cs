@@ -24,8 +24,8 @@ public class PlayerController : MonoBehaviour, IUpdateObserver, IFixedUpdateObse
     [HideInInspector] public PlayerWeapon weapon;
 
     [Header("Heal")]
-    [HideInInspector] public int manaToHeal;
-    [HideInInspector] public int healthRegenerate;
+    public int manaToHeal;
+    public int healthRegenerate;
 
     private void OnEnable()
     {

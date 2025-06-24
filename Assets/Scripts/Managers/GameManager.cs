@@ -52,8 +52,6 @@ public class GameManager : PersistentSingleton<GameManager>
     {
         currentLevelIndex++;
 
-        RegeneratePlayer();
-
         if (SceneManager.GetActiveScene().name == "Hub 1")
         {
             currentLevelIndex = 0;
@@ -74,7 +72,8 @@ public class GameManager : PersistentSingleton<GameManager>
         }
 
         await SceneLoader.LoadSceneSingle(scenes[randomLevels[currentLevelIndex]]);
-
+        Player.Instance.hudUpdater.restart();
+        RegeneratePlayer();
         Debug.Log(randomLevels[0] + " " + randomLevels[1] + " " + randomLevels[2] + " " + currentLevelIndex);
     }
 
