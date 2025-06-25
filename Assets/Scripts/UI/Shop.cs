@@ -18,9 +18,9 @@ public class Shop : Dialogues
 
         if(!isShopActive)
         {
-            GameManager.Instance.LoadCostList();
             shopPanel.SetActive(true);
             isShopActive = true;
+            GameManager.Instance.LoadCostList();
             GameManager.Instance.PauseGame();
 
             isDialogue = true;

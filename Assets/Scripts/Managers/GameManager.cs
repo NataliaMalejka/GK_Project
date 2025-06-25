@@ -123,12 +123,12 @@ public class GameManager : PersistentSingleton<GameManager>
 
     public void LoadCostList()
     {
-        SlotManager.Instance.LoadItemsCost(costItemList);
+        //SlotManager.Instance.LoadItemsCost(costItemList);
     }
 
     public void SaveCostList()
     {
-        costItemList = SlotManager.Instance.GetCostLIst();
+        //costItemList = SlotManager.Instance.GetCostLIst();
     }
 
     public async Task LoadStartLevel()
@@ -159,5 +159,6 @@ public class GameManager : PersistentSingleton<GameManager>
             costItemList = this.costItemList
         };
         SaveSystem.SaveGame(data);
+        Debug.Log("save");
     }
 }

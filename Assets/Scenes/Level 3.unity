@@ -8729,6 +8729,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BoomerangCatEnemy Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 6684207577778893605, guid: 7229791e381d70441a5be11210046415,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7179783749971925945, guid: 7229791e381d70441a5be11210046415,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9028,7 +9033,7 @@ Camera:
   m_GameObject: {fileID: 210206904}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 2
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -13044,6 +13049,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BulletCatEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 4272835271210009303, guid: 4ab7b677feb662e49933361f4e05f9a6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -20050,6 +20060,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SwordCatEnemy  Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 5373236723640803181, guid: 5b630a08e9fa7204584530d668ab0b1d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8347950499144901345, guid: 5b630a08e9fa7204584530d668ab0b1d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -21134,6 +21149,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FireBallCatEnemy  Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 4445965889322952261, guid: 7db1ac77b070daa42812bdbc4c72db7d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

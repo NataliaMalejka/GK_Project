@@ -16,25 +16,25 @@ public class SlotManager : StaticInstance<SlotManager>
         return playerWeaponItem.item;
     }       
 
-    public void LoadItemsCost(int[] costList)
-    {
-        for (int i = 0; i < itemsList.Count(); i++)
-        {
-            itemsList[i].SetCost(costList[i]);
-        }
-    }
+    //public void LoadItemsCost(int[] costList)
+    //{
+    //    for (int i = 0; i < itemsList.Count(); i++)
+    //    {
+    //        itemsList[i].SetCost(costList[i]);
+    //    }
+    //}
 
-    public int[] GetCostLIst()
-    {
-        int[] costList = new int[itemsList.Count()];
+    //public int[] GetCostLIst()
+    //{
+    //    int[] costList = new int[itemsList.Count()];
 
-        for (int i = 0; i < itemsList.Count(); i++)
-        {
-            costList[i] = itemsList[i].GetCost();
-        }
+    //    for (int i = 0; i < itemsList.Count(); i++)
+    //    {
+    //        costList[i] = itemsList[i].GetCost();
+    //    }
 
-        return costList;
-    }
+    //    return costList;
+    //}
 
     public void SetPlayerWeapon(Item item)
     {

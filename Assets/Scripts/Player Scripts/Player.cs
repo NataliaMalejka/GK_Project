@@ -11,7 +11,6 @@ public class Player : PersistentSingleton<Player>, IPlayer
     public WeaponSwitcher weaponSwitcher { get; private set; }
     public BatterySystem batterySystem { get; private set; }
     public KeySystem keySystem { get; private set; }
-
     public HudUpdater hudUpdater { get; private set; }
 
     protected override void Awake()
